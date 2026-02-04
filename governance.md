@@ -1,56 +1,62 @@
 # Governance (Exploratory)
 
-This note explores when and how governance logic may intervene in an epistemic system.
+This note examines governance as an epistemic boundary function.
+It describes conditions of consideration, not authority, execution, or control logic.
 
-The focus is not on authority, but on *conditions for intervention*.
-
----
-
-## Core Questions
-
-- When is intervention justified?
-- Who (or what) is allowed to intervene?
-- What epistemic signals trigger intervention?
-- Is the intervention reversible?
-- How is intervention distinguished from correction or override?
+This document is non-canonical and non-operational.
 
 ---
 
-## Intervention Triggers
+## Governance Tensions
 
-Possible triggers include:
+Governance involves inherent tensions, including:
+- preserving learning capacity while preventing epistemic drift,
+- avoiding premature constraint without tolerating unchecked divergence,
+- maintaining governance as a boundary condition rather than a truth source.
 
-- loss of epistemic confidence
-- detection of distributional shift
-- internal inconsistency across models
-- violation of safety or boundary constraints
-- divergence between state and confidence signals
-
----
-
-## Levels of Governance
-
-We distinguish between:
-
-1. **Internal governance**  
-   Self-regulation mechanisms embedded in the system.
-
-2. **Supervisory governance**  
-   External logic monitoring epistemic health and stability.
-
-3. **Hard intervention**  
-   Forced constraint, shutdown, or override.
-
-Each level carries increasing epistemic and ethical cost.
+These tensions are structural, not algorithmic.
+They describe tradeoffs, not decision rules.
 
 ---
 
-## Key Risks
+## Core Questions (Exploratory, Non-Operational)
 
-- Premature intervention that suppresses learning
-- Delayed intervention that allows epistemic drift
-- Treating governance as truth rather than constraint
-- Irreversible actions without epistemic justification
+The following questions are intentionally left open.
+They do not define triggers, authority, thresholds, or execution logic.
+
+- Under what conditions might governance become relevant?
+- What distinctions exist between intervention, correction, and constraint?
+- How can epistemic uncertainty be recognized without being prematurely resolved?
+- What differentiates reversible adjustment from irreversible intervention?
+
+No answers are specified here.
+
+---
+
+## Intervention Consideration (Non-Enumerative)
+
+Governance consideration arises only under conditions of epistemic instability.
+
+Such conditions may be indicated by unresolved signals suggesting:
+- degradation of epistemic integrity,
+- misalignment between observation and internal representation,
+- sustained boundary or constraint tension,
+- or prolonged uncertainty regarding system self-consistency.
+
+No exhaustive trigger set is defined.
+No mapping from signal to action is implied.
+
+---
+
+## Governance Modalities (Non-Sequential)
+
+Governance may manifest through different modalities, including:
+- internal self-regulation mechanisms,
+- supervisory oversight functions,
+- externally enforced constraints.
+
+These modalities are not presented as a sequence or escalation path.
+Their applicability is context-dependent and not specified here.
 
 ---
 
@@ -58,8 +64,15 @@ Each level carries increasing epistemic and ethical cost.
 
 Governance must remain partially undecidable.
 
-A system that fully specifies all interventions
-risks eliminating the conditions under which
-governance is actually needed.
+A system that fully specifies all interventions risks eliminating the very conditions
+under which governance is actually needed.
+
+This partial undecidability is intentional and functions as an epistemic safety boundary.
+
+---
+
+## Status
 
 This note is exploratory.
+It is descriptive, not normative.
+It does not specify implementation, execution order, or decision logic.
