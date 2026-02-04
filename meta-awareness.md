@@ -1,68 +1,69 @@
 # Meta-Awareness (Exploratory)
+This document describes epistemic form, not operational capability.
 
-What does a system know about its own knowing?
 
-Meta-awareness concerns the system’s capacity to:
-- recognize limits of its models
-- detect when assumptions no longer hold
-- distinguish ignorance from uncertainty
-- avoid mistaking internal coherence for external validity
+This note examines meta-awareness as an epistemic constraint.
+It concerns a system’s capacity to relate to its own knowledge without
+collapsing reflection into control.
 
-This note is exploratory.
-
-It does not attempt to solve meta-awareness,
-but to mark where its *absence* becomes dangerous.
+This document is non-canonical and non-operational.
 
 ---
 
-## Scope
+## Framing
+
+Meta-awareness is not knowledge about the world,
+but awareness of the conditions under which knowledge claims remain valid.
+
+It does not answer what a system knows,
+but limits what a system may justifiably act upon.
+
+---
+
+## Epistemic Position
 
 Meta-awareness operates above:
-- state (what is)
-- confidence (how reliable it seems)
+- state, as represented or inferred,
+- confidence, as an assessment of epistemic reliability.
 
-It is not a belief, but a *constraint on belief formation*.
-
----
-
-## Signals of Meta-Awareness
-
-A system may exhibit meta-awareness through:
-- explicit model validity bounds
-- detection of distributional shift
-- monitoring epistemic drift
-- recognition of blind spots
-- escalation when confidence exceeds justification
-
-These signals are indirect and often fragile.
+It is not a belief, model, or prediction.
+It functions as a constraint on belief formation and action commitment.
 
 ---
 
-## Failure Modes
+## Indicative Phenomena (Non-Enumerative)
 
-Common failure modes include:
-- **False self-knowledge**  
-  The system believes it understands its own limits, but does not.
-- **Confidence collapse masking ignorance**  
-  Low confidence interpreted as safety rather than uncertainty.
-- **Narrative coherence bias**  
-  Internally consistent explanations mistaken for truth.
-- **Silent overreach**  
-  Acting beyond epistemic authority without triggering intervention.
+Meta-awareness may be suggested by unresolved signals indicating
+tension between a system’s representations and their continued validity.
+
+Such indications are indirect, context-dependent, and fragile.
+They do not constitute proof, triggers, or decision rules.
+
+No exhaustive set of indicators is defined here.
+
+---
+
+## Failure Tendencies
+
+Absence or collapse of meta-awareness may manifest as:
+- confusion between internal coherence and external validity,
+- inability to distinguish ignorance from uncertainty,
+- overextension of confidence beyond epistemic support,
+- delayed recognition of invalid assumptions.
+
+These tendencies are descriptive, not diagnostic.
 
 ---
 
 ## Relationship to Governance
 
-Meta-awareness is a *precondition* for legitimate governance intervention.
+Meta-awareness constrains the legitimacy of governance consideration,
+but does not authorize intervention.
 
-Without it:
-- overrides are delayed
-- risks are normalized
-- escalation thresholds drift
+Governance without meta-awareness risks reactive enforcement.
+Meta-awareness without governance risks epistemic inertia.
 
-Governance without meta-awareness becomes reactive.
-Meta-awareness without governance becomes inert.
+No procedural coupling is specified.
 
 ---
 
@@ -73,5 +74,13 @@ Meta-awareness must remain partial.
 A system that claims full knowledge of its own knowing
 has already crossed an epistemic boundary.
 
-The goal is not self-certainty,
+The aim is not self-certainty,
 but sustained epistemic humility.
+
+---
+
+## Status
+
+This note is exploratory.
+It is descriptive, not normative.
+It specifies no mechanisms, thresholds, or execution logic.
