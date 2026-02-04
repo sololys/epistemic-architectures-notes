@@ -12,12 +12,13 @@ https://github.com/sololys/epistemic-architectures
 This repository is **non-canonical**.
 
 It is intended as a working space for:
-- exploratory notes
-- architectural sketches
-- examples and extensions
-- future drafts
+- exploratory notes,
+- architectural sketches,
+- examples and extensions,
+- future drafts.
 
-All stable definitions, citations, and normative reference material live in the main repository.
+All stable definitions, citations, and normative reference material
+reside exclusively in the canonical repository.
 
 ---
 
@@ -26,4 +27,5 @@ All stable definitions, citations, and normative reference material live in the 
 The canonical reference repository is stabilized and governed.
 Changes occur only through explicit promotion and editorial control.
 
-This repository may change, evolve, or be reorganized without notice.
+This repository may change, evolve, fragment, or be reorganized without notice.
+No guarantees of completeness, stability, or consistency are implied.
