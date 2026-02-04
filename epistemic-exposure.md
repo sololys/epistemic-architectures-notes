@@ -1,68 +1,85 @@
 # Epistemic Exposure (Exploratory)
 
-This note defines principles for what may be exposed, referenced, or discussed
-in public-facing epistemic architectures.
+This note examines epistemic exposure as a design constraint.
+It concerns what may be referenced, described, or discussed in public-facing
+architectural material without enabling reconstruction or misuse.
 
-It does **not** describe mechanisms, implementations, or operational details.
+This document is non-canonical and non-operational.
 
 ---
 
-## Guiding Principle
+## Framing
 
 Not all epistemic machinery is suitable for public inspection.
 
-Exposure is a design decision, not a default.
+Exposure is not a default state.
+It is an intentional design decision governed by epistemic safety,
+context sensitivity, and responsibility.
+
+This note describes exposure boundaries, not disclosure rules.
 
 ---
 
-## Layers of Exposure
+## Exposure Domains
 
-We distinguish between:
+For the purposes of this note, exposure is considered across
+distinct but related domains:
 
-- **Conceptual exposure**  
-  High-level ideas, abstractions, and philosophical structure.
+- conceptual exposure, concerning ideas, abstractions, and interpretive frames,
+- structural exposure, concerning roles, relationships, and constraints,
+- operational exposure, concerning mechanisms, thresholds, triggers,
+  and irreversible transitions.
 
-- **Structural exposure**  
-  Relationships between concepts, roles, and constraints.
-
-- **Operational exposure**  
-  Mechanisms, thresholds, triggers, and irreversible transitions.
-
-Only the first two are assumed public by default.
+Only the first two are assumed safe for unrestricted public discussion.
 
 ---
 
-## Restricted Domains
+## Restricted Scope
 
-The following domains may require explicit governance, context, or restraint
-before exposure:
+Certain epistemic domains may require governance, contextual grounding,
+or intentional restraint prior to exposure.
 
-- irreversible decision logic
-- intervention thresholds
-- supervisory override conditions
-- feedback amplification mechanisms
-- RF-linked control or signaling modules
+These include, but are not limited to:
+- irreversible decision structures,
+- conditions for intervention or override,
+- amplification pathways and feedback coupling,
+- system elements whose effects cannot be meaningfully reversed.
 
-Restriction does not imply secrecy, but responsibility.
+This restriction reflects epistemic responsibility,
+not secrecy or concealment.
 
 ---
 
 ## Rationale
 
-Premature exposure can:
+Unconstrained exposure may:
+- create false confidence regarding system behavior,
+- enable misuse outside intended context,
+- collapse epistemic boundaries between description and execution,
+- shift accountability without corresponding governance.
 
-- create false confidence
-- enable misuse outside intended context
-- collapse epistemic boundaries
-- shift accountability without governance
+Restraint therefore functions as an epistemic safety feature,
+not a limitation to be optimized away.
 
-Therefore, restraint is an epistemic safety feature.
+---
+
+## Boundary Condition
+
+Exposure policies cannot be exhaustively specified in advance.
+
+Attempts to fully enumerate what may be exposed
+risk eliminating the contextual judgment
+that makes epistemic restraint effective.
+
+Partial opacity is intentional.
 
 ---
 
 ## Status
 
 This note is exploratory.
+It is descriptive, not normative.
+It specifies no mechanisms, thresholds, or operational criteria.
 
-If stabilized, exposure policy must be promoted explicitly
+Any stabilized exposure policy must be promoted explicitly
 to the canonical reference repository.
