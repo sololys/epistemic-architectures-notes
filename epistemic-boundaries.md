@@ -18,3 +18,10 @@ It examines boundaries between:
 
 The goal is not to answer these questions fully,
 but to mark where answers become unsafe.
+Not all epistemic machinery is suitable for public inspection; some components require governance, context, and restraint.
+
+The goal is not to answer these questions fully,
+but to mark where answers become unsafe.
+
+Not all epistemic machinery is suitable for public inspection;
+some components require governance, context, and restraint.
