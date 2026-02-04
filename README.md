@@ -17,12 +17,13 @@ It is intended as a working space for:
 - examples and extensions
 - future drafts
 
-All stable definitions, citations, and reference material live in the main repository.
+All stable definitions, citations, and normative reference material live in the main repository.
 
 ---
 
 ## Relationship to the Canonical Reference
 
-The canonical reference repository is intentionally frozen (except for metadata corrections).
+The canonical reference repository is stabilized and governed.
+Changes occur only through explicit promotion and editorial control.
 
 This repository may change, evolve, or be reorganized without notice.
