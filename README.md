@@ -4,7 +4,7 @@ Working notes, extensions, sketches, and examples related to the canonical refer
 
 ➡️ **Epistemic Architectures**  
 https://github.com/sololys/epistemic-architectures
-
+https://doi.org/10.5281/zenodo.18515422
 ---
 
 ## Status
