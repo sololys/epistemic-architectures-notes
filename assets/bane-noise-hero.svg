@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 280" role="img" aria-labelledby="title desc">
+  <title id="title">BANE NOISE — Epistemic Architectures Notes</title>
+  <desc id="desc">A dark pop-art field of unresolved paths surrounding a clean editorial title.</desc>
+  <rect width="1200" height="280" rx="28" fill="#0a0b0f"/>
+  <g fill="none" stroke-linecap="round">
+    <path d="M55 224 C180 30 340 260 462 72 S730 252 870 58 S1050 184 1150 42" stroke="#ff3ca6" stroke-width="7"/>
+    <path d="M45 245 C220 126 272 20 440 182 S690 6 840 190 S1030 86 1160 208" stroke="#29f0d0" stroke-width="5" stroke-dasharray="18 12"/>
+    <path d="M80 190 C240 280 330 92 510 230 S760 98 930 232 S1080 160 1160 236" stroke="#ffd83d" stroke-width="4" stroke-dasharray="3 14"/>
+  </g>
+  <rect x="54" y="42" width="720" height="112" rx="18" fill="#0a0b0f" stroke="#f7f7f2" stroke-width="2"/>
+  <text x="83" y="92" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="53" font-weight="900" fill="#f7f7f2">BANE // NOISE</text>
+  <text x="86" y="132" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21" font-weight="700" fill="#ffd83d">WORKING FIELD / NON-CANONICAL / UNSTABLE BY DESIGN</text>
+  <circle cx="1088" cy="84" r="39" fill="#ff3ca6"/>
+  <text x="1088" y="94" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="28" font-weight="900" fill="#0a0b0f">?</text>
+</svg>
