@@ -1,57 +1,25 @@
-Purpose
+# IP and Boundary
 
-This repository exposes architectural form and epistemic structure, not operational capability.
-Its function is epistemic: to support inspection, discussion, and exploratory reasoning without enabling reconstruction, deployment, or irreversible action.
+This repository exposes reviewed public abstractions, not operational capability.
 
-Canonical Separation
+## Public separation
 
-All normative definitions, deterministic decision logic, and irreversible control and decision structures reside exclusively in the canonical reference repository.
+Public reference material does not contain the private implementation topology.
+Normative control logic, thresholds, solver mechanisms, irreversible decision
+structures, private Witness formats, and patent-sensitive work remain outside every
+public repository, branch, pull request, issue, attachment, tag, and Actions artifact.
 
-This repository is explicitly non-canonical.
+## Epistemic withholding
 
-No material here should be interpreted as:
+Conceptual gaps and omissions are intentional. They prevent public prose from becoming
+a reconstruction guide. Readable form does not imply executable knowledge.
 
-sufficient for implementation
+## Publication discipline
 
-complete in dependency structure
+Raw notes are developed privately. A public note is reconstructed as a minimal export,
+reviewed for IP exposure, and admitted path-by-path. Unknown content fails closed.
 
-authoritative for operational use
+## Status
 
-Epistemic Withholding
-
-These boundaries are necessary to prevent premature or unsafe concretization.
-
-Some conceptual gaps, omissions, and abstractions are intentional.
-
-They function as:
-
-epistemic safety boundaries
-
-misuse-prevention mechanisms
-
-protection against false operational inference
-
-Absence is treated as a design element, not an oversight.
-
-Exposure Constraint
-
-Public inspection does not imply:
-
-operational completeness
-
-reconstructive sufficiency
-
-permission to derive end-to-end behavior
-
-Readable form ≠ executable knowledge.
-
-Fail-Closed Interpretation
-
-In cases of ambiguity, uncertainty, or apparent incompleteness, the correct interpretation is non-action.
-
-Silence, refusal, or lack of instruction is a valid and intended epistemic outcome.
-
-Status
-
-This repository may change, fragment, or be reorganized without notice.
-Stability, guarantees, and authoritative references exist only in the canonical source
+This repository is non-canonical, non-operational, and public. It may change without
+notice, but its confidentiality boundary does not: public drafts are already disclosed.
