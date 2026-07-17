@@ -1,0 +1,27 @@
+name: Public IP Gate
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  bounded-export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out exact public revision
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Verify exact allowlisted tree
+        run: python3 tools/verify_public_surface.py
+
+      - name: Run verifier tests
+        run: python3 -m unittest -v tools/test_verify_public_surface.py

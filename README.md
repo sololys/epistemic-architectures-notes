@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>BANE // NOISE</strong><br />
-  Working notes, extensions, sketches, counterexamples, and future drafts around the canonical theory anchor.
+  Reviewed public notes and non-canonical abstractions that have passed the publication boundary.
 </p>
 
 <p align="center">
@@ -17,23 +17,21 @@
 
 ## Enter the path-field
 
-This repository is intentionally less polished and less stable than the canonical reference. It is where concepts may branch, collide, fail, be renamed, or acquire enough structure to be promoted.
+This repository contains only notes already judged safe for public inspection. Raw research, unpublished methods, solver work, operational detail, and patent-sensitive drafts do not enter public branches or pull requests.
 
 ```text
 RAW NOTE → STRUCTURED CANDIDATE → REVIEW → PROMOTE / HOLD / ARCHIVE
 ```
 
-Nothing becomes canonical merely because it appears here.
+Nothing becomes canonical merely because it appears here. Draft status is public, not confidential.
 
 ## What belongs here
 
-- exploratory notes;
-- architectural sketches;
-- counterexamples and stress tests;
-- examples and extensions;
-- terminology experiments;
-- future drafts;
-- material awaiting promotion or rejection.
+- reviewed abstraction-level notes;
+- non-reconstructive architectural sketches;
+- public counterexamples without protected method detail;
+- terminology already admitted for public discussion;
+- prose that contains no private topology, thresholds, corpus fingerprints, or implementation logic.
 
 ## Relationship to the canonical reference
 

@@ -1,0 +1,17 @@
+.github/CODEOWNERS
+.github/public-paths.txt
+.github/workflows/public-ip-gate.yml
+.gitignore
+CONTRIBUTING.md
+ECOSYSTEM.md
+IP & Boundary.md
+PUBLIC_BOUNDARY.md
+README.md
+assets/bane-noise-hero.svg
+epistemic-boundaries.md
+epistemic-exposure.md
+governance.md
+meta-awareness.md
+notes/README.md
+tools/test_verify_public_surface.py
+tools/verify_public_surface.py
