@@ -13,5 +13,6 @@ epistemic-exposure.md
 governance.md
 meta-awareness.md
 notes/README.md
+notes/ZAMPINO_NASH_AN_INTERESTING_EQUATION.md
 tools/test_verify_public_surface.py
 tools/verify_public_surface.py
