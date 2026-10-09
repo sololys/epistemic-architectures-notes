@@ -15,7 +15,33 @@
   <img alt="change: expected" src="https://img.shields.io/badge/change-expected-29f0d0?style=flat-square&labelColor=0a0b0f" />
 </p>
 
-## 🏛️ Epistemic Foundation: Structural Containment of Intellectual Volatility
+## 🏛️ Epistemic Foundation: Structural Containment of Intellectual Volatility / Epistemisk Fundament
+
+<details open>
+<summary><strong>🇳🇴 Norsk kanonisk manifest: Banen og Støyen</strong></summary>
+
+> *Vi må trekke en absolutt grense mellom det vi utforsker, og det vi lar få makt. I arkitekturen for vår egen erkjennelse kan ikke skillet mellom en flyktig idé og en ufravikelig lov reduseres til en god intensjon. Den må være en strukturell tvang.*
+>
+> *Et rom for skisser og uferdige tanker er ikke et fundament for sannhet. Det er et bevisst designet karantenefelt for intellektuell volatilitet. Dette er **Banen**. Det er her den ufiltrerte støyen, de uforløste retningene og den synlige usikkerheten får lov til å puste. Men de eksisterer utelukkende fordi de holdes fast av en stram, overordnet ramme. Her er ingenting ferdig. Kunnskapen holdes bevisst uoppløst, strengt isolert for å forhindre at den spekulative tanken forhaster seg og kollapser inn i akseptert faktum.*
+>
+> *Denne isolasjonen er ikke passiv. Den styres av en presis grammatikk. Rommet tar imot arbeidsbenkens kaos – det ustrukturerte og det usikre – og utsetter det for et formelt trykk.*
+>
+> *Ingenting blir kanonisk bare fordi det eksisterer. Ingenting opphøyes til sannhet bare fordi det gjentas. For at et utkast skal kunne stige ut av støyen og inn i den monumentale stillheten som kjennetegner en faktisk lov, kreves det et bevisst, redaksjonelt kutt. Kuttet skiller tvilen fra formen, og lar kun den verifiserte kjernen passere grensen.*
+>
+> *Fra **Bane** til **Punkt**.*
+>
+> *Dette pålegger alt som befinner seg i det utforskende rommet en nådeløs kontrakt. Enhver teori og ethvert forslag her inne er iboende ufullstendig, strukturelt ustabil, og definitivt strippet for fysisk autoritet.*
+>
+> *Å kartlegge et konsept er ikke det samme som å utstede en ordre. Systemet håndhever en grense der evnen til å generere en hypotese er permanent og matematisk frikoblet fra retten til å utøve konsekvens. Uansett hvor blendende sofistikert en teoretisk modell vokser seg til å bli, gir dens tilstedeværelse i dette rommet nøyaktig null mandat til å endre en fysisk tilstand. Modellen forblir innesperret. Fysisk stum.*
+>
+> *I dette ligger fundamentet for en sann meta-bevissthet. Styring er ikke en kilde til sannhet, men en beskyttende vegg. Den er meislet ut for å tøyle den dype spenningen mellom et systems evne til å generere, og dets faretruende tendens til å drive ut av kontroll. Et modent sinn – enten det er av kjøtt eller silisium – må kunne betrakte sine egne muligheter uten at denne betraktningen umiddelbart rykker over i handling.*
+>
+> *Ved å anerkjenne ideenes iboende sårbarhet, ikke som en feil, men som et designkrav, etablerer vi det ultimate vernet. Denne arkitekturen dikterer ikke bare hva vi kan vites. Den bygger en mur rundt alt det som, av rent design, aldri skal få lov til å bli mer enn en mulighet.*
+
+</details>
+
+<details open>
+<summary><strong>🇬🇧 English Theoretical Reference</strong></summary>
 
 > *Within the study of epistemic architectures, the demarcation between canonical law and exploratory abstraction must be structurally enforced rather than merely intended. A repository of conceptual notes does not function as a foundation of operational truth, but as a deliberate containment field for intellectual volatility. It is the maximalist manifestation of the path-field—a domain where dense, unresolved trajectories and visible uncertainties are permitted to exist, provided they are rigorously bound by an editorial frame. Here, knowledge is not yet finalized; it is suspended in a state of deliberate non-resolution, demanding structural isolation to prevent the premature collapse of theoretical inquiry into accepted fact.*
 >
@@ -24,6 +50,8 @@
 > *Consequently, every artifact held within this preliminary space operates under an absolute status contract: it is inherently incomplete, structurally volatile, and definitively stripped of physical authority. To document an architectural sketch or a theoretical proposition is an act of conceptual mapping, not operational command. The system enforces an uncompromising boundary where the generation of a hypothesis is permanently decoupled from realized consequence. No matter how sophisticated a theoretical model may become, its existence within this exploratory domain provides zero mandate to alter a physical state, ensuring that the theoretical remains mathematically bounded and harmlessly inert.*
 >
 > *The concepts contained within this field serve as the underlying philosophy for this structural containment, defining the exact limits of what a system is permitted to know. Governance emerges here not as a centralized source of truth, but as a strict boundary function designed to manage the profound tension between a system's capacity to learn and its tendency toward operational drift. True meta-awareness requires a system to relate to its own knowledge without collapsing that reflection into immediate control. By treating epistemic exposure as a calculated design decision rather than an inevitable vulnerability, the architecture establishes the ultimate safeguard: a framework that dictates not only what can be known, but what must remain permanently unknowable by design.*
+
+</details>
 
 ---
 
