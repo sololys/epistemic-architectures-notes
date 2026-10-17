@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Verdensbiblioteket – seks bøker, seks steder</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,-apple-system,sans-serif;background:#101a27;color:#f1f4f9}
+*{box-sizing:border-box}body{margin:0;padding:clamp(16px,5vw,60px)}
+main{max-width:740px;margin:auto}header{margin-bottom:25px}h1{font-size:clamp(2rem,5vw,3.2rem);margin:.15em 0}h2{font-size:clamp(1.5rem,4vw,2.2rem);margin:.2em 0}
+p{line-height:1.55}.muted{color:#b7c5d7}.card{background:#1b293b;border:1px solid #3b5169;border-radius:20px;padding:clamp(20px,5vw,35px)}
+.tag{font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:#abcfdd}
+.note{background:#26364b;padding:14px 18px;border-left:3px solid #b7cd93;border-radius:8px}
+nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:20px}
+button{font:inherit;font-weight:600;background:#dbeec3;color:#182918;border:0;border-radius:10px;padding:12px 18px;cursor:pointer;min-height:46px}
+button:disabled{opacity:.35;cursor:not-allowed}button:focus-visible,input:focus-visible{outline:3px solid #f9db78;outline-offset:3px}
+label{display:flex;gap:12px;align-items:center;margin-top:22px}input{height:19px;width:19px}
+#summary{margin-top:30px}.steps{display:flex;gap:6px;margin-bottom:18px}.step{height:5px;flex:1;background:#526477;border-radius:4px}.step.active{background:#dbeec3}.step.saved{background:#80c9b2}
+a{color:#b5dfff}
+</style>
+</head>
+<body>
+<main>
+<header><div class="tag">En interaktiv bokreise</div><h1>Verdensbiblioteket</h1><p class="muted">Seks berømte biblioteker. Seks verk å utforske. Dette er en kuratert leseliste – ikke dokumentasjon på at en bestemt bok kan lånes akkurat nå.</p></header>
+<section class="card" aria-live="polite">
+<div class="steps" id="steps" aria-hidden="true"></div>
+<div class="tag" id="counter"></div>
+<p class="muted" id="library"></p><h2 id="title"></h2><p id="author"></p>
+<p id="description"></p><p class="note" id="availability"></p>
+<label><input type="checkbox" id="selected"> Legg til i min leseliste</label>
+<nav><button id="prev">Forrige</button><span id="position"></span><button id="next">Neste</button></nav>
+</section>
+<section id="summary"><h2>Min leseliste</h2><p id="picked" class="muted">Ingen bøker valgt ennå.</p><button id="copy">Kopier leselisten</button></section>
+<footer><p class="muted">Historiske originaler er ikke hjemlån. Katalogstatus, utlånsrett og digitale tilgjengelighet må bekreftes hos institusjonene. Ingen fotografier eller bokomslag er gjengitt.</p></footer>
+</main>
+<script>
+const books=[
+{library:"Trinity College Dublin · Irland",title:"Book of Kells",author:"Ukjente skrivere, omkring år 800",description:"Et rikt illustrert evangeliehåndskrift fra tidlig middelalder.",availability:"Historisk original: ikke til hjemlån. Se etter digital visning eller faksimile."},
+{library:"Biblioteca Joanina · Coimbra, Portugal",title:"Os Lusíadas",author:"Luís de Camões, 1572",description:"Et portugisisk nasjonalepos om sjøfart, reiser og makt.",availability:"Lesevalg inspirert av bibliotekets historiske kontekst. Eksakt eksemplar og tilgjengelighet er ikke bekreftet."},
+{library:"Admont klosterbibliotek · Østerrike",title:"Admonts bibel",author:"Middelaldersk bibelhåndskrift, omkring 1070",description:"Et gammelt manuskript knyttet til klosterhistorien.",availability:"Historisk original: ikke til hjemlån. Moderne bibelutgaver kan leses andre steder."},
+{library:"Østerrikes nasjonalbibliotek · Wien",title:"Meditasjoner",author:"Marcus Aurelius",description:"Filosofiske refleksjoner om dømmekraft, plikt og selvkontroll.",availability:"Tematisk bokforslag, ikke et verifisert eksemplar i Prunksaal."},
+{library:"New York Public Library · USA",title:"Odysseen",author:"Homer",description:"Et klassisk epos om en lang og krevende hjemreise.",availability:"Finnes i mange utgaver; en bestemt lesesals- eller hjemlånsutgave er ikke bekreftet her."},
+{library:"Stadtbibliothek Stuttgart · Tyskland",title:"Momo",author:"Michael Ende, 1973",description:"En roman om tid, lytting og mennesker som mister tiden sin.",availability:"Mulig moderne hjemlån; sjekk katalogen for aktuell beholdning og lånerett."}
+];
+let index=0;const saved=new Set();const el=id=>document.getElementById(id);
+function render(){
+const b=books[index];el("counter").textContent="Bok "+(index+1)+" av "+books.length;
+for(const key of ["library","title","author","description"])el(key).textContent=b[key];
+el("availability").textContent="Tilgang: "+b.availability;
+el("selected").checked=saved.has(index);el("prev").disabled=index===0;el("next").disabled=index===books.length-1;
+el("position").textContent=(index+1)+" / "+books.length;
+el("steps").replaceChildren(...books.map((_,i)=>{const s=document.createElement("span");s.className="step"+(i===index?" active":"")+(saved.has(i)?" saved":"");return s}));
+el("picked").textContent=saved.size? [...saved].sort((a,b)=>a-b).map(i=>books[i].title+" — "+books[i].library).join("\n"):"Ingen bøker valgt ennå.";
+el("picked").style.whiteSpace="pre-line";el("copy").disabled=!saved.size;
+}
+el("prev").onclick=()=>{index=Math.max(0,index-1);render()};el("next").onclick=()=>{index=Math.min(books.length-1,index+1);render()};
+el("selected").onchange=e=>{e.target.checked?saved.add(index):saved.delete(index);render()};
+el("copy").onclick=async()=>{const items=[...saved].sort((a,b)=>a-b).map(i=>books[i].title+" — "+books[i].library).join("\n");try{await navigator.clipboard.writeText(items);el("copy").textContent="Kopiert";}catch{el("copy").textContent="Kopiering støttes ikke her";}};
+render();
+</script>
+</body></html>
