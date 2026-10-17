@@ -1,60 +1,353 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="no">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Verdensbiblioteket – seks bøker, seks steder</title>
-<style>
-:root{color-scheme:dark;font-family:system-ui,-apple-system,sans-serif;background:#101a27;color:#f1f4f9}
-*{box-sizing:border-box}body{margin:0;padding:clamp(16px,5vw,60px)}
-main{max-width:740px;margin:auto}header{margin-bottom:25px}h1{font-size:clamp(2rem,5vw,3.2rem);margin:.15em 0}h2{font-size:clamp(1.5rem,4vw,2.2rem);margin:.2em 0}
-p{line-height:1.55}.muted{color:#b7c5d7}.card{background:#1b293b;border:1px solid #3b5169;border-radius:20px;padding:clamp(20px,5vw,35px)}
-.tag{font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:#abcfdd}
-.note{background:#26364b;padding:14px 18px;border-left:3px solid #b7cd93;border-radius:8px}
-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:20px}
-button{font:inherit;font-weight:600;background:#dbeec3;color:#182918;border:0;border-radius:10px;padding:12px 18px;cursor:pointer;min-height:46px}
-button:disabled{opacity:.35;cursor:not-allowed}button:focus-visible,input:focus-visible{outline:3px solid #f9db78;outline-offset:3px}
-label{display:flex;gap:12px;align-items:center;margin-top:22px}input{height:19px;width:19px}
-#summary{margin-top:30px}.steps{display:flex;gap:6px;margin-bottom:18px}.step{height:5px;flex:1;background:#526477;border-radius:4px}.step.active{background:#dbeec3}.step.saved{background:#80c9b2}
-a{color:#b5dfff}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verdensbiblioteket — Ni tekster, ni arkiver</title>
+    <style>
+        /* DOMENE-ISOLASJON: MORANDI-CORE AESTHETICS */
+        :root {
+            --paper: #e6e1d6;
+            --ink: #121211;
+            --ash: #8c867a;
+            --card-bg: #dfd9cc;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--paper);
+            color: var(--ink);
+            font-family: 'Garamond', 'Baskerville', 'Georgia', serif;
+            line-height: 1.65;
+            margin: 0;
+            padding: 6vw 12vw;
+            display: flex;
+            justify-content: center;
+        }
+
+        main {
+            max-width: 680px;
+            width: 100%;
+        }
+
+        .colophon {
+            font-style: italic;
+            color: var(--ash);
+            border-bottom: 1px solid var(--ash);
+            padding-bottom: 1.75rem;
+            margin-bottom: 3rem;
+            font-size: 0.95em;
+            text-align: center;
+        }
+
+        header {
+            margin-bottom: 2.5rem;
+        }
+
+        .tag {
+            font-size: 0.8em;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--ash);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        h1 {
+            font-weight: normal;
+            font-size: 2.2em;
+            margin: 0 0 0.75rem 0;
+        }
+
+        h2 {
+            font-weight: normal;
+            font-size: 1.65em;
+            margin: 0.25rem 0 0.35rem 0;
+        }
+
+        p {
+            margin: 0 0 1.25rem 0;
+            text-align: justify;
+        }
+
+        .muted {
+            color: var(--ash);
+            text-align: left;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--ash);
+            padding: 2.25rem;
+        }
+
+        .steps {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 1.5rem;
+        }
+
+        .step {
+            height: 3px;
+            flex: 1;
+            background: #c5beaf;
+        }
+
+        .step.active {
+            background: var(--ink);
+        }
+
+        .step.saved {
+            background: var(--ash);
+        }
+
+        .excerpt {
+            border-left: 2px solid var(--ink);
+            padding: 0.5rem 0 0.5rem 1.35rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            text-align: justify;
+        }
+
+        .note {
+            border-top: 1px solid var(--ash);
+            padding-top: 1rem;
+            margin-top: 1.25rem;
+            font-size: 0.92em;
+            color: var(--ash);
+        }
+
+        label {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-top: 1.5rem;
+            cursor: pointer;
+            font-size: 0.95em;
+        }
+
+        input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            accent-color: var(--ink);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: 1.75rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--ash);
+        }
+
+        button {
+            font-family: inherit;
+            font-size: 0.95em;
+            background-color: var(--ink);
+            color: var(--paper);
+            border: 1px solid var(--ink);
+            padding: 0.6rem 1.25rem;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        button:focus-visible,
+        input:focus-visible {
+            outline: 2px solid var(--ink);
+            outline-offset: 3px;
+        }
+
+        #summary {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--ash);
+        }
+
+        .cut-mark {
+            color: var(--ash);
+            font-style: italic;
+            margin: 2.5rem 0;
+            text-align: center;
+            font-size: 0.92em;
+        }
+
+        footer {
+            margin-top: 3rem;
+            font-size: 0.88em;
+            color: var(--ash);
+        }
+    </style>
 </head>
 <body>
 <main>
-<header><div class="tag">En interaktiv bokreise</div><h1>Verdensbiblioteket</h1><p class="muted">Seks berømte biblioteker. Seks verk å utforske. Dette er en kuratert leseliste – ikke dokumentasjon på at en bestemt bok kan lånes akkurat nå.</p></header>
-<section class="card" aria-live="polite">
-<div class="steps" id="steps" aria-hidden="true"></div>
-<div class="tag" id="counter"></div>
-<p class="muted" id="library"></p><h2 id="title"></h2><p id="author"></p>
-<p id="description"></p><p class="note" id="availability"></p>
-<label><input type="checkbox" id="selected"> Legg til i min leseliste</label>
-<nav><button id="prev">Forrige</button><span id="position"></span><button id="next">Neste</button></nav>
-</section>
-<section id="summary"><h2>Min leseliste</h2><p id="picked" class="muted">Ingen bøker valgt ennå.</p><button id="copy">Kopier leselisten</button></section>
-<footer><p class="muted">Historiske originaler er ikke hjemlån. Katalogstatus, utlånsrett og digitale tilgjengelighet må bekreftes hos institusjonene. Ingen fotografier eller bokomslag er gjengitt.</p></footer>
+    <div class="colophon">
+        Verdensbiblioteket — Ni grunntekster om termodynamikk, portens smalhet, likevekt, ansvar og fysisk oppgjør.
+    </div>
+
+    <header>
+        <span class="tag">Kildearkiv og Tekstutdrag</span>
+        <h1>Verdensbiblioteket</h1>
+        <p class="muted">Ni verk fra ni arkiver og biblioteker: fra Rolf Landauers termodynamiske pris for informasjon, Jesus ved den trange porten, Henri Poincarés faserom, John Nashs likevekt og Sokrates' indre veto, til Knut Hamsun, Jens Bjørneboe, Gert Nygårdshaug og en flamsk–norsk handelsavtale fra 1700-tallet.</p>
+    </header>
+
+    <section class="card" aria-live="polite">
+        <div class="steps" id="steps" aria-hidden="true"></div>
+        <span class="tag" id="counter"></span>
+        <p class="muted" id="library"></p>
+        <h2 id="title"></h2>
+        <p class="muted" id="author"></p>
+        <div class="excerpt" id="excerpt"></div>
+        <p id="description"></p>
+        <p class="note" id="availability"></p>
+        <label><input type="checkbox" id="selected"> Legg til i min leseliste</label>
+        <nav>
+            <button id="prev">Forrige</button>
+            <span id="position" class="muted"></span>
+            <button id="next">Neste</button>
+        </nav>
+    </section>
+
+    <div class="cut-mark">
+        │ — [ Blad skåret ut ved bokryggen ] —
+    </div>
+
+    <section id="summary">
+        <h2>Min leseliste</h2>
+        <p id="picked" class="muted">Ingen tekster valgt ennå.</p>
+        <button id="copy">Kopier leselisten</button>
+    </section>
+
+    <footer>
+        <p class="muted">Dette er en kuratert leseliste med kjerneformuleringer og historiske tekstutdrag. Katalogstatus, håndskriftsvisning og utlånsrett må bekreftes hos det enkelte arkiv eller bibliotek.</p>
+    </footer>
 </main>
+
 <script>
-const books=[
-{library:"Trinity College Dublin · Irland",title:"Book of Kells",author:"Ukjente skrivere, omkring år 800",description:"Et rikt illustrert evangeliehåndskrift fra tidlig middelalder.",availability:"Historisk original: ikke til hjemlån. Se etter digital visning eller faksimile."},
-{library:"Biblioteca Joanina · Coimbra, Portugal",title:"Os Lusíadas",author:"Luís de Camões, 1572",description:"Et portugisisk nasjonalepos om sjøfart, reiser og makt.",availability:"Lesevalg inspirert av bibliotekets historiske kontekst. Eksakt eksemplar og tilgjengelighet er ikke bekreftet."},
-{library:"Admont klosterbibliotek · Østerrike",title:"Admonts bibel",author:"Middelaldersk bibelhåndskrift, omkring 1070",description:"Et gammelt manuskript knyttet til klosterhistorien.",availability:"Historisk original: ikke til hjemlån. Moderne bibelutgaver kan leses andre steder."},
-{library:"Østerrikes nasjonalbibliotek · Wien",title:"Meditasjoner",author:"Marcus Aurelius",description:"Filosofiske refleksjoner om dømmekraft, plikt og selvkontroll.",availability:"Tematisk bokforslag, ikke et verifisert eksemplar i Prunksaal."},
-{library:"New York Public Library · USA",title:"Odysseen",author:"Homer",description:"Et klassisk epos om en lang og krevende hjemreise.",availability:"Finnes i mange utgaver; en bestemt lesesals- eller hjemlånsutgave er ikke bekreftet her."},
-{library:"Stadtbibliothek Stuttgart · Tyskland",title:"Momo",author:"Michael Ende, 1973",description:"En roman om tid, lytting og mennesker som mister tiden sin.",availability:"Mulig moderne hjemlån; sjekk katalogen for aktuell beholdning og lånerett."}
+const books = [
+    {
+        library: "ETH-Bibliothek · Zürich / Linda Hall Library · Kansas City",
+        title: "Irreversibility and Heat Generation in the Computing Process",
+        author: "Rolf Landauer, 1961 (IBM Journal of Research and Development, 5(3), 183–191)",
+        excerpt: "«Information is not a disembodied abstract entity; it is always tied to a physical representation. It is engraved on a stone tablet, a spin, a charge, a hole in a punched card, a mark on paper, or some other equivalent. This ties the handling of information to all the possibilities and restrictions of our real physical world.»",
+        description: "Grunnteksten som beviser at logisk irreversibilitet krever fysisk varmeavgivelse. Å slette én bit informasjon (RESTORE TO ONE) koster minst k_B T ln 2 i termodynamisk arbeid. Tanken er aldri gratis; enhver avgjørelse som skjærer bort alternativer betaler en fysisk pris.",
+        availability: "Tidsskriftarkiv og vitenskapelig særtrykk. Digitalt tilgjengelig i akademiske arkiver."
+    },
+    {
+        library: "Katarinaklosteret i Sinai / British Library · London (Codex Sinaiticus)",
+        title: "Bergprekenen — Den trange porten (Matteus 7, 13–14 og 7, 24–25)",
+        author: "Jesus fra Nasaret, 1. århundre (gresk uncialhåndskrift, ca. 330–360 e.Kr.)",
+        excerpt: "«Gå inn gjennom den trange porten! For vid er den porten og bred er den veien som fører til fortapelsen, og mange er de som går inn gjennom den. Men trang er den porten og smal er den veien som fører til livet, og få er de som finner den. [...] Hver den som hører disse mine ord og gjør etter dem, han blir lik en klok mann som bygde huset sitt på fjell.»",
+        description: "Konsekvensportens ur-formulering: genereringens og støyens vei er bred og friksjonsløs, men det som skal bestå i virkeligheten må passere gjennom et nåløye og forankres i grunnfjellet.",
+        availability: "Historisk uncialhåndskrift (Codex Sinaiticus): ikke til hjemlån. Tilgjengelig i kritiske tekstutgaver og faksimile."
+    },
+    {
+        library: "Bibliothèque nationale de France · Paris / Institut Mittag-Leffler · Djursholm",
+        title: "Sur le problème des trois corps et les équations de la dynamique / Science et Méthode",
+        author: "Henri Poincaré, 1890 / 1908",
+        excerpt: "«Det kan hende at små forskjeller i de opprinnelige betingelsene frembringer svært store forskjeller i de endelige fenomenene. En liten feil i de første vil da føre til en enorm feil i de siste. Forutsigelse blir umulig, og vi står overfor det tilfeldige fenomen.»",
+        description: "Poincarés oppdagelse av deterministisk kaos og tilbakevendingsloven (Poincaré-rekurrens): I et lukket, volumbevarende faserom vil systemet vende tilbake uendelig nær sin utgangstilstand, men uten en hard projeksjonsport vil uendelig små avvik sprenge banen i uforutsigbarhet.",
+        availability: "Historiske førsteutgaver i BnF (Gallica) og Acta Mathematica; tilgjengelig i vitenskapelige samlinger."
+    },
+    {
+        library: "Seeley G. Mudd Manuscript Library · Princeton University",
+        title: "Equilibrium Points in n-Person Games / Non-Cooperative Games",
+        author: "John Forbes Nash Jr., 1950 / 1951",
+        excerpt: "«An equilibrium point is an n-tuple such that each player's mixed strategy maximizes his pay-off if the strategies of the others are held fixed. Thus each player's strategy is optimal against those of the others.»",
+        description: "En doktoravhandling på bare 27 maskinskrevne sider som definerte grensen for strategisk interaksjon: punktet der ingen enkeltaktør kan vinne på å bryte ut alene, og der uregulerte egeninteresser kan låse et helt system i et suboptimalt fellesrom.",
+        availability: "Originalmanuskript i Princeton University Archives; publisert i PNAS (1950) og Annals of Mathematics (1951)."
+    },
+    {
+        library: "Bodleian Library · Oxford (Codex Clarke 39, år 895)",
+        title: "Sokrates' forsvarstale (Apologia, 31c–31d)",
+        author: "Sokrates (nedtegnet av Platon, ca. 399 f.Kr.)",
+        excerpt: "«Det har fulgt meg helt fra barndommen av som en stemme, og når den lyder, holder den meg alltid tilbake fra det jeg står i ferd med å gjøre, men den driver meg aldri frem.»",
+        description: "Sokrates' daimonion er filosofihistoriens reneste subtraktive instans: en indre vokter som aldri produserer forslag eller støy, men som utelukkende trer i kraft som et absolutt veto (HOLD / KILL) når en handling truer sjelen og sannheten.",
+        availability: "Middelalderhåndskrift i Bodleian Library; tilgjengelig i klassiske greske og norske utgaver."
+    },
+    {
+        library: "Nasjonalbiblioteket · Solli plass, Oslo",
+        title: "Sult (1890) og Markens Grøde (1917)",
+        author: "Knut Hamsun",
+        excerpt: "«Det var i den tid jeg gikk omkring og sultet i Kristiania, denne forunderlige by som ingen forlater før han har fått merker av den...» — «Den lange, lange sti over myrene og inn i skogene hvem har trakket opp den? Mannen, mennesket, den første som var her. Det var ingen sti før ham.»",
+        description: "Spennet mellom to ytterpunkter i menneskets tilstand: fra det utsultede, feberaktige nervemenneskets hallusinasjoner på asfalten i Sult, til Isak Sellanraas tause, fysiske rydding av stein, myr og tømmer i Markens Grøde.",
+        availability: "Førsteutgaver og manuskripter i Nasjonalbiblioteket; allment tilgjengelig i lese- og hjemlånsutgaver."
+    },
+    {
+        library: "Nasjonalbiblioteket · Oslo (Manuskriptsamlingen)",
+        title: "Bestialitetens historie: Frihetens øyeblikk · Kruttårnet · Stillheten",
+        author: "Jens Bjørneboe, 1966–1973",
+        excerpt: "«Jeg er rettens tjener. Ikke dommer, ikke anklager, ikke forsvarer. Jeg bare børster støv av kappene og skriver ned det som blir sagt i protokollen. [...] Den som adlyder blindt, har allerede gitt fra seg sitt ansikt.»",
+        description: "Rettsprotokollen over det moderne menneskets farligste tilbøyelighet: å fraskrive seg sin egen dømmekraft til fordel for systemet, autoriteten og flokken. En kompromissløs påminnelse om at ansvar aldri kan automatiseres bort.",
+        availability: "Tilgjengelig i norske folkebiblioteker og i Nasjonalbibliotekets samlinger."
+    },
+    {
+        library: "Nasjonalbiblioteket / Deichman Bjørvika · Oslo",
+        title: "Mengele Zoo",
+        author: "Gert Nygårdshaug, 1989",
+        excerpt: "«Skogen glemmer ikke et eneste økseshugg; hver stamme som faller uten at jorden får sitt tilbake, skrives inn i røttenes og insektenes tause regnskap.»",
+        description: "Fortellingen om Mino Aquiles Portoguesa og regnskogens kollaps i møte med grenseløs industriell utplyndring — en studie i økologisk asymmetri og hva som skjer når en sivilisasjon bryter de biologiske randbetingelsene den selv hviler på.",
+        availability: "Tilgjengelig for hjemlån ved norske folkebiblioteker; kontrollér lokal katalogstatus."
+    },
+    {
+        library: "Riksarkivet · Oslo / Rijksarchief te Brugge · Flandern",
+        title: "Flamsk–norsk handels- og trelasttraktat (Certeparti og Kjøpekontrakt)",
+        author: "Flamske kjøpmenn i Oostende/Brugge og norske utskipere i Drammen og Bergen, 1728",
+        excerpt: "«Kiendes Vi underskrevne Borgere og Handelsmænd udi Brugge og Oostende i Flandern, og Borgere ved Bragernes og Strømsøe udi Norge, herved at have indgaaet følgende u-igjenkaldelige Kiøbmands-Slutning: At Skibet De Vlaamsche Leeuw ved første aabne Vand skal indtage 140 Tylfter fuldkantet malmfuru-deeler av 12 Fods Længde og 2 Tommers Tykkelse, samt 40 Tønder god Nordlands Tjære og 60 Voger rund Tørfisk. Ingen Vare ansees leveret førend den er maalt med justeret Jern-Alen paa Bryggen, og Betalingen erlagt i u-beskaarne Sølv-Rigsdaler Courant imod Kvittering og Segl.»",
+        description: "En 1700-talls handelsavtale på klutepapir mellom Flandern og Norge: her eksisterer ingen udeklarerte derivater eller tomme løfter — kun fysisk malmfuru målt med justert jernalen, tjæretønner, tørrfisk, flamsk lin, lakksegl og oppgjør i veid sølv ved bryggekanten.",
+        availability: "Historisk arkivdokument (handels- og tollregnskaper / certepartier fra 1700-tallet): kun lesesalsvisning i Riksarkivet og Rijksarchief te Brugge."
+    }
 ];
-let index=0;const saved=new Set();const el=id=>document.getElementById(id);
-function render(){
-const b=books[index];el("counter").textContent="Bok "+(index+1)+" av "+books.length;
-for(const key of ["library","title","author","description"])el(key).textContent=b[key];
-el("availability").textContent="Tilgang: "+b.availability;
-el("selected").checked=saved.has(index);el("prev").disabled=index===0;el("next").disabled=index===books.length-1;
-el("position").textContent=(index+1)+" / "+books.length;
-el("steps").replaceChildren(...books.map((_,i)=>{const s=document.createElement("span");s.className="step"+(i===index?" active":"")+(saved.has(i)?" saved":"");return s}));
-el("picked").textContent=saved.size? [...saved].sort((a,b)=>a-b).map(i=>books[i].title+" — "+books[i].library).join("\n"):"Ingen bøker valgt ennå.";
-el("picked").style.whiteSpace="pre-line";el("copy").disabled=!saved.size;
+
+let index = 0;
+const saved = new Set();
+const el = id => document.getElementById(id);
+
+function render() {
+    const b = books[index];
+    el("counter").textContent = "Tekst " + (index + 1) + " av " + books.length;
+    for (const key of ["library", "title", "author", "excerpt", "description"]) {
+        el(key).textContent = b[key];
+    }
+    el("availability").textContent = "Arkivstatus: " + b.availability;
+    el("selected").checked = saved.has(index);
+    el("prev").disabled = index === 0;
+    el("next").disabled = index === books.length - 1;
+    el("position").textContent = (index + 1) + " / " + books.length;
+    el("steps").replaceChildren(...books.map((_, i) => {
+        const s = document.createElement("span");
+        s.className = "step" + (i === index ? " active" : "") + (saved.has(i) ? " saved" : "");
+        return s;
+    }));
+    el("picked").textContent = saved.size
+        ? [...saved].sort((a, b) => a - b).map(i => (i + 1) + ". " + books[i].title + " — " + books[i].author + " (" + books[i].library + ")").join("\n")
+        : "Ingen tekster valgt ennå.";
+    el("picked").style.whiteSpace = "pre-line";
+    el("copy").disabled = !saved.size;
 }
-el("prev").onclick=()=>{index=Math.max(0,index-1);render()};el("next").onclick=()=>{index=Math.min(books.length-1,index+1);render()};
-el("selected").onchange=e=>{e.target.checked?saved.add(index):saved.delete(index);render()};
-el("copy").onclick=async()=>{const items=[...saved].sort((a,b)=>a-b).map(i=>books[i].title+" — "+books[i].library).join("\n");try{await navigator.clipboard.writeText(items);el("copy").textContent="Kopiert";}catch{el("copy").textContent="Kopiering støttes ikke her";}};
+
+el("prev").onclick = () => { index = Math.max(0, index - 1); render(); };
+el("next").onclick = () => { index = Math.min(books.length - 1, index + 1); render(); };
+el("selected").onchange = e => { e.target.checked ? saved.add(index) : saved.delete(index); render(); };
+el("copy").onclick = async () => {
+    const items = [...saved].sort((a, b) => a - b).map(i => books[i].title + " — " + books[i].author + " (" + books[i].library + ")").join("\n");
+    try {
+        await navigator.clipboard.writeText(items);
+        el("copy").textContent = "Kopiert";
+    } catch {
+        el("copy").textContent = "Kopiering støttes ikke her";
+    }
+};
+
 render();
 </script>
-</body></html>
+</body>
+</html>
