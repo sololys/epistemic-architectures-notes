@@ -112,6 +112,27 @@
             text-align: justify;
         }
 
+        .feast-box {
+            margin: 1.5rem 0;
+            padding: 1.15rem 1.35rem;
+            background-color: var(--paper);
+            border: 1px solid var(--ash);
+            display: none;
+        }
+
+        .feast-box.served {
+            display: block;
+        }
+
+        .feast-title {
+            font-size: 0.78em;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--ash);
+            display: block;
+            margin-bottom: 0.4rem;
+        }
+
         .note {
             border-top: 1px solid var(--ash);
             padding-top: 1rem;
@@ -120,11 +141,19 @@
             color: var(--ash);
         }
 
+        .actions-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-top: 1.5rem;
+        }
+
         label {
             display: flex;
             gap: 10px;
             align-items: center;
-            margin-top: 1.5rem;
             cursor: pointer;
             font-size: 0.95em;
         }
@@ -155,6 +184,12 @@
             cursor: pointer;
         }
 
+        button.secondary {
+            background-color: transparent;
+            color: var(--ink);
+            border: 1px solid var(--ink);
+        }
+
         button:disabled {
             opacity: 0.3;
             cursor: not-allowed;
@@ -166,7 +201,7 @@
             outline-offset: 3px;
         }
 
-        #summary {
+        #summary, #banquet {
             margin-top: 3rem;
             padding-top: 2rem;
             border-top: 1px solid var(--ash);
@@ -208,7 +243,7 @@
     </div>
 
     <header>
-        <span class="tag">Kildearkiv, Tekstutdrag og Plansjer</span>
+        <span class="tag">Kildearkiv, Tekstutdrag og Gjestebud</span>
         <h1>Verdensbiblioteket</h1>
         <p class="muted">Elleve verk fra arkiver og biblioteker: fra Rolf Landauers termodynamiske pris for informasjon, Jesus ved den trange porten, Henri Poincarés faserom, John Nashs likevekt og Sokrates' indre veto, til Knut Hamsun, Jens Bjørneboe, Gert Nygårdshaug, en flamsk–norsk handelsavtale fra 1700-tallet, Fridtjof Nansens feltdokumenter fra grenselandet mot Turkestan og SOLOLYS Pop-Art Renaissance Plates.</p>
     </header>
@@ -221,8 +256,15 @@
         <p class="muted" id="author"></p>
         <div class="excerpt" id="excerpt"></div>
         <p id="description"></p>
+        <div class="feast-box" id="feastBox">
+            <span class="feast-title">Servering ved langbordet</span>
+            <p id="feastText" style="margin: 0;"></p>
+        </div>
         <p class="note" id="availability"></p>
-        <label><input type="checkbox" id="selected"> Legg til i min leseliste</label>
+        <div class="actions-row">
+            <label><input type="checkbox" id="selected"> Legg til i min leseliste</label>
+            <button type="button" class="secondary" id="serveBtn">Skjenk og server gjesten</button>
+        </div>
         <nav>
             <button id="prev">Forrige</button>
             <span id="position" class="muted"></span>
@@ -240,6 +282,12 @@
     <div class="cut-mark">
         │ — [ Blad skåret ut ved bokryggen ] —
     </div>
+
+    <section id="banquet">
+        <h2>Langbordet i Skriveværelset</h2>
+        <p id="banquetList" class="muted">Bordet er dekket, men ingen kuverter er skjenket ennå.</p>
+        <button type="button" id="serveAllBtn">Server hele langbordet alt de behager</button>
+    </section>
 
     <section id="summary">
         <h2>Min leseliste</h2>
@@ -260,6 +308,7 @@ const books = [
         author: "Rolf Landauer, 1961 (IBM Journal of Research and Development, 5(3), 183–191)",
         excerpt: "«Information is not a disembodied abstract entity; it is always tied to a physical representation. It is engraved on a stone tablet, a spin, a charge, a hole in a punched card, a mark on paper, or some other equivalent. This ties the handling of information to all the possibilities and restrictions of our real physical world.»",
         description: "Grunnteksten som beviser at logisk irreversibilitet krever fysisk varmeavgivelse. Å slette én bit informasjon (RESTORE TO ONE) koster minst k_B T ln 2 i termodynamisk arbeid. Tanken er aldri gratis; enhver avgjørelse som skjærer bort alternativer betaler en fysisk pris.",
+        feast: "Rolf Landauer serveres en rykende varm Zürich-espresso i tykt porselen og mørkt rugbrød med smør — med et kalibrert kvikksølvtermometer ved koppen, slik at han med et tilfreds nikk kan lese av nøyaktig hvor mange joule varme som avgis til bordplaten før han drikker.",
         availability: "Tidsskriftarkiv og vitenskapelig særtrykk. Digitalt tilgjengelig i akademiske arkiver."
     },
     {
@@ -268,6 +317,7 @@ const books = [
         author: "Jesus fra Nasaret, 1. århundre (gresk uncialhåndskrift, ca. 330–360 e.Kr.)",
         excerpt: "«Gå inn gjennom den trange porten! For vid er den porten og bred er den veien som fører til fortapelsen, og mange er de som går inn gjennom den. Men trang er den porten og smal er den veien som fører til livet, og få er de som finner den. [...] Hver den som hører disse mine ord og gjør etter dem, han blir lik en klok mann som bygde huset sitt på fjell.»",
         description: "Konsekvensportens ur-formulering: genereringens og støyens vei er bred og friksjonsløs, men det som skal bestå i virkeligheten må passere gjennom et nåløye og forankres i grunnfjellet.",
+        feast: "Jesus fra Nasaret rekkes nybakt usyret brød brutt for hånd, stekt fisk fra Genesaretsjøen over glør, grønne oliven i olje og et enkelt leirkrus med dyp galileisk rødvin — det beste vinen spart til slutt.",
         availability: "Historisk uncialhåndskrift (Codex Sinaiticus): ikke til hjemlån. Tilgjengelig i kritiske tekstutgaver og faksimile."
     },
     {
@@ -276,6 +326,7 @@ const books = [
         author: "Henri Poincaré, 1890 / 1908",
         excerpt: "«Det kan hende at små forskjeller i de opprinnelige betingelsene frembringer svært store forskjeller i de endelige fenomenene. En liten feil i de første vil da føre til en enorm feil i de siste. Forutsigelse blir umulig, og vi står overfor det tilfeldige fenomen.»",
         description: "Poincarés oppdagelse av deterministisk kaos og tilbakevendingsloven (Poincaré-rekurrens): I et lukket, volumbevarende faserom vil systemet vende tilbake uendelig nær sin utgangstilstand, men uten en hard projeksjonsport vil uendelig små avvik sprenge banen i uforutsigbarhet.",
+        feast: "Henri Poincaré får skjenket en karaffel temperert rød Bourgogne, en skive vellagret Comté og tre pærer lagt i en skjev trekant på lin-duken — så han i fred kan betrakte trelegemeproblemet mellom slurkene.",
         availability: "Historiske førsteutgaver i BnF (Gallica) og Acta Mathematica; tilgjengelig i vitenskapelige samlinger."
     },
     {
@@ -284,6 +335,7 @@ const books = [
         author: "John Forbes Nash Jr., 1950 / 1951",
         excerpt: "«An equilibrium point is an n-tuple such that each player's mixed strategy maximizes his pay-off if the strategies of the others are held fixed. Thus each player's strategy is optimal against those of the others.»",
         description: "En doktoravhandling på bare 27 maskinskrevne sider som definerte grensen for strategisk interaksjon: punktet der ingen enkeltaktør kan vinne på å bryte ut alene, og der uregulerte egeninteresser kan låse et helt system i et suboptimalt fellesrom.",
+        feast: "John Nash serveres ettermiddagste fra Princeton, kjølig ingefærøl og et kakestykke skåret med kirurgisk presisjon slik at ingen gjest ved bordet kan øke sitt utbytte ved å bytte tallerken med sidemannen.",
         availability: "Originalmanuskript i Princeton University Archives; publisert i PNAS (1950) og Annals of Mathematics (1951)."
     },
     {
@@ -292,6 +344,7 @@ const books = [
         author: "Sokrates (nedtegnet av Platon, ca. 399 f.Kr.)",
         excerpt: "«Det har fulgt meg helt fra barndommen av som en stemme, og når den lyder, holder den meg alltid tilbake fra det jeg står i ferd med å gjøre, men den driver meg aldri frem.»",
         description: "Sokrates' daimonion er filosofihistoriens reneste subtraktive instans: en indre vokter som aldri produserer forslag eller støy, men som utelukkende trer i kraft som et absolutt veto (HOLD / KILL) når en handling truer sjelen og sannheten.",
+        feast: "Sokrates får en dyp kylix med attisk vin blandet med kildevann, ristede kikerter, fiken og honning — helt fri for skarntyde — mens han sitter barføtt ved bordenden og holder samtalen våken til daggry.",
         availability: "Middelalderhåndskrift i Bodleian Library; tilgjengelig i klassiske greske og norske utgaver."
     },
     {
@@ -300,6 +353,7 @@ const books = [
         author: "Knut Hamsun",
         excerpt: "«Det var i den tid jeg gikk omkring og sultet i Kristiania, denne forunderlige by som ingen forlater før han har fått merker av den...» — «Den lange, lange sti over myrene og inn i skogene hvem har trakket opp den? Mannen, mennesket, den første som var her. Det var ingen sti før ham.»",
         description: "Spennet mellom to ytterpunkter i menneskets tilstand: fra det utsultede, feberaktige nervemenneskets hallusinasjoner på asfalten i Sult, til Isak Sellanraas tause, fysiske rydding av stein, myr og tømmer i Markens Grøde.",
+        feast: "Knut Hamsun slipper endelig å tygge på fliser og blyantstumper fra Kristiania: foran ham settes et mektig fat fra Sellanraa med nystekt gårdskake, fjellsmør, speket lammelår, rømmegrøt og beksvart kokekaffe fra kjelen.",
         availability: "Førsteutgaver og manuskripter i Nasjonalbiblioteket; allment tilgjengelig i lese- og hjemlånsutgaver."
     },
     {
@@ -308,6 +362,7 @@ const books = [
         author: "Jens Bjørneboe, 1966–1973",
         excerpt: "«Jeg er rettens tjener. Ikke dommer, ikke anklager, ikke forsvarer. Jeg bare børster støv av kappene og skriver ned det som blir sagt i protokollen. [...] Den som adlyder blindt, har allerede gitt fra seg sitt ansikt.»",
         description: "Rettsprotokollen over det moderne menneskets farligste tilbøyelighet: å fraskrive seg sin egen dømmekraft til fordel for systemet, autoriteten og flokken. En kompromissløs påminnelse om at ansvar aldri kan automatiseres bort.",
+        feast: "Jens Bjørneboe får en romslig kurvflaske italiensk Chianti, lammestek spekket med hvitløk og rosmarin, og et tungt askebeger ved albuen — der ingen sensurerer et eneste ord i rettens protokoll.",
         availability: "Tilgjengelig i norske folkebiblioteker og i Nasjonalbibliotekets samlinger."
     },
     {
@@ -316,6 +371,7 @@ const books = [
         author: "Gert Nygårdshaug, 1989",
         excerpt: "«Skogen glemmer ikke et eneste økseshugg; hver stamme som faller uten at jorden får sitt tilbake, skrives inn i røttenes og insektenes tause regnskap.»",
         description: "Fortellingen om Mino Aquiles Portoguesa og regnskogens kollaps i møte med grenseløs industriell utplyndring — en studie i økologisk asymmetri og hva som skjer når en sivilisasjon bryter de biologiske randbetingelsene den selv hviler på.",
+        feast: "Gert Nygårdshaug skjenkes en støvete gammel Bordeaux fra dypet av vinkjelleren, viltgryte med steinsopp og skogsbær, og en bit mørk, bitter regnskogssjokolade til avslutning.",
         availability: "Tilgjengelig for hjemlån ved norske folkebiblioteker; kontrollér lokal katalogstatus."
     },
     {
@@ -324,6 +380,7 @@ const books = [
         author: "Flamske kjøpmenn i Oostende/Brugge og norske utskipere i Drammen og Bergen, 1728",
         excerpt: "«Kiendes Vi underskrevne Borgere og Handelsmænd udi Brugge og Oostende i Flandern, og Borgere ved Bragernes og Strømsøe udi Norge, herved at have indgaaet følgende u-igjenkaldelige Kiøbmands-Slutning: At Skibet De Vlaamsche Leeuw ved første aabne Vand skal indtage 140 Tylfter fuldkantet malmfuru-deeler av 12 Fods Længde og 2 Tommers Tykkelse, samt 40 Tønder god Nordlands Tjære og 60 Voger rund Tørfisk. Ingen Vare ansees leveret førend den er maalt med justeret Jern-Alen paa Bryggen, og Betalingen erlagt i u-beskaarne Sølv-Rigsdaler Courant imod Kvittering og Segl.»",
         description: "En 1700-talls handelsavtale på klutepapir mellom Flandern og Norge: her eksisterer ingen udeklarerte derivater eller tomme løfter — kun fysisk malmfuru målt med justert jernalen, tjæretønner, tørrfisk, flamsk lin, lakksegl og oppgjør i veid sølv ved bryggekanten.",
+        feast: "Skipperne og kjøpmennene fra Brugge, Oostende, Bragernes og Bergen får tinnfat med lutet og banket tørrfisk, spekesild, hollandsk ost, mørkt flamsk klosterøl i steinkrus og en stødig dram genever etter at lakkseglet er satt på kontrakten.",
         availability: "Historisk arkivdokument (handels- og tollregnskaper / certepartier fra 1700-tallet): kun lesesalsvisning i Riksarkivet og Rijksarchief te Brugge."
     },
     {
@@ -332,6 +389,7 @@ const books = [
         author: "Fridtjof Nansen, 1922–1929",
         excerpt: "«Diplomatene skriver sine resolusjoner på glittet papir i Genève, men her ute på den svidde sletten måles livet i kubikkmeter vann i kanalene, i såkorn før frosten kommer, og i et stykke stemplet papir som gir en statsløs rett til å eksistere.»",
         description: "Nansens egne dagbøker, hydrologiske kartskisser og Folkeforbunds-rapporter fra reisen gjennom Konstantinopel, Lilleasia, Armenia, Kaukasus, Kaspihavet og steppegrensen mot Turkestan. Der stormaktene svarte med tomme løfter, reiste Nansen selv ut i støvet for å beregne vanningsanlegg for ørkenjorden, telle kornlaster og utstede Nansenpasset — der én manns personlige integritet ble garantien for hundretusener av statsløse.",
+        feast: "Fridtjof Nansen — den tiende gjesten — får legge pemmikanen til side for kvelden og serveres grillet kaukasisk lammesjasjlyk, varmt armensk lavash-brød, friske granatepler, rykende te fra samovaren og et velfortjent glass armensk Ararat-konjakk.",
         availability: "Originaldokumenter, kartskisser og reisedagbøker i Nasjonalbibliotekets Nansen-samling og League of Nations Archives i Genève; bokutgavene fra 1927 og 1929 er digitalt tilgjengelige."
     },
     {
@@ -340,19 +398,29 @@ const books = [
         author: "ReismannPoint Systems AS, 2026",
         excerpt: "«A bit is not born as 1. It is authorized to 1 exclusively through structural projection (Π_K) and consequence-gate authorization (Ω). Reality is not generated locally; reality is admitted locally through structural projection. Space unfolds as time. The bit becomes 1.»",
         description: "To plansjer i krysningspunktet mellom høyrenessansens geometriske kobberstikk og silketrykkets kvantiserte fargeblokker: Plate I fastsetter de seks aksiomatiske lovene ([R, Π_K] ≠ 0, Δ_K ≤ τ_K, Cook–Levin VERIFY ∈ P, Landauer Q ≥ k_B T ln 9, 0.00 V DC stase og monoton vitnekjede), mens Plate II viser den femleddede sekvensen fra stase (x_0) til bevitnet konsekvens (W).",
+        feast: "Ved husets egen plass midt på langbordet serveres kystens klare kildevann, brød, olivenolje, nytrukket kaffe i tung keramikk og roen av en port som står trygt i 0.00 V DC stase mens gjestene taler.",
         availability: "Direkte visning i Verdensbiblioteket via sololys_popart_renaissance_plates.html."
     }
 ];
 
 let index = 0;
 const saved = new Set();
+const served = new Set();
 const el = id => document.getElementById(id);
 
 function render() {
     const b = books[index];
-    el("counter").textContent = "Tekst " + (index + 1) + " av " + books.length;
+    el("counter").textContent = "Verk " + (index + 1) + " av " + books.length;
     for (const key of ["library", "title", "author", "excerpt", "description"]) {
         el(key).textContent = b[key];
+    }
+    el("feastText").textContent = b.feast;
+    if (served.has(index)) {
+        el("feastBox").classList.add("served");
+        el("serveBtn").textContent = "Gjesten er servert";
+    } else {
+        el("feastBox").classList.remove("served");
+        el("serveBtn").textContent = "Skjenk og server gjesten";
     }
     el("availability").textContent = "Arkivstatus: " + b.availability;
     el("selected").checked = saved.has(index);
@@ -364,6 +432,10 @@ function render() {
         s.className = "step" + (i === index ? " active" : "") + (saved.has(i) ? " saved" : "");
         return s;
     }));
+    el("banquetList").textContent = served.size
+        ? [...served].sort((a, b) => a - b).map(i => "• " + books[i].feast).join("\n\n")
+        : "Bordet er dekket, men ingen kuverter er skjenket ennå.";
+    el("banquetList").style.whiteSpace = "pre-line";
     el("picked").textContent = saved.size
         ? [...saved].sort((a, b) => a - b).map(i => (i + 1) + ". " + books[i].title + " — " + books[i].author + " (" + books[i].library + ")").join("\n")
         : "Ingen tekster valgt ennå.";
@@ -374,6 +446,14 @@ function render() {
 el("prev").onclick = () => { index = Math.max(0, index - 1); render(); };
 el("next").onclick = () => { index = Math.min(books.length - 1, index + 1); render(); };
 el("selected").onchange = e => { e.target.checked ? saved.add(index) : saved.delete(index); render(); };
+el("serveBtn").onclick = () => {
+    served.add(index);
+    render();
+};
+el("serveAllBtn").onclick = () => {
+    books.forEach((_, i) => served.add(i));
+    render();
+};
 el("copy").onclick = async () => {
     const items = [...saved].sort((a, b) => a - b).map(i => books[i].title + " — " + books[i].author + " (" + books[i].library + ")").join("\n");
     try {
