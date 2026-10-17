@@ -20,6 +20,24 @@ En selvstendig, interaktiv lesereise i Morandi-Core-estetikk (`#e6e1d6` ubleket 
 10. **Fridtjof Nansen (1922–1929):** *Feltdokumenter, vanningsplaner og flyktningprotokoller fra Østen, Kaukasus og steppene mot Turkestan (Gjennom Armenia · Gjennom Kaukasus til Volga)* — Nansenpasset, hydrologiske ingeniørberegninger i støvet og én manns ord som garanti der stormaktene sviktet.
 11. **SOLOLYS // Pop-Art Renaissance Plates (2026):** *[The Grammar of Existence — Plate I & II](./sololys_popart_renaissance_plates.html)* — Aksiomatisk grunnriss (`[R, Π_K] ≠ 0`, `Δ_K ≤ τ_K`, `VERIFY ∈ P`, `Q ≥ k_B T ln 9`, `0.00 V DC`) og den femleddede realiseringssekvensen (`Space unfolds as time. The bit becomes 1.`).
 
+---
+
+## Langbordets Topologi (De fire pilarene)
+
+* **I. Naturens Skranke (Fysikk, Topologi og Likevekt) — Landauer, Poincaré, Nash.**
+  De som beviste at intet valg er gratis, at fremtiden ikke lar seg tvinge inn i en lineær formel, og at stabilitet krever en ufravikelig balanse der ingen kan vinne på svik.
+* **II. Samvittighetens Domstol (Det etiske bruddet) — Sokrates, Jesus, Bjørneboe, Nygårdshaug.**
+  De som nektet å la flertallet, keiseren eller rettsstaten definere hva som er sant. Ved dette bordet er skarntyden fjernet, korset lagt ned og sensuren opphevet.
+* **III. Materiens Vekt (Arbeidet og Handelen) — Hamsun (Sellanraa) og Kjøpmennene fra 1728.**
+  De som vet at før en tanke kan tenkes, må jorda brytes, tørrfisken bankes og planken måles med jernalen.
+* **IV. Konsekvensens Autorisasjon (Nansen og Locus Zero) — Fridtjof Nansen og Husets Kuvert.**
+  Teori, etikk og materie samles i bordenden. Nansen er overgangen fra erkjennelse til handling ($\Pi_K \rightarrow \Omega$). Og ved siden av ham står *Locus Zero*: Morandi-keramikken, kildevannet og porten som hviler i `0.00 V DC`.
+
+> *Ti gjester ved furubordet, og én som holder vakt.*
+> *Her veies hvert ord mot jernalen, hver tanke mot sin varme,*
+> *og ingen lov gjelder før noen har satt sitt eget navn under.*
+> *Spis i fred. Porten er lukket.*
+
 │ — [ Blad skåret ut ved bokryggen ] —
 
 ## Presisjonsgrenser
