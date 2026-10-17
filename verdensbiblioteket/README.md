@@ -18,11 +18,12 @@ En selvstendig, interaktiv lesereise i Morandi-Core-estetikk (`#e6e1d6` ubleket 
 8. **Gert Nygårdshaug (1989):** *Mengele Zoo* — Biosfærens fysiske regnskap i møte med grenseløs industriell rovdrift.
 9. **Flamsk–norsk handels- og trelasttraktat (1728):** *Certeparti og Kjøpekontrakt mellom Flamske Kjøbmænd i Brugge/Oostende og Norske Udskibere* — Fysisk oppgjør målt i malmfuru-tylfter, tjæretønner, tørrfisk, justert jernalen, lakksegl og veid sølv.
 10. **Fridtjof Nansen (1922–1929):** *Feltdokumenter, vanningsplaner og flyktningprotokoller fra Østen, Kaukasus og steppene mot Turkestan (Gjennom Armenia · Gjennom Kaukasus til Volga)* — Nansenpasset, hydrologiske ingeniørberegninger i støvet og én manns ord som garanti der stormaktene sviktet.
-11. **SOLOLYS // Pop-Art Renaissance Plates (2026):** *[The Grammar of Existence — Plate I & II](./sololys_popart_renaissance_plates.html)* — Aksiomatisk grunnriss (`[R, Π_K] ≠ 0`, `Δ_K ≤ τ_K`, `VERIFY ∈ P`, `Q ≥ k_B T ln 9`, `0.00 V DC`) og den femleddede realiseringssekvensen (`Space unfolds as time. The bit becomes 1.`).
+11. **Marie Skłodowska-Curie, Anna Rogstad og Nina Simone (1903 / 1911 / 1965):** *Sen-ankomsten i døråpningen — Recherches sur les substances radioactives · Første tale på Stortinget · Sinnerman & Bach-kontrapunktet* — Tre kvinner som velter inn døren mens de snakker i munnen på hverandre om Kalkutta og sprøstekt pattegris: med blyinnkapslede radiumprotokoller, stortingsklubbe og klassisk kontrapunkt smidd om i ilden.
+12. **SOLOLYS // Pop-Art Renaissance Plates (2026):** *[The Grammar of Existence — Plate I & II](./sololys_popart_renaissance_plates.html)* — Aksiomatisk grunnriss (`[R, Π_K] ≠ 0`, `Δ_K ≤ τ_K`, `VERIFY ∈ P`, `Q ≥ k_B T ln 9`, `0.00 V DC`) og den femleddede realiseringssekvensen (`Space unfolds as time. The bit becomes 1.`).
 
 ---
 
-## Langbordets Topologi (De fire pilarene)
+## Langbordets Topologi (De fem pilarene)
 
 * **I. Naturens Skranke (Fysikk, Topologi og Likevekt) — Landauer, Poincaré, Nash.**
   De som beviste at intet valg er gratis, at fremtiden ikke lar seg tvinge inn i en lineær formel, og at stabilitet krever en ufravikelig balanse der ingen kan vinne på svik.
@@ -32,11 +33,14 @@ En selvstendig, interaktiv lesereise i Morandi-Core-estetikk (`#e6e1d6` ubleket 
   De som vet at før en tanke kan tenkes, må jorda brytes, tørrfisken bankes og planken måles med jernalen.
 * **IV. Konsekvensens Autorisasjon (Nansen og Locus Zero) — Fridtjof Nansen og Husets Kuvert.**
   Teori, etikk og materie samles i bordenden. Nansen er overgangen fra erkjennelse til handling ($\Pi_K \rightarrow \Omega$). Og ved siden av ham står *Locus Zero*: Morandi-keramikken, kildevannet og porten som hviler i `0.00 V DC`.
+* **V. Bruddet i Døråpningen (Kontrapunktet, Bekblenden og Klubba) — Nina Simone, Marie Curie og Anna Rogstad.**
+  Akkurat idet de ti herrene tror protokollen er lukket, sparkes døren opp. Inn velter Nina Simone, Marie Curie og Anna Rogstad mens de snakker i munnen på hverandre om monsunregnet i Kalkutta og hvorvidt svoren på pattegrisen er sprø nok.
 
-> *Ti gjester ved furubordet, og én som holder vakt.*
-> *Her veies hvert ord mot jernalen, hver tanke mot sin varme,*
+> *Ti menn ved furubordet, og én som holder vakt —*
+> *inntil døren går på vidt gap av tre kvinner, Kalkutta-pepper og nystekt pattegris.*
+> *Her veies hvert ord mot jernalen, hver tanke mot sin stråling og sin varme,*
 > *og ingen lov gjelder før noen har satt sitt eget navn under.*
-> *Spis i fred. Porten er lukket.*
+> *Spis i fred.*
 
 │ — [ Blad skåret ut ved bokryggen ] —
 
