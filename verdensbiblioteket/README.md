@@ -19,11 +19,12 @@ En selvstendig, interaktiv lesereise i Morandi-Core-estetikk (`#e6e1d6` ubleket 
 9. **Flamsk–norsk handels- og trelasttraktat (1728):** *Certeparti og Kjøpekontrakt mellom Flamske Kjøbmænd i Brugge/Oostende og Norske Udskibere* — Fysisk oppgjør målt i malmfuru-tylfter, tjæretønner, tørrfisk, justert jernalen, lakksegl og veid sølv.
 10. **Fridtjof Nansen (1922–1929):** *Feltdokumenter, vanningsplaner og flyktningprotokoller fra Østen, Kaukasus og steppene mot Turkestan (Gjennom Armenia · Gjennom Kaukasus til Volga)* — Nansenpasset, hydrologiske ingeniørberegninger i støvet og én manns ord som garanti der stormaktene sviktet.
 11. **Marie Skłodowska-Curie, Anna Rogstad og Nina Simone (1903 / 1911 / 1965):** *Sen-ankomsten i døråpningen — Recherches sur les substances radioactives · Første tale på Stortinget · Sinnerman & Bach-kontrapunktet* — Tre kvinner som velter inn døren mens de snakker i munnen på hverandre om Kalkutta og sprøstekt pattegris: med blyinnkapslede radiumprotokoller, stortingsklubbe og klassisk kontrapunkt smidd om i ilden.
-12. **SOLOLYS // Pop-Art Renaissance Plates (2026):** *[The Grammar of Existence — Plate I & II](./sololys_popart_renaissance_plates.html)* — Aksiomatisk grunnriss (`[R, Π_K] ≠ 0`, `Δ_K ≤ τ_K`, `VERIFY ∈ P`, `Q ≥ k_B T ln 9`, `0.00 V DC`) og den femleddede realiseringssekvensen (`Space unfolds as time. The bit becomes 1.`).
+12. **Henrietta Swan Leavitt og Merle Antony Tuve (1912 / 1925):** *Periods of 25 Variable Stars in the Small Magellanic Cloud · A Radio Method for Estimating the Height of the Conducting Layer* — De to som spente opp den vertikale målestaven fra kefeidene i verdensrommet (Leavitts lov) til puls-ekko-flytiden ($\Delta t$) i ionosfæren og de seismiske røttene i jordskorpen (Tuve).
+13. **SOLOLYS // Pop-Art Renaissance Plates (2026):** *[The Grammar of Existence — Plate I & II](./sololys_popart_renaissance_plates.html)* — Aksiomatisk grunnriss (`[R, Π_K] ≠ 0`, `Δ_K ≤ τ_K`, `VERIFY ∈ P`, `Q ≥ k_B T ln 9`, `0.00 V DC`) og den femleddede realiseringssekvensen (`Space unfolds as time. The bit becomes 1.`).
 
 ---
 
-## Langbordets Topologi (De fem pilarene)
+## Langbordets Topologi (De seks pilarene)
 
 * **I. Naturens Skranke (Fysikk, Topologi og Likevekt) — Landauer, Poincaré, Nash.**
   De som beviste at intet valg er gratis, at fremtiden ikke lar seg tvinge inn i en lineær formel, og at stabilitet krever en ufravikelig balanse der ingen kan vinne på svik.
@@ -35,10 +36,13 @@ En selvstendig, interaktiv lesereise i Morandi-Core-estetikk (`#e6e1d6` ubleket 
   Teori, etikk og materie samles i bordenden. Nansen er overgangen fra erkjennelse til handling ($\Pi_K \rightarrow \Omega$). Og ved siden av ham står *Locus Zero*: Morandi-keramikken, kildevannet og porten som hviler i `0.00 V DC`.
 * **V. Bruddet i Døråpningen (Kontrapunktet, Bekblenden og Klubba) — Nina Simone, Marie Curie og Anna Rogstad.**
   Akkurat idet de ti herrene tror protokollen er lukket, sparkes døren opp. Inn velter Nina Simone, Marie Curie og Anna Rogstad mens de snakker i munnen på hverandre om monsunregnet i Kalkutta og hvorvidt svoren på pattegrisen er sprø nok.
+* **VI. Den Vertikale Målestaven (Fra Magellanskyene til Jordskorpen) — Henrietta Swan Leavitt og Merle Antony Tuve.**
+  Oppmålerne av rom og tid: Leavitt med de fotografiske glassplatene som ga universet en fysisk avstandsskala, og norsk-amerikaneren Tuve med de første elektromagnetiske radiopuls-ekkoene ($\Delta t$) mot ionosfæren og seismiske loddskudd ned i jordskorpen.
 
 > *Ti menn ved furubordet, og én som holder vakt —*
-> *inntil døren går på vidt gap av tre kvinner, Kalkutta-pepper og nystekt pattegris.*
-> *Her veies hvert ord mot jernalen, hver tanke mot sin stråling og sin varme,*
+> *inntil døren går på vidt gap av tre kvinner, Kalkutta-pepper, nystekt pattegris*
+> *og de to som målte avstanden fra stjernetåken ned til grunnfjellet.*
+> *Her veies hvert ord mot jernalen, hver puls mot sin flytid, hver tanke mot sin varme,*
 > *og ingen lov gjelder før noen har satt sitt eget navn under.*
 > *Spis i fred.*
 
