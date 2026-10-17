@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOLOLYS // POP-ART RENAISSANCE PLATES — THE GRAMMAR OF EXISTENCE</title>
+  <style>
+    :root {
+      --parchment: #f4efe4;
+      --ink: #111315;
+      --vermilion: #e63929;
+      --ultramarine: #18348c;
+      --gold: #d8a228;
+      --cyan: #00b8b0;
+      --cream: #fbf8f1;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 32px 20px;
+      background: #141518;
+      color: var(--ink);
+      font-family: 'Georgia', 'Times New Roman', serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 44px;
+    }
+    .plate {
+      width: 1080px;
+      max-width: 100%;
+      background: var(--parchment);
+      border: 8px solid var(--ink);
+      box-shadow: 16px 16px 0 var(--vermilion), 32px 32px 0 var(--gold);
+      position: relative;
+      overflow: hidden;
+      padding: 36px 42px;
+    }
+    /* Pop-Art Ben-Day Halftone Overlay */
+    .plate::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(17, 19, 21, 0.08) 1.25px, transparent 1.25px);
+      background-size: 10px 10px;
+      pointer-events: none;
+    }
+    .renaissance-frame {
+      border: 3px double var(--ink);
+      padding: 28px 32px;
+      position: relative;
+      background: rgba(251, 248, 241, 0.86);
+    }
+    .header-banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 5px solid var(--ink);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .tag-pill {
+      display: inline-block;
+      background: var(--vermilion);
+      color: #fff;
+      font-family: 'Courier New', monospace;
+      font-weight: 900;
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      padding: 5px 12px;
+      border: 2px solid var(--ink);
+      box-shadow: 4px 4px 0 var(--ink);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.35rem;
+      line-height: 1.05;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-shadow: 3px 3px 0 var(--gold);
+    }
+    .subtitle {
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      font-size: 0.96rem;
+      background: var(--ink);
+      color: var(--gold);
+      padding: 8px 14px;
+      border: 2px solid var(--gold);
+      margin-top: 10px;
+      display: inline-block;
+    }
+    .seal-badge {
+      background: var(--ultramarine);
+      color: #fff;
+      border: 3px solid var(--ink);
+      box-shadow: 5px 5px 0 var(--gold);
+      padding: 12px 16px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.8rem;
+      text-align: right;
+    }
+    .axiom-strip {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+    .axiom-card {
+      border: 3px solid var(--ink);
+      padding: 12px 16px;
+      background: #fff;
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+    .axiom-card.gold { background: #fff6dc; border-left: 10px solid var(--gold); }
+    .axiom-card.blue { background: #edf2ff; border-left: 10px solid var(--ultramarine); }
+    .axiom-card strong {
+      display: block;
+      font-family: 'Courier New', monospace;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      color: var(--vermilion);
+      margin-bottom: 4px;
+    }
+    .grid-6 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .law-box {
+      border: 3px solid var(--ink);
+      background: var(--cream);
+      padding: 16px;
+      box-shadow: 6px 6px 0 var(--ink);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .law-box .roman {
+      font-family: 'Georgia', serif;
+      font-weight: bold;
+      font-size: 0.75rem;
+      background: var(--gold);
+      color: var(--ink);
+      border: 2px solid var(--ink);
+      padding: 2px 8px;
+      align-self: flex-start;
+      margin-bottom: 8px;
+    }
+    .law-box h3 {
+      margin: 0 0 8px 0;
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .formula-banner {
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      font-size: 0.92rem;
+      background: var(--ink);
+      color: #fff;
+      padding: 8px 10px;
+      border-left: 5px solid var(--cyan);
+      margin: 6px 0 10px 0;
+    }
+    .law-box p {
+      margin: 0;
+      font-size: 0.86rem;
+      line-height: 1.38;
+    }
+    /* Plate 2: 5-step arches */
+    .arches-5 {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-top: 20px;
+    }
+    .arch-card {
+      border: 3px solid var(--ink);
+      border-radius: 90px 90px 4px 4px;
+      background: var(--cream);
+      padding: 28px 14px 18px 14px;
+      text-align: center;
+      box-shadow: 6px 6px 0 var(--ink);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .arch-card:nth-child(1) { border-top: 8px solid var(--ultramarine); }
+    .arch-card:nth-child(2) { border-top: 8px solid var(--gold); }
+    .arch-card:nth-child(3) { border-top: 8px solid var(--cyan); }
+    .arch-card:nth-child(4) { border-top: 8px solid var(--vermilion); }
+    .arch-card:nth-child(5) { background: var(--ink); color: var(--parchment); box-shadow: 6px 6px 0 var(--gold); }
+    .arch-step {
+      font-family: 'Courier New', monospace;
+      font-weight: 900;
+      font-size: 1.25rem;
+      width: 38px;
+      height: 38px;
+      line-height: 34px;
+      margin: 0 auto 10px auto;
+      border-radius: 50%;
+      border: 2px solid var(--ink);
+      background: var(--gold);
+      color: var(--ink);
+    }
+    .arch-card h4 {
+      margin: 4px 0 6px 0;
+      font-size: 0.96rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+    .arch-math {
+      font-family: 'Courier New', monospace;
+      font-size: 0.8rem;
+      font-weight: bold;
+      padding: 5px 6px;
+      margin: 8px 0;
+      background: rgba(17,19,21,0.08);
+      border: 1px solid var(--ink);
+    }
+    .arch-card:nth-child(5) .arch-math {
+      background: var(--vermilion);
+      color: #fff;
+      border-color: var(--gold);
+    }
+    .footer-coda {
+      margin-top: 24px;
+      padding-top: 14px;
+      border-top: 3px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      font-family: 'Courier New', monospace;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PLATE I: AXIOMATIC FOUNDATION & FAIL-CLOSED MATRIX -->
+  <section class="plate">
+    <div class="renaissance-frame">
+      <div class="header-banner">
+        <div>
+          <span class="tag-pill">PLATE I // POP-ART RENAISSANCE CODEX</span>
+          <h1>SOLOLYS // THE GRAMMAR OF EXISTENCE</h1>
+          <div class="subtitle">GENERATION ≠ AUTHORIZATION ≠ WITNESSED CONSEQUENCE</div>
+        </div>
+        <div class="seal-badge">
+          LEVEL 01 HUMAN AUTHORITY: 100%<br />
+          AUTONOMOUS MACHINE AUTHORITY: 0.00%<br />
+          INSPIRED_BY ≠ IMPLEMENTS ≠ PROVES
+        </div>
+      </div>
+
+      <div style="margin-bottom: 24px; border: 4px solid var(--ink); box-shadow: 8px 8px 0 var(--ink); background: #000;">
+        <img src="https://sololys.github.io/skrivevaerelset/verdensbiblioteket/sololys_popart_renaissance_plate_1_axioms.jpg" alt="Plate I: The Grammar of Existence (Pop-Art Renaissance)" style="width: 100%; display: block;" />
+      </div>
+
+      <div class="axiom-strip">
+        <div class="axiom-card gold">
+          <strong>Authorization Requirement</strong>
+          A bit is not born as <code>1</code>. It is authorized to <code>1</code> exclusively through structural projection (<code>Π_K</code>) and consequence-gate authorization (<code>Ω</code>).
+        </div>
+        <div class="axiom-card blue">
+          <strong>Operational Summary (x₀ Closed)</strong>
+          Reality is not generated locally; reality is <em>admitted</em> locally through structural projection. What lacks a witness rests in stasis; what violates geometry is severed.
+        </div>
+      </div>
+
+      <div class="grid-6">
+        <div class="law-box">
+          <div>
+            <span class="roman">LAW I // ORDERING</span>
+            <h3>Non-Commutativity</h3>
+            <div class="formula-banner">[R, Π_K] = R Π_K − Π_K R ≠ 0</div>
+          </div>
+          <p>Irreversible realization (<strong>R</strong>) can never precede structural projection (<strong>Π_K</strong>). Only <code>R(Π_K(x))</code> is admissible.</p>
+        </div>
+
+        <div class="law-box">
+          <div>
+            <span class="roman">LAW II // GEOMETRY</span>
+            <h3>Residual Threshold</h3>
+            <div class="formula-banner">Δ_K = ||x − Π_K(x)|| ≤ τ_K</div>
+          </div>
+          <p>If <code>Δ_K ≤ τ_K → PASS</code>. Missing witness or uncertainty <code>→ HOLD</code>. Boundary breach <code>→ KILL</code>.</p>
+        </div>
+
+        <div class="law-box">
+          <div>
+            <span class="roman">LAW III // COMPLEXITY</span>
+            <h3>Cook–Levin Spacetime</h3>
+            <div class="formula-banner">FIND ∈ NP → VERIFY ∈ P</div>
+          </div>
+          <p>Computational history is static. Time unfolds only when the witness path (<code>W</code>) is verified in linear time <code>O(|γ|)</code>.</p>
+        </div>
+
+        <div class="law-box">
+          <div>
+            <span class="roman">LAW IV // ENTROPY</span>
+            <h3>Thermodynamic Tariff</h3>
+            <div class="formula-banner">Q ≥ k_B T ln(9)</div>
+          </div>
+          <p>The 9-fold Landauer erasure tariff is exacted irreversibly in copper upon collapse to the decoupled eigenstate <code>|ψ_9⟩</code>.</p>
+        </div>
+
+        <div class="law-box">
+          <div>
+            <span class="roman">LAW V // GROUNDING</span>
+            <h3>Stasis (0.00 V DC)</h3>
+            <div class="formula-banner">⟨ψ_9 | Ĵ_EM | ψ_9⟩ = 0</div>
+          </div>
+          <p>Zero radiative current expectation. Hardware halt clamps operational potential to exact <code>0.00 V DC</code> stasis.</p>
+        </div>
+
+        <div class="law-box">
+          <div>
+            <span class="roman">LAW VI // LEDGER</span>
+            <h3>Monotonic Memory</h3>
+            <div class="formula-banner">ρ(DP) ≥ 1 // R_k = H(R_{k-1} ∥ E_k)</div>
+          </div>
+          <p>State transitions form append-only cryptographic witness chains folded into <code>O(1)</code> Merkle epoch roots.</p>
+        </div>
+      </div>
+
+      <div class="footer-coda">
+        <span>REISMANNPOINT SYSTEMS // LOCUS ZERO, RISØR</span>
+        <span>NON GENERATUR SED ADMITTITUR // 24/24 PASS</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATE II: STATE & VERIFICATION SEQUENCING -->
+  <section class="plate">
+    <div class="renaissance-frame">
+      <div class="header-banner">
+        <div>
+          <span class="tag-pill">PLATE II // FIVE-FOLD REALIZATION SEQUENCE</span>
+          <h1>SPACE UNFOLDS AS TIME. THE BIT BECOMES 1.</h1>
+          <div class="subtitle">x₀ (STASIS) ──► Φ (CANDIDATE) ──► Π_K (POINTER STATE) ──► Δ_K (EVALUATION) ──► W (WITNESS)</div>
+        </div>
+        <div class="seal-badge">
+          CAUSAL CONE: BOUNDED SPACETIME<br />
+          STASIS RAIL: 0.00 V DC<br />
+          COMMIT RAIL: AUTHORIZED 1
+        </div>
+      </div>
+
+      <div style="margin-bottom: 22px; border: 4px solid var(--ink); box-shadow: 8px 8px 0 var(--ink); background: #000;">
+        <img src="https://sololys.github.io/skrivevaerelset/verdensbiblioteket/sololys_popart_renaissance_plate_2_sequence.jpg" alt="Plate II: State & Verification Sequencing (Pop-Art Renaissance)" style="width: 100%; display: block;" />
+      </div>
+
+      <div class="arches-5">
+        <div class="arch-card">
+          <div>
+            <div class="arch-step">I</div>
+            <h4>Expectation (x₀)</h4>
+            <div class="arch-math">V = 0.00 V DC</div>
+          </div>
+          <p style="font-size:0.84rem;">The system rests in topological stasis. Time stands still. No unverified impulse crosses the gate.</p>
+        </div>
+
+        <div class="arch-card">
+          <div>
+            <div class="arch-step">II</div>
+            <h4>Generation (Φ)</h4>
+            <div class="arch-math">∂_t HOLD = 0</div>
+          </div>
+          <p style="font-size:0.84rem;">The space of possibilities expands but remains virtual. Time alone never opens a physical or logical gate.</p>
+        </div>
+
+        <div class="arch-card">
+          <div>
+            <div class="arch-step">III</div>
+            <h4>Projection (Π_K)</h4>
+            <div class="arch-math">[Ĥ_int, |s_i⟩⟨s_i|] = 0</div>
+          </div>
+          <p style="font-size:0.84rem;">The state space is stripped of noise and fragile superpositions until only invariant pointer states remain.</p>
+        </div>
+
+        <div class="arch-card">
+          <div>
+            <div class="arch-step">IV</div>
+            <h4>Evaluation (Δ_K)</h4>
+            <div class="arch-math">ε_mach ≤ Δ_G ≤ τ_G</div>
+          </div>
+          <p style="font-size:0.84rem;">Residual drift is measured. If the tolerance band is exceeded, the circuit clamps immediately to <code>0.00 V DC</code>.</p>
+        </div>
+
+        <div class="arch-card">
+          <div>
+            <div class="arch-step">V</div>
+            <h4>Witness (W)</h4>
+            <div class="arch-math">Ω(x, e) ──► BIT = 1</div>
+          </div>
+          <p style="font-size:0.84rem;">A verifiable cryptographic signature translates into axiomatic action. <strong>Space unfolds as time. The bit becomes 1.</strong></p>
+        </div>
+      </div>
+
+      <div class="footer-coda">
+        <span>SOLOLYS // THE GRAMMAR OF EXISTENCE</span>
+        <span>CANDIDATE ≠ CONSEQUENCE // NOTHING CROSSES SILENTLY</span>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

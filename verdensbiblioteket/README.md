@@ -18,6 +18,7 @@ En selvstendig, interaktiv lesereise i Morandi-Core-estetikk (`#e6e1d6` ubleket 
 8. **Gert Nygårdshaug (1989):** *Mengele Zoo* — Biosfærens fysiske regnskap i møte med grenseløs industriell rovdrift.
 9. **Flamsk–norsk handels- og trelasttraktat (1728):** *Certeparti og Kjøpekontrakt mellom Flamske Kjøbmænd i Brugge/Oostende og Norske Udskibere* — Fysisk oppgjør målt i malmfuru-tylfter, tjæretønner, tørrfisk, justert jernalen, lakksegl og veid sølv.
 10. **Fridtjof Nansen (1922–1929):** *Feltdokumenter, vanningsplaner og flyktningprotokoller fra Østen, Kaukasus og steppene mot Turkestan (Gjennom Armenia · Gjennom Kaukasus til Volga)* — Nansenpasset, hydrologiske ingeniørberegninger i støvet og én manns ord som garanti der stormaktene sviktet.
+11. **SOLOLYS // Pop-Art Renaissance Plates (2026):** *[The Grammar of Existence — Plate I & II](./sololys_popart_renaissance_plates.html)* — Aksiomatisk grunnriss (`[R, Π_K] ≠ 0`, `Δ_K ≤ τ_K`, `VERIFY ∈ P`, `Q ≥ k_B T ln 9`, `0.00 V DC`) og den femleddede realiseringssekvensen (`Space unfolds as time. The bit becomes 1.`).
 
 │ — [ Blad skåret ut ved bokryggen ] —
 

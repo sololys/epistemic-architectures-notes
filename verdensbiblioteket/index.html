@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verdensbiblioteket — Ti tekster, ti arkiver</title>
+    <title>Verdensbiblioteket — Elleve tekster og plansjer</title>
     <style>
         /* DOMENE-ISOLASJON: MORANDI-CORE AESTHETICS */
         :root {
@@ -172,6 +172,20 @@
             border-top: 1px solid var(--ash);
         }
 
+        .plates-banner {
+            margin-top: 2.5rem;
+            padding: 1.5rem;
+            border: 1px solid var(--ash);
+            background-color: var(--card-bg);
+        }
+
+        .plates-banner a {
+            color: var(--ink);
+            text-decoration: none;
+            border-bottom: 1px solid var(--ink);
+            padding-bottom: 1px;
+        }
+
         .cut-mark {
             color: var(--ash);
             font-style: italic;
@@ -190,13 +204,13 @@
 <body>
 <main>
     <div class="colophon">
-        Verdensbiblioteket — Ti grunntekster om termodynamikk, portens smalhet, likevekt, ansvar og fysisk oppgjør.
+        Verdensbiblioteket — Elleve grunntekster og plansjer om termodynamikk, portens smalhet, likevekt, ansvar og fysisk oppgjør.
     </div>
 
     <header>
-        <span class="tag">Kildearkiv og Tekstutdrag</span>
+        <span class="tag">Kildearkiv, Tekstutdrag og Plansjer</span>
         <h1>Verdensbiblioteket</h1>
-        <p class="muted">Ti verk fra ti arkiver og biblioteker: fra Rolf Landauers termodynamiske pris for informasjon, Jesus ved den trange porten, Henri Poincarés faserom, John Nashs likevekt og Sokrates' indre veto, til Knut Hamsun, Jens Bjørneboe, Gert Nygårdshaug, en flamsk–norsk handelsavtale fra 1700-tallet og Fridtjof Nansens feltdokumenter fra Østen, Kaukasus og grenselandet mot Turkestan.</p>
+        <p class="muted">Elleve verk fra arkiver og biblioteker: fra Rolf Landauers termodynamiske pris for informasjon, Jesus ved den trange porten, Henri Poincarés faserom, John Nashs likevekt og Sokrates' indre veto, til Knut Hamsun, Jens Bjørneboe, Gert Nygårdshaug, en flamsk–norsk handelsavtale fra 1700-tallet, Fridtjof Nansens feltdokumenter fra grenselandet mot Turkestan og SOLOLYS Pop-Art Renaissance Plates.</p>
     </header>
 
     <section class="card" aria-live="polite">
@@ -215,6 +229,13 @@
             <button id="next">Neste</button>
         </nav>
     </section>
+
+    <div class="plates-banner">
+        <span class="tag">TILHØRENDE PLANSJEVERK</span>
+        <p style="margin: 0.35rem 0 0 0; text-align: left;">
+            <a href="sololys_popart_renaissance_plates.html">Åpne SOLOLYS // Pop-Art Renaissance Plates — The Grammar of Existence (Plate I &amp; II)</a>
+        </p>
+    </div>
 
     <div class="cut-mark">
         │ — [ Blad skåret ut ved bokryggen ] —
@@ -312,6 +333,14 @@ const books = [
         excerpt: "«Diplomatene skriver sine resolusjoner på glittet papir i Genève, men her ute på den svidde sletten måles livet i kubikkmeter vann i kanalene, i såkorn før frosten kommer, og i et stykke stemplet papir som gir en statsløs rett til å eksistere.»",
         description: "Nansens egne dagbøker, hydrologiske kartskisser og Folkeforbunds-rapporter fra reisen gjennom Konstantinopel, Lilleasia, Armenia, Kaukasus, Kaspihavet og steppegrensen mot Turkestan. Der stormaktene svarte med tomme løfter, reiste Nansen selv ut i støvet for å beregne vanningsanlegg for ørkenjorden, telle kornlaster og utstede Nansenpasset — der én manns personlige integritet ble garantien for hundretusener av statsløse.",
         availability: "Originaldokumenter, kartskisser og reisedagbøker i Nasjonalbibliotekets Nansen-samling og League of Nations Archives i Genève; bokutgavene fra 1927 og 1929 er digitalt tilgjengelige."
+    },
+    {
+        library: "Skriveværelset · Locus Zero, Risør (Plansjearkiv)",
+        title: "SOLOLYS // Pop-Art Renaissance Plates — The Grammar of Existence (Plate I & II)",
+        author: "ReismannPoint Systems AS, 2026",
+        excerpt: "«A bit is not born as 1. It is authorized to 1 exclusively through structural projection (Π_K) and consequence-gate authorization (Ω). Reality is not generated locally; reality is admitted locally through structural projection. Space unfolds as time. The bit becomes 1.»",
+        description: "To plansjer i krysningspunktet mellom høyrenessansens geometriske kobberstikk og silketrykkets kvantiserte fargeblokker: Plate I fastsetter de seks aksiomatiske lovene ([R, Π_K] ≠ 0, Δ_K ≤ τ_K, Cook–Levin VERIFY ∈ P, Landauer Q ≥ k_B T ln 9, 0.00 V DC stase og monoton vitnekjede), mens Plate II viser den femleddede sekvensen fra stase (x_0) til bevitnet konsekvens (W).",
+        availability: "Direkte visning i Verdensbiblioteket via sololys_popart_renaissance_plates.html."
     }
 ];
 
