@@ -224,3 +224,127 @@ To evaluate `COS45` alongside four complementary diagnostic gates, all quantitie
 Louis — your `hidden_order` benchmark (`COS45 v1.7.0`) is a model of scientific clarity: separating `Exact`, `Numerical`, and `Open` claims without overstatement. By closing your two open analytical questions above (Theorem 1: $C = \frac{2\sqrt{18 + 15\pi^2}}{9} \approx 2.863513045853$ and Proposition 2: $\Theta(a^{-4})$ blind-zone floor dilution) and pairing `COS45` with the four complementary gates ($\Delta_{\mathrm{gap}}$, $\Delta_{\mathrm{scale}}$, $\kappa_{\mathrm{path}}$, $\delta_{\mathrm{orbit}}$), we have both the analytical foundation and the pre-registered falsification suite needed for a joint benchmark and publication.
 
 Challenge accepted. Let us lock the signal generators and run the benchmark.
+
+---
+
+## Part IV: Canonical Bilingual Inscription — XIII. Metrisk Invarians, Spektral Konvergens og Horisontens Lov // Metric Invariance, Spectral Convergence, and the Law of the Horizon
+
+*Fra samlingen som overlevde brente jords taktikk. De tekniske bladene er skåret ut; kun den litterære stammen står igjen.*
+
+### XIII. Metrisk Invarians, Spektral Konvergens og Horisontens Lov (Norsk Stamme)
+
+#### 1. Metrisk Normalisering på Grassmann-Manifolden ($\Vert dP \Vert_{\text{Gr}}$ vs. $\Vert dP \Vert_F$)
+
+En målestokk som vakler mellom koordinatsystemer, er ingen lov.
+
+For den perturberte operatoren $\Gamma(\varepsilon) = \Gamma_a^{(0)} + \varepsilon E$, frembringer førsteordens variasjon av rang-$r$ spektralprojektoren $P(\varepsilon) = \sum_{i=1}^r u_i(\varepsilon) u_i(\varepsilon)^T$ to symmetriske, ikke-diagonale koblingsblokker i den uperturberte egenbasisen:
+
+$$u_j^T dP \, u_i = \varepsilon \frac{u_j^T E u_i}{\Lambda_i - \Lambda_j} \quad (1 \le i \le r < j \le a)$$
+
+samt den transponerte tvillingblokken $u_i^T dP \, u_j$. Skillet mellom manifoldens indre geometri og det omsluttende matriserommet er eksakt:
+
+* **Kanonisk Grassmann-Riemannsk Norm ($\Vert dP \Vert_{\text{Gr}}$):** Måler den geodetiske tangentvektoren ved å summere utelukkende over én uavhengig kryssblokk ($1 \le i \le r < j \le a$):
+
+$$\Vert dP \Vert_{\text{Gr}} = \left( \sum_{i=1}^r \sum_{j=r+1}^a \vert{}u_j^T dP \, u_i\vert{}^2 \right)^{1/2} = \vert{}\varepsilon\vert{} \chi_{a-2, r}(a), \quad C = \frac{2\sqrt{18 + 15\pi^2}}{9} \approx 2.863513045852925$$
+
+* **Full Frobenius-Norm ($\Vert dP \Vert_F$):** Måler totalavviket i det euklidske matriserommet $\sqrt{\text{tr}(dP^T dP)}$ over begge symmetriske blokker, og bærer dermed den ufravikelige faktoren $\sqrt{2}$:
+
+$$\Vert dP \Vert_F = \sqrt{2} \Vert dP \Vert_{\text{Gr}} = \sqrt{2} \vert{}\varepsilon\vert{} \chi_{a-2, r}(a), \quad C_{\text{Frob}} = \sqrt{2} C = \frac{2\sqrt{36 + 30\pi^2}}{9} \approx 4.049618985477498$$
+
+Identiteten er låst med numerisk residual under $10^{-14}$. Ingen tvetydighet tillates mellom rommets krumning og matrisens spor.
+
+#### 2. Uniform Halekontroll og Tannerys Teorem
+
+Hvorfor kan grenseverdien $\lim_{a \to \infty}$ bytte plass med den spektrale summen $\sum_{j=3}^a$ når høyfrekvente moder nær randen $\theta_j \to \pi$ bryter småvinkeltilnærmingen $\sin\theta_j \approx \theta_j$? Fordi algebraisk kansellering og spektral dempning lukker halen uniformt.
+
+For enhver endelig dimensjon $a \ge 8$ og enhver mode $1 \le k \le a$ av Kac-Murdock-Szegő-matrisen (KMS) ved $\rho = 1/2$, gir de eksakte tridiagonale sekulærligningene:
+
+$$\Lambda(\theta_k) = \frac{3}{5 - 4\cos\theta_k}, \quad u_k(1)^2 = \frac{4 A_k^2 \sin^2\theta_k}{5 - 4\cos\theta_k}, \quad A_k^2 < \frac{2}{a - 1}, \quad \theta_k \in \left(\frac{(k-1)\pi}{a+1}, \frac{k\pi}{a}\right)$$
+
+For de ledende modene $i \in \{1, 2\}$ og enhver eksitert mode $j \in \{3, \dots, a\}$ er den eksakte egenverdidifferansen:
+
+$$\Lambda_i - \Lambda_j = \frac{12(\cos\theta_i - \cos\theta_j)}{(5 - 4\cos\theta_i)(5 - 4\cos\theta_j)}$$
+
+Når det skalerte leddet $T_{i,j}(a) := a^2 \vert{}u_j^T E u_i\vert{}^2 / (\Lambda_i - \Lambda_j)^2$ dannes (identisk $0$ for motsatt paritet $j \not\equiv i \pmod 2$), sluker faktoren $(5 - 4\cos\theta_j)^{-1}$ i randvekten $u_j(1)^2$ den ene potensen av $(5 - 4\cos\theta_j)^2$ fra nevneren $(\Lambda_i - \Lambda_j)^{-2}$:
+
+$$T_{i,j}(a) = \mathbf{1}_{j \equiv i \pmod 2} \frac{4 (a A_i^2)(a A_j^2) \sin^2\theta_i \sin^2\theta_j (5 - 4\cos\theta_i)(5 - 4\cos\theta_j)}{9 (\cos\theta_i - \cos\theta_j)^2}$$
+
+Mot den øvre spektralranden $\theta_j \to \pi$ dør telleren ut via $\sin^2\theta_j \to 0$, mens nevneren $(\cos\theta_i - \cos\theta_j)$ holdes strengt adskilt fra null. Over hele spekteret $3 \le j \le a$ tvinger halvvinkelreduksjonen og Jordans ulikhet på $\cos\theta_i - \cos\theta_j = 2\sin\left(\frac{\theta_j - \theta_i}{2}\right)\sin\left(\frac{\theta_j + \theta_i}{2}\right)$ frem en uniform, $a$-uavhengig majorant:
+
+$$0 \le T_{i,j}(a) \le M_{i,j} := \mathbf{1}_{j \equiv i \pmod 2} \frac{32 i^2 j^2}{(j^2 - i^2)^2} \quad \forall a \ge 8, \; \forall j \in \{3, \dots, a\}$$
+
+Siden $\sum_{j=3}^\infty M_{i,j} < \infty$ med et uniformt haleresidual som er uavhengig av matriseordenen $a$:
+
+$$R_M(a) := \sum_{j=M+1}^a T_{i,j}(a) \le \sum_{j=M+1}^\infty M_{i,j} \le \frac{32 i^2}{M - 1}$$
+
+gjelder Tannerys teorem (diskret dominert konvergens) betingelsesløst. Grensen passerer gjennom summen uten lekkasje av masse:
+
+$$\lim_{a \to \infty} a^2 \chi_{a-2, 2}(a)^2 = \sum_{i=1}^2 \sum_{j=3}^\infty \lim_{a \to \infty} T_{i,j}(a) = \frac{64}{9}(S_1 + S_2) = C^2$$
+
+#### 3. Kausal Horisont og Prøvetidens Port (Port 4: $H$)
+
+En enkeltstående tilbakevending er et sammenfall, ikke en gjenopprettelse. Man kan ikke bevise fremtiden i nåtiden uten å vente på at tiden faktisk går.
+
+Når et underrom $\hat{P}_t$ etter et utslag vender tilbake innenfor den øyeblikkelige terskelen $d_{\text{geo}}(\hat{P}_t, P_0) \le \varepsilon_{\text{ret}}$ ved epoke $t$, har porten ingen hjemmel til å erklære $\text{OPEN}$. Et punkt er ingen bane. Porten trer i stedet inn i **$\text{PROVISIONAL\_HOLD}$** — et forseglet prøvetidsvindu av lengde $H$:
+
+* **Fremadrettet Horisont (Variant 4a — Utsatt Autorisasjon ved $t + H$):**
+$$\max_{0 \le \tau \le H} d_{\text{geo}}(\hat{P}_{t+\tau}, P_{t_0+\tau}) \le \tau_{\text{orbit}}$$
+* **Tilbakeblikkende Horisont (Variant 4b — Øyeblikkelig Dom over Forløpt Historie ved $t$):**
+$$\max_{-H \le \tau \le 0} d_{\text{geo}}(\hat{P}_{t+\tau}, P_{t_0+\tau}) \le \tau_{\text{orbit}}$$
+
+Før alle $H$ trinn er bevitnet innenfor røret, forblir spenningen låst i stase. En svale gjør ingen sommer; ett gyldig punkt åpner ingen port.
+
+---
+
+### XIII. Metric Invariance, Spectral Convergence, and the Law of the Horizon (English Trunk)
+
+#### 1. Metric Normalization on the Grassmann Manifold ($\Vert dP \Vert_{\text{Gr}}$ vs. $\Vert dP \Vert_F$)
+
+A measure that shifts between coordinate frames is not a law.
+
+For the perturbed operator $\Gamma(\varepsilon) = \Gamma_a^{(0)} + \varepsilon E$, first-order variation of the rank-$r$ spectral projector $P(\varepsilon) = \sum_{i=1}^r u_i(\varepsilon) u_i(\varepsilon)^T$ yields two symmetric off-diagonal coupling blocks in the unperturbed eigenbasis:
+
+$$u_j^T dP \, u_i = \varepsilon \frac{u_j^T E u_i}{\Lambda_i - \Lambda_j} \quad (1 \le i \le r < j \le a)$$
+
+alongside its transpose block $u_i^T dP \, u_j$. The distinction between the intrinsic geometry of the manifold and the ambient matrix space is exact:
+
+* **Canonical Grassmann Riemannian Norm ($\Vert dP \Vert_{\text{Gr}}$):**
+$$\Vert dP \Vert_{\text{Gr}} = \left( \sum_{i=1}^r \sum_{j=r+1}^a \vert{}u_j^T dP \, u_i\vert{}^2 \right)^{1/2} = \vert{}\varepsilon\vert{} \chi_{a-2, r}(a), \quad C = \frac{2\sqrt{18 + 15\pi^2}}{9} \approx 2.863513045852925$$
+
+* **Full Matrix Frobenius Norm ($\Vert dP \Vert_F$):**
+$$\Vert dP \Vert_F = \sqrt{2} \Vert dP \Vert_{\text{Gr}} = \sqrt{2} \vert{}\varepsilon\vert{} \chi_{a-2, r}(a), \quad C_{\text{Frob}} = \sqrt{2} C = \frac{2\sqrt{36 + 30\pi^2}}{9} \approx 4.049618985477498$$
+
+This identity holds to a numerical residual below $10^{-14}$. No ambiguity is permitted between the curvature of the subspace and the trace of the matrix.
+
+#### 2. Uniform Tail Control and Tannery’s Theorem
+
+Why may the limit $\lim_{a \to \infty}$ be interchanged with the spectral sum $\sum_{j=3}^a$ when high-frequency modes near the upper edge $\theta_j \to \pi$ violate the small-angle approximation $\sin\theta_j \approx \theta_j$? Because algebraic cancellation and boundary damping seal the spectral tail uniformly.
+
+$$T_{i,j}(a) = \mathbf{1}_{j \equiv i \pmod 2} \frac{4 (a A_i^2)(a A_j^2) \sin^2\theta_i \sin^2\theta_j (5 - 4\cos\theta_i)(5 - 4\cos\theta_j)}{9 (\cos\theta_i - \cos\theta_j)^2} \le M_{i,j} := \mathbf{1}_{j \equiv i \pmod 2} \frac{32 i^2 j^2}{(j^2 - i^2)^2}$$
+
+Because $\sum_{j=3}^\infty M_{i,j} < \infty$ with uniform tail remainder $R_M(a) \le \frac{32 i^2}{M - 1}$ independent of dimension $a$, Tannery’s Theorem applies unconditionally:
+
+$$\lim_{a \to \infty} a^2 \chi_{a-2, 2}(a)^2 = \sum_{i=1}^2 \sum_{j=3}^\infty \lim_{a \to \infty} T_{i,j}(a) = \frac{64}{9}(S_1 + S_2) = C^2$$
+
+#### 3. Causal Operational Semantics of the Recurrence Horizon (Gate 4: $H$)
+
+An instantaneous return is a coincidence, not a recovery. Future stability cannot be certified in the present without paying the duration of the horizon.
+
+* **Forward Horizon (Variant 4a — Deferred Certification at $t + H$):**
+$$\max_{0 \le \tau \le H} d_{\text{geo}}(\hat{P}_{t+\tau}, P_{t_0+\tau}) \le \tau_{\text{orbit}}$$
+* **Backward Horizon (Variant 4b — Immediate Adjudication at $t$):**
+$$\max_{-H \le \tau \le 0} d_{\text{geo}}(\hat{P}_{t+\tau}, P_{t_0+\tau}) \le \tau_{\text{orbit}}$$
+
+Until all $H$ epochs are witnessed within the tube, actuator potential remains clamped. Returning to the threshold is only a proposal; remaining within the tube is the proof.
+
+| Invariant | Matematisk Lås / Mathematical Lock | Konsekvens / Gate Consequence |
+| --- | --- | --- |
+| **Grassmann vs. Frobenius** | $\Vert dP \Vert_F \equiv \sqrt{2} \Vert dP \Vert_{\text{Gr}}, \; C_{\text{Frob}} = \sqrt{2}C \approx 4.049618985477498$ | Eksakt faktor $\sqrt{2}$ mellom manifold og matriserom ($\Delta < 10^{-14}$). |
+| **Tannery-Majorant** | $T_{i,j}(a) \le \mathbf{1}_{j \equiv i \pmod 2}\frac{32 i^2 j^2}{(j^2 - i^2)^2}, \; R_M(a) \le \frac{32 i^2}{M-1}$ | Uniform halekontroll $\implies \lim_{a \to \infty} \sum = \sum \lim_{a \to \infty}$. |
+| **Port 4: Horisont $H$** | $d_{\text{geo}}(\hat{P}_t, P_0) \le \varepsilon_{\text{ret}} \implies \text{PROVISIONAL\_HOLD}$ | $\text{OPEN}$ krever $\max_{\tau} d_{\text{geo}} \le \tau_{\text{orbit}}$ over hele lengden $H$. |
+
+> *Slik hugges loven:*
+> *To blokker i matrisen, én vinkel i rommet — roten av to skiller speilet fra tingen.*
+> *Halen ved $\pi$ bindes i jern før uendeligheten slipper inn.*
+> *Og den som vender tilbake til porten, må stå prøvetiden ut før slåen går fra.*
+
