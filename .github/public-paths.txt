@@ -13,6 +13,7 @@ epistemic-exposure.md
 governance.md
 meta-awareness.md
 notes/HUKOMMELSENS_TERSKEL.md
+notes/IT_OT_CONSEQUENCE_GATE_NORCICS_BRIEF.md
 notes/MORISSETTE_TORJUSEN_COS45_FRONTIER_AND_PROTOCOL.md
 notes/README.md
 notes/ZAMPINO_NASH_AN_INTERESTING_EQUATION.md
