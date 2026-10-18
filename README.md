@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>BANE // NOISE</strong><br />
-  Reviewed public notes and non-canonical abstractions that have passed the publication boundary.
+  Companion research notes, field protocols, and verification scripts for The Law of Causal Inertia (Φ(x_t) ≠ x_{t+1}).
 </p>
 
 <p align="center">
@@ -55,9 +55,14 @@
 
 ---
 
-## ⚡ Featured Technical Briefs (Root)
+## ⚡ Featured Monographs & Field Protocols
 
-- [`IT_OT_CONSEQUENCE_GATE_NORCICS_BRIEF.md`](IT_OT_CONSEQUENCE_GATE_NORCICS_BRIEF.md) — *Non-AI Consequence Gating for IT-OT Integration in Critical Infrastructure ($\Phi \to \Pi_K \to \Omega \to W^2$)* (CPS4CIP 2026 / SFI NORCICS alignment: Local LLMs/HMIs, Maritime GNSS Denial, and VSG Byzantine Fault Tolerance).
+- [`LAW_OF_CAUSAL_INERTIA.md`](LAW_OF_CAUSAL_INERTIA.md) — *Treghetens lov // The Law of Causal Inertia (`FEATURE-NEWYORKER-INERTIA-2026-v1.0`)* (Bilingual NO/EN *New Yorker* Profile + Section XIV Keystone: $\Phi(x_t) \neq x_{t+1}$).
+- [`KPOD_V12_L3_15N2_NMR_LAB_PROTOCOL.md`](KPOD_V12_L3_15N2_NMR_LAB_PROTOCOL.md) — *K-POD v1.2 Operational $^{15}\text{N}_2$ / $^1\text{H-NMR}$ ($72.5\text{ Hz}$) Laboratory Protocol & Requisition Sheet (`K1`–`K6`, `Lock 0`)*.
+- [`notes/METRISK_INVARIANS_SPEKTRAL_KONVERGENS_OG_HORISONTENS_LOV.md`](notes/METRISK_INVARIANS_SPEKTRAL_KONVERGENS_OG_HORISONTENS_LOV.md) — *Metrisk Invarians, Spektral Konvergens og Horisontens Lov (Sections I–XIV)*.
+- [`notes/DOR_30_OG_DOR_31_TEKNISK_ARKITEKTURSPESIFIKASJON.md`](notes/DOR_30_OG_DOR_31_TEKNISK_ARKITEKTURSPESIFIKASJON.md) — *Door 30 & Door 31 Technical Architecture Specification*.
+- [`notes/ESSAY_THE_TYRANNY_OF_THE_FRICTIONLESS_NEWYORKER.md`](notes/ESSAY_THE_TYRANNY_OF_THE_FRICTIONLESS_NEWYORKER.md) — *The Tyranny of the Frictionless (The 2:14 A.M. Hypothesis & The Odysseus Pact)*.
+- [`IT_OT_CONSEQUENCE_GATE_NORCICS_BRIEF.md`](IT_OT_CONSEQUENCE_GATE_NORCICS_BRIEF.md) — *Non-AI Consequence Gating for IT-OT Integration in Critical Infrastructure ($\Phi \to \Pi_K \to \Omega \to W^2$)*.
 - [`notes/MORISSETTE_TORJUSEN_COS45_FRONTIER_AND_PROTOCOL.md`](notes/MORISSETTE_TORJUSEN_COS45_FRONTIER_AND_PROTOCOL.md) — *Exact Resolution of the COS45 Frontier Constants and Pre-Registered 5-Gate Temporal Safety Protocol*.
 
 ## ⚡ The Path-Field Workflow
