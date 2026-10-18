@@ -6,6 +6,8 @@ CONTRIBUTING.md
 ECOSYSTEM.md
 IP & Boundary.md
 IT_OT_CONSEQUENCE_GATE_NORCICS_BRIEF.md
+KPOD_V12_L3_15N2_NMR_LAB_PROTOCOL.md
+LAW_OF_CAUSAL_INERTIA.md
 README.md
 assets/bane-noise-hero.svg
 epistemic-boundaries.md
@@ -14,6 +16,8 @@ governance.md
 meta-awareness.md
 notes/HUKOMMELSENS_TERSKEL.md
 notes/IT_OT_CONSEQUENCE_GATE_NORCICS_BRIEF.md
+notes/KPOD_V12_L3_15N2_NMR_LAB_PROTOCOL.md
+notes/LAW_OF_CAUSAL_INERTIA.md
 notes/MORISSETTE_TORJUSEN_COS45_FRONTIER_AND_PROTOCOL.md
 notes/README.md
 notes/ZAMPINO_NASH_AN_INTERESTING_EQUATION.md
@@ -23,5 +27,3 @@ tools/verify_public_surface.py
 verdensbiblioteket/README.md
 verdensbiblioteket/index.html
 verdensbiblioteket/sololys_popart_renaissance_plates.html
-LAW_OF_CAUSAL_INERTIA.md
-notes/LAW_OF_CAUSAL_INERTIA.md
