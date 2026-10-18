@@ -24,3 +24,5 @@ tools/verify_public_surface.py
 verdensbiblioteket/README.md
 verdensbiblioteket/index.html
 verdensbiblioteket/sololys_popart_renaissance_plates.html
+LAW_OF_CAUSAL_INERTIA.md
+notes/LAW_OF_CAUSAL_INERTIA.md
