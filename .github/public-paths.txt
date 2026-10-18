@@ -6,7 +6,6 @@ CONTRIBUTING.md
 ECOSYSTEM.md
 IP & Boundary.md
 IT_OT_CONSEQUENCE_GATE_NORCICS_BRIEF.md
-PUBLIC_BOUNDARY.md
 README.md
 assets/bane-noise-hero.svg
 epistemic-boundaries.md

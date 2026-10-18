@@ -3,20 +3,15 @@
 ### *I en sørlandsk kystby forsøker en egensindig teoretiker å befri norsk landbruk fra den globale kjemiens lenker — ved å gjeninnføre friksjonen verden glemte.*
 ### *In a southern Norwegian coastal town, an uncompromising theorist seeks to free agriculture from the chains of global chemistry — by reintroducing the friction the world forgot.*
 
-> **Dokument-ID // Document ID:** `FEATURE-NEWYORKER-INERTIA-2026-v1.0`  
-> **Forfatter & Ansvarlig // Author:** Marius Egerhei Torjusen (ORCID: [0009-0006-0431-6637](https://orcid.org/0009-0006-0431-6637))  
-> **Lokus // Locus:** Risør HQ / ReismannPoint Systems / Brahman Ventures AS  
-> **Format:** Litterært langlesningsessay (*The New Yorker* Style Profile — Norsk & English) + Formell Matematisk Spesifikasjon  
-> **Arkiv // Archive:** [DOI: 10.5281/zenodo.18436983](https://doi.org/10.5281/zenodo.18436983) · `10.5281/zenodo.22229111`  
-> **Epistemisk Status // Epistemic Status:** $\boxed{\text{L1 SOFTWARE OPEN}} \;\cdot\; \boxed{\text{FYSISK HOLD}} \;\cdot\; \boxed{\text{KOMMERSIELT HOLD}}$
-
-$$\boxed{\mathbf{\text{LAV OVERFØRINGSFRIKSJON} \quad \not\Longrightarrow \quad \text{LAV KONSEKVENSFRIKSJON}}}$$
-
-$$\boxed{\text{Realisering} = \mathcal{W} \circ \Omega \circ \Pi_K \circ \Phi \qquad \Longleftrightarrow \qquad \Phi(x_t) \neq x_{t+1} \;\;(\text{KANDIDAT} \neq \text{KONSEKVENS})}$$
+> **Dokument-ID:** `FEATURE-NEWYORKER-INERTIA-2026-v1.0`  
+> **Forfatter & Ansvarlig:** Marius Egerhei Torjusen (ORCID: [0009-0006-0431-6637](https://orcid.org/0009-0006-0431-6637))  
+> **Lokus:** Risør HQ / ReismannPoint Systems / Brahman Ventures AS  
+> **Format:** Litterært langlesningsessay (*The New Yorker* Style Profile)  
+> **Epistemisk Status:** $\boxed{\text{L1 SOFTWARE OPEN}} \;\cdot\; \boxed{\text{FYSISK HOLD}} \;\cdot\; \boxed{\text{KOMMERSIELT HOLD}}$
 
 ---
 
-## DEL I: TREGHETENS LOV (Norsk original — `FEATURE-NEWYORKER-INERTIA-2026-v1.0`)
+## DEL I — NORSK ORIGINAL
 
 ### I. Stillheten ved Skagerrak
 
@@ -34,7 +29,7 @@ Han peker mot kassen på bordet. «Der inne er det ingen sky. Ingen servere i Du
 
 ### II. Friksjonens patologi
 
-Det teoretiske byggverket som Torjusen har snekret sammen — nedfelt i et omfangsrikt vitenskapelig kompendium deponert i CERNs åpne forskningsarkiv Zenodo (`10.5281/zenodo.22229111` / [10.5281/zenodo.18436983](https://doi.org/10.5281/zenodo.18436983)) og syntetisert i oversiktsdokumentet `MASTER_SYNTESERAPPORT_KPOD_INFRANETT_RTDRA.md` — begynner ikke i kjemien, men i erkjennelsesteorien.
+Det teoretiske byggverket som Torjusen har snekret sammen — nedfelt i et omfangsrikt vitenskapelig kompendium nylig deponert i CERNs åpne forskningsarkiv Zenodo under DOI-nummeret `10.5281/zenodo.22229111` ([10.5281/zenodo.18436983](https://doi.org/10.5281/zenodo.18436983)), og syntetisert i det ferske oversiktsdokumentet `MASTER_SYNTESERAPPORT_KPOD_INFRANETT_RTDRA` — begynner ikke i kjemien, men i erkjennelsesteorien.
 
 Hans diagnose av den moderne tidsalder er formulert i en læresetning han kaller *Loven om kausal inerti*:
 
@@ -139,7 +134,7 @@ Han rister svakt på hodet.
 
 ---
 
-## PART II: THE LAW OF CAUSAL INERTIA (English Profile — `FEATURE-NEWYORKER-INERTIA-2026-v1.0`)
+## PART II — ENGLISH EDITION (*THE LAW OF CAUSAL INERTIA*)
 
 ### I. Silence by the Skagerrak
 
@@ -157,7 +152,7 @@ He points toward the enclosure on the table. "In there, there is no cloud. No se
 
 ### II. The Pathology of Friction
 
-The theoretical edifice Torjusen has assembled — deposited in CERN's open research repository Zenodo (`10.5281/zenodo.22229111` / [10.5281/zenodo.18436983](https://doi.org/10.5281/zenodo.18436983)) and synthesized in `MASTER_SYNTESERAPPORT_KPOD_INFRANETT_RTDRA.md` — begins not in chemistry, but in epistemology.
+The theoretical edifice Torjusen has assembled — deposited in CERN's open research repository Zenodo (`10.5281/zenodo.22229111` / [10.5281/zenodo.18436983](https://doi.org/10.5281/zenodo.18436983)) and synthesized in `MASTER_SYNTESERAPPORT_KPOD_INFRANETT_RTDRA` — begins not in chemistry, but in epistemology.
 
 His diagnosis of the modern era is distilled into a theorem he calls *The Law of Causal Inertia*:
 
@@ -189,7 +184,7 @@ This is where the small metal enclosure in Risør enters the picture.
 
 Instead of giant steel reactors and fossil pressure, **K-POD v1.2** relies on biomimicry — nature's own way of solving the problem. In the roots of clover and pea plants sits the enzyme nitrogenase, which fixes nitrogen at ordinary soil temperature using a microscopic metal cluster of iron, molybdenum, and sulfur ($[\text{Fe}_7\text{MoS}_9\text{C}]$).
 
-Torjusen and his computational models (`06_RESEARCH/KATALYSE_FORSKNING/03_BEREGNINGSMODELLER/energetic_span_calculator.py`) have encapsulated this cluster within a synthetic pincer ligand. By providing a coordinated proton relay at a distance of exactly $2.8\text{ ångströms}$, the modelled chemical activation barrier is lowered from an prohibitive $28.5$ to a manageable **$11.2\text{ kilocalories per mole}$**.
+Torjusen and his computational models (`06_RESEARCH/KATALYSE_FORSKNING/03_BEREGNINGSMODELLER/energetic_span_calculator.py`) have encapsulated this cluster within a synthetic pincer ligand. By providing a coordinated proton relay at a distance of exactly $2.8\text{ ångströms}$, the modelled chemical activation barrier is lowered from a prohibitive $28.5$ to a manageable **$11.2\text{ kilocalories per mole}$**.
 
 Yet the real coup — the detail that makes electrical engineers narrow their eyes — is how he avoids the curse of water splitting.
 
@@ -207,7 +202,7 @@ Yet a machine in a barn today is rarely just a machine; it is connected to the i
 
 His answer is the **Infranett v0.4** (and v0.5) protocol.
 
-Infranett is a local radio network that deliberately refuses to speak to the global cloud. Every K-POD is equipped with a strict physical-layer gate: control signals must originate from a physical distance of under twenty meters — verified by free-space radio attenuation ($P_r \propto P_t / r^2$) and a Time-of-Flight budget ($\le 133.42\text{ ns}$). If an attacker kilometers away attempts to send instructions over the internet, there is no port to knock on; the signal simply cannot satisfy the physical boundary.
+Infranett is a local radio network that deliberately refuses to speak to the global cloud. Every K-POD is equipped with a strict physical-layer gate: control signals must originate from a physical distance of under twenty meters — verified by free-space radio attenuation ($P_r \propto P_t / r^2$) and a Time-of-Flight budget ($\le 133.42\text{ ns}$). If an attacker kilometers away attempts to send instructions over the internet, there is no port to knock on; the signal simply cannot satisfy the physical requirement.
 
 And should fiber lines or cellular networks across an entire county go dark, the system falls back on the oldest and most resilient network of all: *Sneakernet*.
 
@@ -223,7 +218,7 @@ Torjusen has run the entire system through the Norwegian Agency for Public and F
 
 * **Initial Investment (CAPEX):** Five billion NOK — sufficient to deploy ten thousand K-POD units and cover Norway's mineral fertilizer demand.
 * **Quantified Utility:** Elimination of 96 million liters of heavy-transport diesel, savings of 500,000 hours of logistics downtime, and removal of 257,280 metric tons of $\text{CO}_2$ emissions annually, valued along the state's official carbon-price trajectory ($2,000 \to 3,500\text{ NOK per ton}$).
-* **Net Present Value (NPV):** A formidable surplus of **+9.335 billion NOK** ($\text{BCR} = 2.87$).
+* **Net Present Value (NPV):** A formidable surplus of **+9.335 billion NOK**.
 * **Payback Period:** Twenty-one months. Within year two, society has recovered every krone invested.
 
 Even if oil prices were to collapse by forty percent, sensitivity analyses show the rollout retains a positive net present value above four billion NOK. And should the opposite occur — a geopolitical crisis sending fuel prices skyward — the social surplus rises past eighteen billion NOK.
@@ -236,59 +231,26 @@ Unlike the typical startup founder making the rounds of venture capitalists on A
 
 $$\boxed{\text{L1 SOFTWARE OPEN}} \quad\cdot\quad \boxed{\text{FYSISK HOLD}} \quad\cdot\quad \boxed{\text{KOMMERSIELT HOLD}}$$
 
-When we checked the git log on his workstation that Thursday, the status report showed that the digital core — 816 automated tests of state machines, fail-closed regulators, and economic engines — ran without a single failure. The software is *OPEN* (`L1`).
+When we checked the git log on his workstation that Thursday, the status report showed that the digital core — 816 automated tests of state machines, fail-closed regulators, and economic engines — ran without a single failure. The software is *OPEN*.
 
 But the K-POD reactor sitting on the table in Risør? It is on **HOLD**.
 
-Before Torjusen will declare the reactor a physical reality — what his governance contract calls level `L3` — he refuses to trust his own computer models. He demands an irrefutable physical witness: the reactor must be fed rare nitrogen-15 isotope gas ($^{15}\text{N}_2$), and the resulting ammonium product must be analyzed in a proton nuclear magnetic resonance spectrometer ($^1\text{H}$-NMR). Only when the spectrometer traces an unmistakable doublet splitting at $J \approx 72.5\text{ hertz}$ — the unforgeable fingerprint of a genuinely cleaved dinitrogen bond — will he allow the physical gate to open.
+Before Torjusen will declare the reactor a physical reality — what he calls level `L3` — he refuses to trust his own computer models. He demands an irrefutable physical witness: the reactor must be fed rare nitrogen-15 isotope gas ($^{15}\text{N}_2$), and the resulting ammonium product must be analyzed in a proton nuclear magnetic resonance spectrometer ($^1\text{H}$-NMR). Only when the spectrometer traces an unmistakable doublet splitting at $72.5\text{ hertz}$ — the unforgeable fingerprint of a genuinely cleaved dinitrogen bond — will he allow the gate to open.
 
-And the cost of performing that test? Not billions. One hundred and fifty thousand kroner for laboratory rental and isotope gas. Until that physical assay is signed and sealed, the chemistry remains a hypothesis under quarantine.
+And the cost of performing that test? Not billions. Barely one hundred and fifty thousand kroner for laboratory rental and isotope gas. An application sits with Innovation Norway under the Startup 1 program. Until the caseworkers there have stamped the paper, the chemistry remains an unfinished promise.
 
-By the same rule, commercial licensing and equity dilution remain on hold. No licenses are sold, no shares diluted, and no grand press releases issued until the physical evidence gate locks into place.
+In the same way, discussions with the industrial giant Yara, the defense sector, and investment funds are on hold. No licenses will be sold, no equity diluted, and no grand press releases issued until the physical evidence gate has locked into place.
 
 ### VIII. At Home in Risør
 
 As afternoon slips into evening, we step out onto the wooden pier outside the workroom. The wind off the sea is sharper now. Out on the horizon, one can make out the silhouette of a coast-guard vessel patrolling the shipping lane toward the Oslofjord — a silent reminder that the world out there is more unsettled than it has been in decades.
 
-Behind us, inside the quiet room, the machined aluminum-titanium enclosure waits for its signed commit and its small dose of isotope gas.
+Behind us, inside the quiet room, the machined titanium-aluminum enclosure waits for its signed commit and its small dose of isotope gas.
 
-In a technology culture that has made a virtue of "moving fast and breaking things," the project in Risør is a radical antithesis: it moves deliberately, anchored in iron, stone, and Newton's laws, with an absolute prohibition against breaking anything at all. It is an attempt to build an infrastructure that does not collapse when the power fails or when servers in the cloud stop answering.
+In a technology culture that has made a virtue of "moving fast and breaking things," the project in Risør is a radical antithesis: it moves slowly, anchored in iron, stone, and Newton's laws, with an absolute prohibition against breaking anything at all. It is an attempt to build a society that does not collapse when the power fails or when servers in the cloud stop answering.
 
 "People often ask me why I am so strict with these gates," Torjusen says as we thank him for the coffee. He looks out across the dark water. "Why not just call it a success now? The software works. The code is green."
 
 He shakes his head slightly.
 
 "Because nature doesn't care what we hope for. If you build a bridge out of words, you fall into the river when you try to walk across it. If we are going to give the farmers of this country a machine they can rely on in war and crisis, that machine must have passed the test out there in cold, unforgiving reality. Until it has done so, we stand on hold. That is not a defeat. It is the only form of honesty that matters."
-
----
-
-## PART III: FORMAL MATHEMATICAL & ARCHITECTURAL SPECIFICATION (`L1`)
-
-### 1. The Five Laws of Causal Inertia
-
-1. **Law I — Syntactic Non-Identity ($\Phi(x_t) \neq x_{t+1}$):**
-   No symbolic transition function $\Phi : \mathcal{X} \to \mathcal{X}$ may directly mutate a physical or irreversible system state $x_{t+1}$. Every output $\hat{x}_t = \Phi(x_t)$ is an unverified candidate with zero physical authority (`0.00 V DC`).
-2. **Law II — Convex Admissibility Projection ($\Pi_K$):**
-   Every candidate $\hat{x}_t$ is projected onto the closed convex physiological, thermodynamic, and mechanical polytope $K \subset \mathbb{R}^n$:
-   $$\Pi_K(\hat{x}_t) = \arg\min_{y \in K} \|y - \hat{x}_t\|_2$$
-   At the boundary $\partial K$, the cardinalities of admissible continuations collapse ($\lim_{x \to \partial K} |\mathcal{A}(x)| = 1$), reducing open-ended search (`NP`) to deterministic polynomial verification (`P`) via [`consequence_gate.py`](./python/src/epistemic_architectures/consequence_gate.py).
-3. **Law III — The Triadic Consequence Gate ($\Omega \in \{\text{OPEN}, \text{HOLD}, \text{KILL}\}$):**
-   - **`OPEN`**: Requires both geometric admissibility ($\|\hat{x}_t - \Pi_K(\hat{x}_t)\|_2 \le \varepsilon_{\text{adm}}$) and a non-empty cryptographic evidence witness $e_t \neq \varnothing$.
-   - **`HOLD` (Temporal Invariance)**:
-     $$\Omega_t = \text{HOLD} \;\stackrel{\Delta t}{\not\rightarrow}\; \text{OPEN}$$
-     Passage of time $\Delta t > 0$ never authorizes a physical transition.
-   - **`KILL` (`0.00 V DC`)**: Unconditional physical de-energization upon boundary violation, divergence, or unverified injection.
-4. **Law IV — Append-Only Witness Chain ($\mathcal{W}$):**
-   Every gate evaluation appends an immutable SHA-256 hash-chain record:
-   $$h_t = \operatorname{SHA256}\!\left(h_{t-1} \,\|\, \operatorname{canonical\_json}(x_t, \hat{x}_t, \Pi_K(\hat{x}_t), \Omega_t, e_t)\right)$$
-   *(Per `AGENTS.md`: software ledgers are `L1` append-only cryptographic hash chains, distinct from physical WORM hardware media unless separately verified in hardware.)*
-5. **Law V — Spectral Horizon Stability ($\rho \to 1^-$):**
-   Across KMS correlation horizons $R_{ij} = \rho^{|i-j|}$, scaled spectral norms satisfy the exact closed-form identity:
-   $$\lim_{\rho \to 1^-} (1 - \rho^2)\,\operatorname{Tr}\!\left((R^{(n)})^{-2}\right) = n, \qquad \lim_{n \to \infty} \frac{\|R_n^{-1} - \tilde{R}_n^{-1}\|_F^2}{n} = \frac{16\rho^4}{(1 - \rho^4)^2}$$
-
-### 2. Verification (`L1` Deterministic Suite)
-
-```bash
-python3 tools/verify_public_surface.py
-PYTHONPATH=python/src python3 -m unittest discover -s python/tests -t . -v
-```
