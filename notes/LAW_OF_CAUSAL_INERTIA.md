@@ -70,7 +70,7 @@ Uttrykt i tre ufravikelige ledd:
 | Axiom | Mathematical Lock | Consequence at the Gate |
 | :--- | :--- | :--- |
 | **1. Causal Inertia** | $\Phi(x_t) \neq x_{t+1}; \quad p_{\mathrm{causal}}(\Phi) \equiv 0$ | Candidate generation never implies physical execution. |
-| **2. Stasis Persistence** | $\Omega_t = \mathrm{HOLD} \not\xrightarrow{\;\Delta t\;} \mathrm{OPEN}$ | Time alone never authorizes actuation; explicit evidence ID ($W^2$) is mandatory. |
+| **2. Stasis Persistence** | $\Omega_t = \mathrm{HOLD} \stackrel{\;\Delta t\;}{\not\rightarrow} \mathrm{OPEN}$ | Time alone never authorizes actuation; explicit evidence ID ($W^2$) is mandatory. |
 | **3. Subsumption Order** | $\mathrm{KILL} \; (0.00\,\mathrm{V}) \succ \mathrm{HOLD} \; (0.00\,\mathrm{V}) \succ \mathrm{OPEN} \; (5.00\,\mathrm{V})$ | A single invariant veto overrides any number of `OPEN` votes. |
 | **4. Boundary Collapse** | $\lim_{x \to \partial K} |\mathcal{A}(x)| \in \{0, 1\}$ | Speculative multiplicity vanishes at the physical safety boundary. |
 
