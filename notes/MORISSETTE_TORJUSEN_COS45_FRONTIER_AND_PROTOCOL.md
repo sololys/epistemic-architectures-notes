@@ -79,26 +79,36 @@ $$\lim_{a \to \infty} a \, \chi_{a-2, 2}(a) = C = \frac{2\sqrt{18 + 15\pi^2}}{9}
    so for fixed mode indices $i < j$:
    $$\Lambda_i - \Lambda_j = \frac{6\pi^2 (j^2 - i^2)}{a^2} + \mathcal{O}(a^{-4}).$$
 
-3. **Termwise Cancellation of $\pi^4$, $1/a$ Scaling, and Uniform Tail Control via Tannery's Theorem (`[Exact Finite-a Majorant + Asymptotic Limit]`):**  
-   Substituting $u_i(1)^2$, $u_j(1)^2$, and $\Lambda_i - \Lambda_j$ into each same-parity term $(i, j)$ gives for fixed $i \in \{1, 2\}$ and $j \ge 3$:
-   $$\lim_{a \to \infty} a^2 \frac{|u_j^\top E u_i|^2}{(\Lambda_i - \Lambda_j)^2} = \frac{4 \left(8 i^2 \pi^2\right) \left(8 j^2 \pi^2\right)}{\left(6\pi^2 (j^2 - i^2)\right)^2} = \frac{64}{9} \frac{i^2 j^2}{(j^2 - i^2)^2}.$$
-   To justify interchanging $\lim_{a \to \infty}$ with the sum over $j \in \{3, \dots, a\}$ (including high-lying modes where $\theta_j \sim \pi$ is no longer small), we establish a **uniform summable majorant** valid for all finite $a \ge 8$ and all $3 \le j \le a$:
-   - From the exact KMS identity at $\rho = 1/2$, $\Lambda(\theta) = \frac{3}{5 - 4\cos\theta}$ and $u_k(1)^2 = \frac{4 A_k^2 \sin^2\theta_k}{5 - 4\cos\theta_k}$ with $A_k^2 \le \frac{2}{a}$ and $\theta_k \in \left(\frac{(k-1)\pi}{a+1}, \frac{k\pi}{a}\right)$.
-   - For $i \in \{1, 2\}$ and any $j \ge 3$, the eigenvalue gap is
-     $$\Lambda_i - \Lambda_j = \frac{12(\cos\theta_i - \cos\theta_j)}{(5 - 4\cos\theta_i)(5 - 4\cos\theta_j)}.$$
-   - Consequently, in the ratio $\frac{4 u_i(1)^2 u_j(1)^2}{(\Lambda_i - \Lambda_j)^2}$, the factor $(5 - 4\cos\theta_j)^{-1}$ in $u_j(1)^2$ cancels one power of $(5 - 4\cos\theta_j)^2$ from $(\Lambda_i - \Lambda_j)^{-2}$, yielding:
-     $$T_{i,j}(a) := a^2 \frac{4 u_i(1)^2 u_j(1)^2}{(\Lambda_i - \Lambda_j)^2} = \frac{4 (a A_i^2)(a A_j^2) \sin^2\theta_i \sin^2\theta_j (5 - 4\cos\theta_i)(5 - 4\cos\theta_j)}{9 (\cos\theta_i - \cos\theta_j)^2}.$$
-   - Because $\sin\theta_j \sqrt{5 - 4\cos\theta_j} = 2\sin(\theta_j/2)\cos(\theta_j/2)\sqrt{1 + 8\sin^2(\theta_j/2)}$ vanishes at $\theta_j = \pi$ while $\cos\theta_i - \cos\theta_j = 2\sin\frac{\theta_j - \theta_i}{2}\sin\frac{\theta_j + \theta_i}{2} \ge \frac{4}{\pi^2} \frac{j^2 - i^2}{a^2} \cdot \frac{\pi^2}{2}$, every finite-$a$ summand satisfies the uniform bound (verified numerically across all $3 \le j \le a$ in `test_04_tannery_uniform_tail_majorant_and_frobenius_norm`):
-     $$0 \le T_{i,j}(a) \le M_{i,j} := \frac{32 \, i^2 j^2}{(j^2 - i^2)^2} \qquad \forall a \ge 8, \; \forall j \in \{3, \dots, a\}.$$
-   - Since $\sum_{j=3}^{\infty} M_{i,j} < \infty$ with explicit tail remainder $\sum_{j=M+1}^{a} T_{i,j}(a) \le \sum_{j=M+1}^{\infty} M_{i,j} \le \frac{32 i^2}{M - 1}$ independent of $a$, **Tannery's Theorem** (discrete Dominated Convergence) applies unconditionally:
-     $$\lim_{a \to \infty} a^2 \chi_{a-2, 2}(a)^2 = \sum_{i=1}^{2} \sum_{j=3}^{\infty} \lim_{a \to \infty} T_{i,j}(a) = \frac{64}{9} (S_1 + S_2).$$
+3. **Termwise Cancellation of $\pi^4$, $1/a$ Scaling, and Analytical Proof of Uniform Tail Control via Tannery's Theorem (`[Exact Finite-a Majorant Proof + Asymptotic Limit]`):**  
+   Define the scaled finite-$a$ summand for $i \in \{1, 2\}$ and $3 \le j \le a$ with its parity indicator explicitly retained:
+   $$T_{i,j}(a) := a^2 \frac{|u_j^\top E u_i|^2}{(\Lambda_i - \Lambda_j)^2} = \begin{cases} 0, & \text{if } j \not\equiv i \pmod 2, \\[6pt] \displaystyle a^2 \frac{4 u_i(1)^2 u_j(1)^2}{(\Lambda_i - \Lambda_j)^2}, & \text{if } j \equiv i \pmod 2. \end{cases}$$
+   For fixed $i \in \{1, 2\}$ and fixed $j \ge 3$ with $j \equiv i \pmod 2$, substituting the fixed-mode asymptotics from Step 2 yields the pointwise limit:
+   $$\lim_{a \to \infty} T_{i,j}(a) = \frac{4 \left(8 i^2 \pi^2\right) \left(8 j^2 \pi^2\right)}{\left(6\pi^2 (j^2 - i^2)\right)^2} = \frac{64}{9} \frac{i^2 j^2}{(j^2 - i^2)^2}.$$
+   To rigorously justify interchanging $\lim_{a \to \infty}$ with $\sum_{j=3}^{a}$, we prove an **analytic, $a$-independent summable majorant** valid across the entire index range $a \ge 8$, $i \in \{1, 2\}$, and $3 \le j \le a$:
+   - **Step 3a (Exact KMS Secular Equations and Normalization Bound):** At $\rho = 1/2$, the eigenvectors $u_k(n) = A_k \sin(n\theta_k + \phi_k)$ satisfy the boundary relation $\tan\phi_k = \frac{\sin\theta_k}{2 - \cos\theta_k} > 0$ and quantization $g(\theta_k) := (a+1)\theta_k + 2\phi_k = k\pi$, with $\Lambda_k = \frac{3}{5 - 4\cos\theta_k}$ and $u_k(1)^2 = \frac{4 A_k^2 \sin^2\theta_k}{5 - 4\cos\theta_k}$. Summing $\sin^2(n\theta_k + \phi_k)$ from $n=1$ to $a$ gives the exact normalization identity
+     $$\frac{1}{A_k^2} = \frac{a - 1}{2} + \frac{3}{2(5 - 4\cos\theta_k)} > \frac{a - 1}{2} \implies a A_k^2 < \frac{2a}{a - 1} \le \frac{16}{7} \qquad (\forall a \ge 8, \; \forall k \in \{1, \dots, a\}).$$
+   - **Step 3b (Exact Half-Angle Algebraic Reduction):** Let $s_k := \sin(\theta_k/2) \in (0, 1)$. Then $\sin^2\theta_k (5 - 4\cos\theta_k) = 4 s_k^2 (1 - s_k^2)(1 + 8s_k^2)$ and $\cos\theta_i - \cos\theta_j = 2(s_j^2 - s_i^2)$. Substituting these into $T_{i,j}(a)$ for $j \equiv i \pmod 2$ cancels one power of $(5 - 4\cos\theta_k)$ from the eigenvalue gap denominator $\Lambda_i - \Lambda_j = \frac{12(\cos\theta_i - \cos\theta_j)}{(5-4\cos\theta_i)(5-4\cos\theta_j)}$:
+     $$T_{i,j}(a) = \frac{16}{9} (a A_i^2)(a A_j^2) \, P(s_i) P(s_j) \frac{s_i^2 s_j^2}{(s_j^2 - s_i^2)^2},$$
+     where $P(s) := (1 - s^2)(1 + 8s^2) = \frac{81}{32} - 8\left(s^2 - \frac{7}{16}\right)^2 \le \frac{81}{32}$ for all $s \in [0, 1]$.
+   - **Step 3c (Elimination of the Upper-Edge Singularity via Half-Angle Addition):** Because $0 < \frac{\theta_i}{2} < \frac{\theta_j}{2} < \frac{\pi}{2}$, both terms in $\sin\left(\frac{\theta_j + \theta_i}{2}\right) = s_j \cos(\theta_i/2) + \cos(\theta_j/2) s_i$ are strictly positive, so $\sin\left(\frac{\theta_j + \theta_i}{2}\right) > s_j \cos(\theta_i/2)$. Therefore,
+     $$s_j^2 - s_i^2 = \sin\left(\frac{\theta_j - \theta_i}{2}\right) \sin\left(\frac{\theta_j + \theta_i}{2}\right) > s_j \cos(\theta_i/2) \sin\left(\frac{\theta_j - \theta_i}{2}\right),$$
+     which cancels $s_j^2$ identically across the entire spectrum $3 \le j \le a$:
+     $$\frac{s_i^2 s_j^2}{(s_j^2 - s_i^2)^2} < \frac{\tan^2(\theta_i/2)}{\sin^2\left(\frac{\theta_j - \theta_i}{2}\right)}.$$
+   - **Step 3d (Mean Value Theorem on Wavenumber Spacing and Jordan's Inequality):** Since $\phi'(\theta) = \frac{2\cos\theta - 1}{5 - 4\cos\theta} \le \frac{1}{3}$ on $[0, \pi]$, the quantization function $g(\theta) = (a+1)\theta + 2\phi(\theta)$ satisfies $g'(\theta) \le a + \frac{5}{3}$ everywhere on $[0, \pi]$. By the Mean Value Theorem, $(j - i)\pi = g(\theta_j) - g(\theta_i) \le \left(a + \frac{5}{3}\right)(\theta_j - \theta_i)$. Applying Jordan's inequality $\sin x \ge \frac{2}{\pi} x$ to $x = \frac{\theta_j - \theta_i}{2} \in (0, \pi/2)$ gives:
+     $$\sin\left(\frac{\theta_j - \theta_i}{2}\right) \ge \frac{\theta_j - \theta_i}{\pi} \ge \frac{j - i}{a + 5/3}.$$
+     Simultaneously, since $\phi(\theta_i) > 0$, $\theta_i = \frac{i\pi - 2\phi(\theta_i)}{a+1} < \frac{i\pi}{a+1} \le \frac{2\pi}{9}$ (for $i \in \{1, 2\}$, $a \ge 8$), so $\tan(\theta_i/2) \le \frac{\tan(\pi/9)}{\pi/9} \frac{i\pi}{2(a+1)} < 1.65 \frac{i}{a+1}$.
+   - **Step 3e (Summable $a$-Independent Majorant and Tail Bound):** Combining Steps 3a–3d, the $(a+1)^{-2}$ factor in $\tan^2(\theta_i/2)$ cancels $(a + 5/3)^2$ in $\sin^{-2}\left(\frac{\theta_j - \theta_i}{2}\right)$ (with $\frac{a + 5/3}{a + 1} \le \frac{29}{27}$ for $a \ge 8$), yielding the analytical bound valid for all $a \ge 8$, $i \in \{1, 2\}$, and $3 \le j \le a$:
+     $$0 \le T_{i,j}(a) \le \mathbf{1}_{j \equiv i \pmod 2} \frac{C_{\max} \, i^2}{(j - i)^2} \in \ell^1(\mathbb{N}_{j \ge 3})$$
+     (and tightened empirically/algebraically to $T_{i,j}(a) \le M_{i,j} = \mathbf{1}_{j \equiv i \pmod 2} \frac{32 i^2 j^2}{(j^2 - i^2)^2}$, verified across all $a \in \{8, 16, 32, 64, 128, 256\}$ in `test_04`). The tail beyond any cutoff $M \ge 3$ is bounded uniformly in $a$:
+     $$R_M(a) := \sum_{j=M+1}^{a} T_{i,j}(a) \le \sum_{j=M+1}^{\infty} \frac{C_{\max} i^2}{(j - i)^2} \le \frac{C_{\max} i^2}{M - i} \xrightarrow[M \to \infty]{} 0 \quad \text{uniformly in } a.$$
+     By **Tannery's Theorem** (discrete Dominated Convergence), $\lim_{a \to \infty} \sum_{j=3}^{a} T_{i,j}(a) = \sum_{j=3}^{\infty} \lim_{a \to \infty} T_{i,j}(a) = \frac{64}{9}(S_1 + S_2)$.
 
 4. **Metric Normalization Convention: Canonical Grassmann Tangent Norm vs. Projector Frobenius Norm (`[Exact Identity]`):**  
    For $\Gamma(\varepsilon) = \Gamma_a^{(0)} + \varepsilon E$, the first-order perturbation of the rank-$r$ spectral projector $P(\varepsilon) = \sum_{i=1}^r u_i(\varepsilon) u_i(\varepsilon)^\top$ has off-diagonal blocks $(u_j^\top dP \, u_i) = \varepsilon \frac{u_j^\top E u_i}{\Lambda_i - \Lambda_j}$ for $1 \le i \le r < j \le a$ and symmetrically $(u_i^\top dP \, u_j)$ for $1 \le i \le r < j \le a$.
    - The **canonical Grassmann Riemannian tangent norm** (the Euclidean norm of the principal-angle vector $\Theta(P(\varepsilon), P(0)) = (\theta_1, \dots, \theta_r)$) sums over a **single** cross-block $1 \le i \le r < j \le a$:
-     $$\|dP\|_{\mathrm{Gr}} = \left(\sum_{i=1}^{r} \sum_{j=r+1}^{a} |u_j^\top dP \, u_i|^2\right)^{1/2} = |\varepsilon| \, \chi_{a-2, r}(a).$$
+     $$\|dP\|_{\mathrm{Gr}} = \left(\sum_{i=1}^{r} \sum_{j=r+1}^{a} |u_j^\top dP \, u_i|^2\right)^{1/2} = |\varepsilon| \, \chi_{a-2, r}(a), \qquad C = \frac{2\sqrt{18 + 15\pi^2}}{9} \approx 2.863513045852925.$$
    - The **full matrix Frobenius norm** $\|dP\|_F = \sqrt{\mathrm{tr}(dP^\top dP)}$ sums over **both** symmetric cross-blocks, carrying an exact factor of $\sqrt{2}$:
-     $$\|dP\|_F = \sqrt{2} \, \|dP\|_{\mathrm{Gr}} = \sqrt{2} \, |\varepsilon| \, \chi_{a-2, r}(a), \qquad C_{\mathrm{Frob}} = \sqrt{2} \, C = \frac{2\sqrt{36 + 30\pi^2}}{9} \approx 4.0496188687.$$
+     $$\|dP\|_F = \sqrt{2} \, \|dP\|_{\mathrm{Gr}} = \sqrt{2} \, |\varepsilon| \, \chi_{a-2, r}(a), \qquad C_{\mathrm{Frob}} = \sqrt{2} \, C = \frac{2\sqrt{36 + 30\pi^2}}{9} \approx 4.049618985477498.$$
 
 5. **Closed-Form Evaluation of the Odd and Even Spectral Series (`[Exact Identity]`):**  
    - For $i = 1$ (summing over odd $j = 2m+1 \ge 3$, i.e., $m \ge 1$):
@@ -133,7 +143,7 @@ Running `python3 tools/verify_cos45_kms_spectral_series.py` performs direct `num
 1. **Series Identity Tolerance:** $\left|S_1 - \left(\frac{1}{16} + \frac{\pi^2}{48}\right)\right| < 10^{-11}$ and $\left|S_2 - \left(\frac{1}{16} + \frac{\pi^2}{12}\right)\right| < 10^{-11}$.
 2. **Finite-$a$ Parity Identity Tolerance:** $\max_{1 \le k \le a} |u_k(a) - (-1)^{k-1}u_k(1)| < 10^{-13}$ and opposite-parity leakage $\max_{j \not\equiv i \pmod 2} |u_j^\top E u_i| < 10^{-14}$.
 3. **Asymptotic Convergence Tolerance at $a = 1024$:** $|a\chi_{a-2,2}(a) - C| < 1.5 \times 10^{-2}$, $|C_{\mathrm{Rich1}}(1024) - C| < 2.5 \times 10^{-4}$, and $|C_{\mathrm{Rich2}}(1024) - C| < 1.0 \times 10^{-5}$.
-4. **Tannery Majorant & Frobenius Norm Tolerance:** $T_{i,j}(a) \le \frac{32 i^2 j^2}{(j^2 - i^2)^2}$ for all $3 \le j \le a$, and $\left|\|dP\|_F - \sqrt{2}\|dP\|_{\mathrm{Gr}}\right| < 10^{-14}$.
+4. **Tannery Majorant & Frobenius Norm Tolerance:** $T_{i,j}(a) \le \mathbf{1}_{j \equiv i \pmod 2} \frac{32 i^2 j^2}{(j^2 - i^2)^2}$ for all $a \in \{8, 16, 32, 64, 128, 256\}$ and $3 \le j \le a$, and $\left|\|dP\|_F - \sqrt{2}\|dP\|_{\mathrm{Gr}}\right| < 10^{-14}$ with $C_{\mathrm{Frob}} = \sqrt{2} C \approx 4.049618985477498$.
 
 ---
 
@@ -168,7 +178,7 @@ and highlights its core mathematical properties:
 - **Scaling invariance:** $x \mapsto t x \implies P(tx) = P(x)$ for all $t \ne 0$.
 - **Rank bound of the differential:** $\mathrm{rank}(D\Phi_s) \le \min\{n-1, \, r(a-r), \, 3a-5\}$.
 
-When applied as a **temporal safety instrument for AI**, a test based solely on the Grassmann endpoint distance $T_b = b \, d_{\mathrm{geo}}(\hat{P}_b, P_0)^2$ can be defeated by three distinct adversarial transformations:
+When applied as a **temporal diagnostic instrument**, a test based solely on the Grassmann endpoint distance $T_b = b \, d_{\mathrm{geo}}(\hat{P}_b, P_0)^2$ can be defeated by three distinct adversarial transformations:
 
 ### Blind Zone A: Radial / Energy Runaway in $\ker(D\Pi_{\mathrm{Gr}})$
 Because the Grassmann projection $\Pi_{\mathrm{Gr}}(\hat{\Gamma}_b) = \hat{P}_b$ quotients out the radial scale $x \mapsto e^{\alpha} x$, an AI system or dynamical process can undergo an arbitrarily large variance or norm amplification ($\mathrm{tr}(\hat{\Gamma}_b) = e^{2\alpha} \mathrm{tr}(\Gamma_0)$) while preserving $\hat{P}_b = P_0$ identically ($d_{\mathrm{geo}}(\hat{P}_b, P_0) = 0$).
@@ -183,26 +193,29 @@ Even if $d_{\mathrm{geo}}(P_t, P_{t_0}) \le \varepsilon$ at time $t$, returning 
 
 ## Part III: Pre-Registered Specification for the Joint 5-Gate Benchmark
 
-To turn `COS45` into a complete, fail-closed temporal verification instrument, we augment the Grassmann trajectory $\{P_t\}_{t=1}^T \subset \mathrm{Gr}(a, r)$ with four complementary gates. All five quantities are computed deterministically from the same sliding Hankel window of height $a$ and width $b$:
+To evaluate `COS45` alongside four complementary diagnostic gates, all quantities are computed deterministically from the same sliding Hankel window of height $a$ and width $b$:
 
-| Gate | Symbol | Mathematical Definition | Target Vulnerability Closed |
+| Gate | Symbol | Mathematical Definition | Target Vulnerability Addressed |
 | :--- | :--- | :--- | :--- |
 | **0. Admissibility Gate (`ABSTAIN`)** | $\Delta_{\mathrm{gap}}(t)$ | $\hat{\Lambda}_r(t) - \hat{\Lambda}_{r+1}(t) \ge \tau_{\mathrm{gap}}(b, \alpha)$ | Prevents ill-conditioned subspace rotation when the Davis–Kahan denominator $\hat{\Lambda}_r - \hat{\Lambda}_{r+1}$ collapses; forces explicit `ABSTAIN / HOLD` |
 | **1. COS45 Subspace Drift** | $d_{\mathrm{geo}}(t)$ | $\|\Theta(\hat{P}_t, P_0)\|_2 = \left(\sum_{k=1}^r \theta_k^2\right)^{1/2}$ | Detects dominant rank-$r$ subspace rotation beyond the accessibility frontier $a \ge L + 2$ |
 | **2. Radial Scale Complement** | $\Delta_{\mathrm{scale}}(t)$ | $\left|\log \frac{\mathrm{tr}(\hat{\Gamma}_t)}{\mathrm{tr}(\Gamma_0)}\right|$ (or restricted subspace energy $\log \frac{\mathrm{tr}(\hat{P}_t \hat{\Gamma}_t)}{\mathrm{tr}(P_0 \Gamma_0)}$) | Captures amplitude/energy runaway along the fiber $\ker(D\Pi_{\mathrm{Gr}})$ invisible to scale-invariant projectors |
 | **3. Geodesic / Chord Ratio** | $\kappa_{\mathrm{path}}(t_0, t_1)$ | $\frac{\sum_{t=t_0}^{t_1 - 1} d_{\mathrm{geo}}(\hat{P}_{t+1}, \hat{P}_t)}{\max\left(d_{\mathrm{chord}}(\hat{P}_{t_1}, \hat{P}_{t_0}), \, \varepsilon_0\right)}$ | Detects curved detours, transient regime excursions, and closed loops ($\hat{P}_{t_1} \approx \hat{P}_{t_0}$) on $\mathrm{Gr}(a, r)$ |
-| **4. Orbit Recurrence ($\delta_{\mathrm{orbit}}$)** | $\delta_{\mathrm{orbit}}(t, t^*; H)$ | $\max_{0 \le \tau \le H} d_{\mathrm{geo}}(\hat{P}_{t+\tau}, \hat{P}_{t^*+\tau})$ given $d_{\mathrm{geo}}(\hat{P}_t, \hat{P}_{t^*}) \le \varepsilon_{\mathrm{ret}}$ | Distinguishes a genuine dynamical restoration from a false instantaneous crossing of the baseline subspace |
+| **4a. Deferred Forward-Horizon Recurrence** | $\delta_{\mathrm{orbit}}^{\mathrm{fwd}}(t, t^*; H)$ | $\max_{0 \le \tau \le H} d_{\mathrm{geo}}(\hat{P}_{t+\tau}, \hat{P}_{t^*+\tau})$ (confirmed at epoch $t + H$ after `PROVISIONAL_HOLD`) | Tests whether an instantaneous return $d_{\mathrm{geo}}(\hat{P}_t, \hat{P}_{t^*}) \le \varepsilon_{\mathrm{ret}}$ persists over the subsequent $H$ future steps |
+| **4b. Backward-Horizon Persistence** | $\delta_{\mathrm{orbit}}^{\mathrm{bwd}}(t, t^*; H)$ | $\max_{0 \le \tau \le H} d_{\mathrm{geo}}(\hat{P}_{t-\tau}, \hat{P}_{t^*-\tau})$ (evaluated immediately at epoch $t$) | Separate operational variant testing whether the trajectory segment preceding $t$ already matched the reference segment preceding $t^*$ |
 
-### Operational Decision Rule (Chronology of Evidence)
-
-At every evaluation epoch $t$, the joint instrument executes in strict non-commutative order:
+### Operational Decision Rule & Epistemic Scope of Verdicts
 
 1. **Admissibility Check (`Gate 0`):**  
    If $\Delta_{\mathrm{gap}}(t) < \tau_{\mathrm{gap}}$, output **`ABSTAIN / HOLD`** (`UNIDENTIFIABLE_SUBSPACE`). No downstream geometric claim is emitted when the eigenspace is within the Davis–Kahan singular zone.
 2. **State & Scale Qualification (`Gates 1 & 2`):**  
    Evaluate $(d_{\mathrm{geo}}(t), \Delta_{\mathrm{scale}}(t))$ against pre-registered thresholds $(\tau_{\mathrm{geo}}, \tau_{\mathrm{scale}})$ to classify pure structural drift, pure amplitude scaling, or coupled drift.
-3. **Trajectory & Recurrence Verification (`Gates 3 & 4` — Causal Probationary Window of Length $H$):**  
-   Over window $[t_0, t_1]$, evaluate $\kappa_{\mathrm{path}}(t_0, t_1)$ to detect non-geodesic detours. Because the forward recurrence check $\delta_{\mathrm{orbit}}(t, t_0; H)$ requires $H$ subsequent observations, an instantaneous return $d_{\mathrm{geo}}(\hat{P}_t, P_0) \le \varepsilon_{\mathrm{ret}}$ at epoch $t$ places the system in **`PROVISIONAL_HOLD` (probationary recovery state)** for $H$ steps; full recovery (`OPEN`) is confirmed at epoch $t + H$ if and only if $\max_{0 \le \tau \le H} d_{\mathrm{geo}}(\hat{P}_{t+\tau}, \hat{P}_{t_0+\tau}) \le \tau_{\mathrm{orbit}}$.
+3. **Trajectory & Recurrence Verification (`Gates 3, 4a, 4b`):**  
+   Over window $[t_0, t_1]$, evaluate $\kappa_{\mathrm{path}}(t_0, t_1)$ to detect non-geodesic detours. For recurrence after an excursion, we distinguish two separate operational tests:
+   - **Variant 4a (Deferred Forward-Horizon Test):** At epoch $t$ when $d_{\mathrm{geo}}(\hat{P}_t, P_0) \le \varepsilon_{\mathrm{ret}}$, enter `PROVISIONAL_HOLD` and defer confirmation until epoch $t + H$, when all $H$ future observations $\hat{P}_{t+1}, \dots, \hat{P}_{t+H}$ are available to evaluate $\delta_{\mathrm{orbit}}^{\mathrm{fwd}}(t, t_0; H) \le \tau_{\mathrm{orbit}}$.
+   - **Variant 4b (Immediate Backward-Horizon Persistence Test):** Evaluate $\delta_{\mathrm{orbit}}^{\mathrm{bwd}}(t, t_0; H) \le \tau_{\mathrm{orbit}}$ at epoch $t$ over the already-observed history $[t-H, t]$.
+4. **Scope of the `OPEN` Verdict (`Diagnostic Satisfaction != Overall System Safety`):**  
+   Throughout this benchmark and protocol, the verdict **`OPEN`** means strictly that **the specified mathematical and statistical diagnostic criteria of the evaluated gate(s) have been satisfied within the declared window and tolerance**. It does **not** constitute a certification of overall system safety or physical authority (`CANDIDATE != CONSEQUENCE`).
 
 ---
 
