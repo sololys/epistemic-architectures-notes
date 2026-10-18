@@ -3,7 +3,24 @@
 **Author:** Marius Torjusen  
 **In response to:** Louis Morissette, *"Scientific Collaboration Invitation — Marius Torjusen: COS45: Toward a Verifiable Temporal Safety Instrument for AI"* (17 October 2026) and *COS45 Hidden-Order Benchmark: Hankel–Grassmann Blind-Zone Saturation, Actionable Transfer, and Finite-Sample Audit (v1.7.0)*, Zenodo, `DOI: 10.5281/zenodo.23440691`.  
 **Date:** 18 October 2026  
-**Status:** Analytical Proof of Open Questions 1 & 2 (`Exact`) + Pre-Registered Collaborative Benchmark Specification (`L1` Mathematical Verification Layer)
+**Status Discipline (per Joint Co-Authorship Protocol):**
+- **`[Exact Identity]`**: Algebraic or spectral identities holding exactly for every finite $a \ge 4$ or for closed-form infinite series.
+- **`[Asymptotic Statement — Under Joint Examination]`**: Large-$a$ ($a \to \infty$) limiting laws and leading constants under independent co-author verification prior to benchmark freeze.
+- **`[Numerical Observation]`**: Finite-$a$ direct matrix calculations, residual tables, and Richardson extrapolations produced by [`tools/verify_cos45_kms_spectral_series.py`](../tools/verify_cos45_kms_spectral_series.py).
+
+---
+
+## Milestone 0: Canonical Parameter Definitions $(L, a, r, b, H)$
+
+To ensure identical conventions across both independent implementations prior to freezing the benchmark grid, we fix the five structural parameters:
+
+| Parameter | Domain | Definition & Role in the Joint Pipeline |
+| :--- | :--- | :--- |
+| **$L$** | $\mathbb{Z}_{\ge 1}$ | **Interaction Lag Order:** The correlation/interaction horizon of the underlying time-series generator (e.g., in `hidden_order`, the lag $L$ at which the higher-order parity / corner perturbation acts; the second-order blind zone holds for $a \le L + 1$, and the actionable frontier opens at $a = L + 2$). |
+| **$a$** | $\mathbb{Z}_{\ge 4}$ | **Hankel Window Height (Embedding Dimension):** Number of rows in the sliding Hankel matrix $X_t \in \mathbb{R}^{a \times b}$. Determines the ambient dimension of the empirical Gram/covariance matrix $\hat{\Gamma}_b \in \mathbb{R}^{a \times a}$ and the Grassmann manifold $\mathrm{Gr}(a, r)$. |
+| **$r$** | $1 \le r < a$ | **Dominant Subspace Rank:** Dimension of the spectral projector $\hat{P}_t = \sum_{i=1}^r \hat{u}_i \hat{u}_i^\top \in \mathrm{Gr}(a, r)$ extracted from the top $r$ eigenvectors of $\hat{\Gamma}_b$ ($r = 2$ in the baseline frontier audit). |
+| **$b$** | $\mathbb{Z}_{\ge a}$ | **Hankel Window Width (Sample Horizon per Window):** Number of lagged column vectors aggregated per window $X_t \in \mathbb{R}^{a \times b}$ to form $\hat{\Gamma}_b = \frac{1}{b} X_t X_t^\top$, governing the finite-sample scaling $T_b = b \, d_{\mathrm{geo}}(\hat{P}_b, P_0)^2$. |
+| **$H$** | $\mathbb{Z}_{\ge 1}$ | **Forward Recurrence Horizon:** Number of forward steps $\tau \in \{1, \dots, H\}$ over which the orbit-recurrence gate $\delta_{\mathrm{orbit}}(t, t^*; H) = \max_{0 \le \tau \le H} d_{\mathrm{geo}}(\hat{P}_{t+\tau}, \hat{P}_{t^*+\tau})$ verifies that an apparent return $d_{\mathrm{geo}}(\hat{P}_t, \hat{P}_{t^*}) \le \varepsilon_{\mathrm{ret}}$ is a true dynamical restoration rather than a transient subspace crossing. |
 
 ---
 
@@ -14,11 +31,11 @@ In *COS45 v1.7.0* (`DOI: 10.5281/zenodo.23440691`), Louis Morissette formulates 
 1. **Open Question 1:** An analytical proof of the actionable frontier transfer law $\chi_{a-2, 2}(a) \sim C / a$ as $a \to \infty$ and the exact closed-form value of the constant $C \approx 2.864$ (numerically extrapolated to $C \approx 2.8635$ at $a = 10^4$).
 2. **Open Question 2:** The large-$a$ asymptotic closure rate of the saturated blind-zone power floor $\mathrm{Power}_{\mathrm{floor}}(a) \to \alpha$.
 
-In Part I of this note, we resolve both open questions analytically:
+In Part I of this note, we present the analytical derivations for both open questions (`Status: Asymptotic Statement — Under Joint Examination`):
 
 $$\chi_{a-2, 2}(a) = \frac{C}{a} + \mathcal{O}(a^{-2}), \qquad \boxed{C = \frac{2\sqrt{18 + 15\pi^2}}{9} = 2.863513045853\dots}$$
 
-and prove that the excess blind-zone power floor closes at the fourth-order rate $\mathrm{Power}_{\mathrm{floor}}(a) - \alpha = \Theta(a^{-4})$.
+and show that the excess blind-zone power floor closes at the fourth-order rate $\mathrm{Power}_{\mathrm{floor}}(a) - \alpha = \Theta(a^{-4})$.
 
 In Part II, we accept Morissette's invitation (*"Here is the measurement grammar. Try to break it"*) by demonstrating the three structural blind zones inherent to any standalone second-order Grassmann endpoint projector $P_t \in \mathrm{Gr}(a, r)$, and formalizing the joint **5-Gate Temporal Safety Benchmark** combining `COS45` with four orthogonal invariants:
 1. **Radial Scale Complement ($\Delta_{\mathrm{scale}}$)**
@@ -28,62 +45,82 @@ In Part II, we accept Morissette's invitation (*"Here is the measurement grammar
 
 ---
 
-## Part I: Analytical Resolution of Open Questions 1 and 2 in COS45 v1.7.0
+## Part I: Analytical Derivation & Milestone 1 Numerical Verification of Open Questions 1 and 2
 
-### Theorem 1 (Exact $1/a$ Frontier Transfer Law and Closed-Form Constant $C$)
+### Proposition 1 (KMS Frontier Transfer Law and Constant $C$ — `[Under Joint Examination]`)
 
 Let $\Gamma_a^{(0)} = (\rho^{|i-j|})_{1 \le i,j \le a}$ be the $a \times a$ Kac–Murdock–Szegő (KMS) Toeplitz matrix at the null parameter $\rho = 1/2$, with eigenvalues $\Lambda_1 > \Lambda_2 > \dots > \Lambda_a$ and orthonormal eigenvectors $u_1, \dots, u_a$. Let $E = e_1 e_a^\top + e_a e_1^\top$ be the rank-2 corner perturbation matrix at the actionable frontier $a = L + 2$. Then for dominant subspace rank $r = 2$, the first-order Grassmann transfer coefficient
 
 $$\chi_{a-2, 2}(a) := \left( \sum_{i=1}^{2} \sum_{j=3}^{a} \frac{|u_j^\top E u_i|^2}{(\Lambda_i - \Lambda_j)^2} \right)^{1/2}$$
 
-satisfies the exact asymptotic law
+satisfies the asymptotic law
 
-$$\lim_{a \to \infty} a \, \chi_{a-2, 2}(a) = C = \frac{2\sqrt{18 + 15\pi^2}}{9} \approx 2.863513045853277.$$
+$$\lim_{a \to \infty} a \, \chi_{a-2, 2}(a) = C = \frac{2\sqrt{18 + 15\pi^2}}{9} \approx 2.863513045852925.$$
 
-#### Proof
+#### Step-by-Step Derivation (Separated by Status)
 
-1. **Centrosymmetric Parity Selection:**  
-   Because both $\Gamma_a^{(0)}$ and $E = e_1 e_a^\top + e_a e_1^\top$ commute with the order-reversing involution $J (e_k) = e_{a+1-k}$, the eigenvectors $u_k$ (ordered by descending eigenvalue $\Lambda_k$) alternate strictly in parity:
+1. **Centrosymmetric Parity Selection (`[Exact Identity for all finite a >= 4]`):**  
+   Because both $\Gamma_a^{(0)}$ and $E = e_1 e_a^\top + e_a e_1^\top$ commute with the order-reversing involution $J (e_k) = e_{a+1-k}$ and the spectrum of $\Gamma_a^{(0)}$ is strictly simple, the eigenvectors $u_k$ (ordered by descending eigenvalue $\Lambda_k$) alternate strictly in parity:
    $$u_k(a) = (-1)^{k-1} u_k(1), \qquad k = 1, 2, \dots, a.$$
    Consequently, the corner matrix element between mode $i \in \{1, 2\}$ and mode $j \in \{3, \dots, a\}$ is
    $$u_j^\top E u_i = u_j(1) u_i(a) + u_j(a) u_i(1) = u_i(1) u_j(1) \left((-1)^{i-1} + (-1)^{j-1}\right).$$
-   Thus $u_j^\top E u_i = 0$ whenever $j \not\equiv i \pmod 2$, and
+   Thus $u_j^\top E u_i = 0$ identically whenever $j \not\equiv i \pmod 2$, and
    $$|u_j^\top E u_i|^2 = 4 \, u_i(1)^2 u_j(1)^2 \qquad \text{whenever } j \equiv i \pmod 2.$$
 
-2. **Kac–Murdock–Szegő Boundary and Spectral Asymptotics:**  
+2. **Kac–Murdock–Szegő Boundary and Spectral Asymptotics (`[Asymptotic Statement — Under Joint Examination]`):**  
    The inverse $(\Gamma_a^{(0)})^{-1}$ is tridiagonal, yielding the exact KMS secular parameterization $u_k(n) = A_k \sin(n\theta_k + \phi_k)$ with spectral symbol
    $$\Lambda(\theta) = \frac{1 - \rho^2}{1 - 2\rho\cos\theta + \rho^2} = \frac{3}{5 - 4\cos\theta} \qquad (\rho = 1/2).$$
    The boundary condition at $n = 0$, $\sin\phi_k = \rho \sin(\phi_k - \theta_k)$, implies
    $$\sin^2(\theta_k + \phi_k) = \frac{\sin^2\theta_k}{1 - 2\rho\cos\theta_k + \rho^2}.$$
-   For any fixed mode index $k \ge 1$ as $a \to \infty$, the quantized wavenumber is $\theta_k = \frac{k\pi}{a} + \mathcal{O}(a^{-2})$, and the normalization $A_k^2 = \frac{2}{a} + \mathcal{O}(a^{-2})$ yields the exact leading boundary weight at $n = 1$:
+   For any fixed mode index $k \ge 1$ as $a \to \infty$, the quantized wavenumber is $\theta_k = \frac{k\pi}{a} + \mathcal{O}(a^{-2})$, and the normalization $A_k^2 = \frac{2}{a} + \mathcal{O}(a^{-2})$ yields the leading boundary weight at $n = 1$:
    $$u_k(1)^2 = \frac{2}{a} \frac{\theta_k^2}{(1 - \rho)^2} + \mathcal{O}(a^{-4}) = \frac{8 k^2 \pi^2}{a^3} + \mathcal{O}(a^{-4}).$$
    Simultaneously, expanding $\Lambda(\theta)$ around $\theta = 0$ gives
    $$\Lambda(\theta) = \frac{1+\rho}{1-\rho} - \frac{\rho(1+\rho)}{(1-\rho)^3}\theta^2 + \mathcal{O}(\theta^4) = 3 - 6\theta^2 + \mathcal{O}(\theta^4),$$
    so for fixed mode indices $i < j$:
    $$\Lambda_i - \Lambda_j = \frac{6\pi^2 (j^2 - i^2)}{a^2} + \mathcal{O}(a^{-4}).$$
 
-3. **Termwise Cancellation of $\pi^4$ and $1/a$ Scaling:**  
+3. **Termwise Cancellation of $\pi^4$ and $1/a$ Scaling (`[Asymptotic Statement — Under Joint Examination]`):**  
    Substituting $u_i(1)^2$, $u_j(1)^2$, and $\Lambda_i - \Lambda_j$ into each same-parity term $(i, j)$ gives:
    $$\frac{|u_j^\top E u_i|^2}{(\Lambda_i - \Lambda_j)^2} = \frac{4 \left(\frac{8 i^2 \pi^2}{a^3}\right) \left(\frac{8 j^2 \pi^2}{a^3}\right)}{\left(\frac{6\pi^2 (j^2 - i^2)}{a^2}\right)^2} \left(1 + \mathcal{O}(a^{-1})\right) = \frac{1}{a^2} \cdot \frac{64}{9} \frac{i^2 j^2}{(j^2 - i^2)^2} \left(1 + \mathcal{O}(a^{-1})\right).$$
-   Because the summand decays as $j^{-2}$ for large $j$, the tail $j > M$ is bounded uniformly in $a$ by $\mathcal{O}(M^{-1} a^{-2})$, justifying passage to the limit term-by-term by dominated convergence.
+   Because the summand decays as $j^{-2}$ for large $j$, the tail $j > M$ is bounded uniformly in $a$ by $\mathcal{O}(M^{-1} a^{-2})$, justifying term-by-term passage to the limit by dominated convergence.
 
-4. **Exact Evaluation of the Odd and Even Spectral Series:**  
+4. **Closed-Form Evaluation of the Odd and Even Spectral Series (`[Exact Identity]`):**  
    - For $i = 1$ (summing over odd $j = 2m+1 \ge 3$, i.e., $m \ge 1$):
-     $$S_1 := \sum_{m=1}^{\infty} \frac{(2m+1)^2}{\left((2m+1)^2 - 1\right)^2} = \frac{1}{16} \sum_{m=1}^{\infty} \left(\frac{1}{m} + \frac{1}{m+1}\right)^2 = \frac{1}{16} + \frac{\pi^2}{48}.$$
+     $$S_1 := \sum_{m=1}^{\infty} \frac{(2m+1)^2}{\left((2m+1)^2 - 1\right)^2} = \frac{1}{16} \sum_{m=1}^{\infty} \left(\frac{1}{m} + \frac{1}{m+1}\right)^2 = \frac{1}{16} + \frac{\pi^2}{48} \approx 0.268116758356028.$$
    - For $i = 2$ (summing over even $j = 2m \ge 4$, i.e., $m \ge 2$):
-     $$S_2 := \sum_{m=2}^{\infty} \frac{4(2m)^2}{\left((2m)^2 - 4\right)^2} = \sum_{m=2}^{\infty} \frac{m^2}{(m^2 - 1)^2} = \frac{1}{4}\sum_{m=2}^{\infty}\left(\frac{1}{m-1} + \frac{1}{m+1}\right)^2 = \frac{1}{16} + \frac{\pi^2}{12}.$$
+     $$S_2 := \sum_{m=2}^{\infty} \frac{4(2m)^2}{\left((2m)^2 - 4\right)^2} = \sum_{m=2}^{\infty} \frac{m^2}{(m^2 - 1)^2} = \frac{1}{4}\sum_{m=2}^{\infty}\left(\frac{1}{m-1} + \frac{1}{m+1}\right)^2 = \frac{1}{16} + \frac{\pi^2}{12} \approx 0.884967033424113.$$
    Combining both channels:
    $$C^2 = \frac{64}{9} (S_1 + S_2) = \frac{64}{9} \left(\frac{1}{8} + \frac{5\pi^2}{48}\right) = \frac{8}{9} + \frac{20\pi^2}{27} = \frac{24 + 20\pi^2}{27}.$$
    Taking the square root yields
-   $$C = \frac{2\sqrt{18 + 15\pi^2}}{9} \approx 2.863513045853,$$
+   $$C = \frac{2\sqrt{18 + 15\pi^2}}{9} \approx 2.863513045852925,$$
    matching Morissette's numerical extrapolation $C \approx 2.8635$ at $a = 10^4$ to all reported figures. $\blacksquare$
 
 > **Remark (General KMS Parameter $\rho \in (0, 1)$):** Because $u_k(1)^2 \propto \frac{1}{(1-\rho)^2}$ and $\Lambda_i - \Lambda_j \propto \frac{\rho(1+\rho)}{(1-\rho)^3}$, the ratio $\frac{u_i(1)^2 u_j(1)^2}{(\Lambda_i - \Lambda_j)^2}$ scales as $\left(\frac{1-\rho}{\rho(1+\rho)}\right)^2$. Thus for arbitrary $\rho \in (0, 1)$:
-> $$C(\rho, r=2) = \frac{8(1-\rho)}{3\rho(1+\rho)} \sqrt{\frac{1}{8} + \frac{5\pi^2}{48}} = \frac{1-\rho}{\rho(1+\rho)} \frac{\sqrt{6 + 5\pi^2}}{3\sqrt{3}}.$$
+> $$C(\rho, r=2) = \frac{4(1-\rho)}{\rho(1+\rho)} \sqrt{S_1 + S_2} = \frac{1-\rho}{\rho(1+\rho)} \frac{\sqrt{6 + 5\pi^2}}{3\sqrt{3}}.$$
+
+#### Milestone 1 Reproducible Convergence Table (`[Numerical Observation]`)
+
+Running `python3 tools/verify_cos45_kms_spectral_series.py` performs direct `numpy.linalg.eigh` eigendecomposition of $\Gamma_a^{(0)}$ across $a \in \{8, 16, 32, 64, 128, 256, 512, 1024\}$ without using any asymptotic approximation, and compares $a \cdot \chi_{a-2,2}(a)$, first-order Richardson extrapolation $C_{\mathrm{Rich1}}(a) = 2 a \chi(a) - (a/2)\chi(a/2)$, and second-order Richardson extrapolation $C_{\mathrm{Rich2}}(a) = \frac{4 C_{\mathrm{Rich1}}(a) - C_{\mathrm{Rich1}}(a/2)}{3}$ against $C = \frac{2\sqrt{18+15\pi^2}}{9}$:
+
+| $a$ | $L = a-2$ | $\chi_{a-2,2}(a)$ | $a \cdot \chi_{a-2,2}(a)$ | $\|a\chi(a) - C\|$ | $C_{\mathrm{Rich1}}(a)$ | $\|C_{\mathrm{Rich1}} - C\|$ | $C_{\mathrm{Rich2}}(a)$ | $\|C_{\mathrm{Rich2}} - C\|$ | Parity Residual $\max_k \|u_k(a) - (-1)^{k-1}u_k(1)\|$ |
+| ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 8 | 6 | 0.46248320 | 3.69986556 | $8.364 \times 10^{-1}$ | N/A | N/A | N/A | N/A | $1.71 \times 10^{-15}$ |
+| 16 | 14 | 0.21691913 | 3.47070606 | $6.072 \times 10^{-1}$ | 3.24154655 | $3.780 \times 10^{-1}$ | N/A | N/A | $6.25 \times 10^{-15}$ |
+| 32 | 30 | 0.10076345 | 3.22443045 | $3.609 \times 10^{-1}$ | 2.97815483 | $1.146 \times 10^{-1}$ | 2.89035759 | $2.684 \times 10^{-2}$ | $5.95 \times 10^{-15}$ |
+| 64 | 62 | 0.04786266 | 3.06321003 | $1.997 \times 10^{-1}$ | 2.90198962 | $3.848 \times 10^{-2}$ | 2.87660121 | $1.309 \times 10^{-2}$ | $9.84 \times 10^{-15}$ |
+| 128 | 126 | 0.02319693 | 2.96920754 | $1.057 \times 10^{-1}$ | 2.87520506 | $1.169 \times 10^{-2}$ | 2.86627687 | $2.764 \times 10^{-3}$ | $1.72 \times 10^{-14}$ |
+| 256 | 254 | 0.01139836 | 2.91797995 | $5.447 \times 10^{-2}$ | 2.86675236 | $3.239 \times 10^{-3}$ | 2.86393479 | $4.217 \times 10^{-4}$ | $1.41 \times 10^{-14}$ |
+| 512 | 510 | 0.00564682 | 2.89117262 | $2.766 \times 10^{-2}$ | 2.86436529 | $8.522 \times 10^{-4}$ | 2.86356960 | $5.655 \times 10^{-5}$ | $1.92 \times 10^{-14}$ |
+| 1024 | 1022 | 0.00281001 | 2.87745208 | $1.394 \times 10^{-2}$ | 2.86373154 | $2.185 \times 10^{-4}$ | 2.86352029 | $7.240 \times 10^{-6}$ | $2.57 \times 10^{-14}$ |
+
+**Explicit Tolerances Enforced by `verify_cos45_kms_spectral_series.py` (`3/3 PASS`):**
+1. **Series Identity Tolerance:** $\left|S_1 - \left(\frac{1}{16} + \frac{\pi^2}{48}\right)\right| < 10^{-11}$ and $\left|S_2 - \left(\frac{1}{16} + \frac{\pi^2}{12}\right)\right| < 10^{-11}$.
+2. **Finite-$a$ Parity Identity Tolerance:** $\max_{1 \le k \le a} |u_k(a) - (-1)^{k-1}u_k(1)| < 10^{-13}$ and opposite-parity leakage $\max_{j \not\equiv i \pmod 2} |u_j^\top E u_i| < 10^{-14}$.
+3. **Asymptotic Convergence Tolerance at $a = 1024$:** $|a\chi_{a-2,2}(a) - C| < 1.5 \times 10^{-2}$, $|C_{\mathrm{Rich1}}(1024) - C| < 2.5 \times 10^{-4}$, and $|C_{\mathrm{Rich2}}(1024) - C| < 1.0 \times 10^{-5}$.
 
 ---
 
-### Proposition 2 (Resolution of Open Question 2: $\Theta(a^{-4})$ Blind-Zone Floor Closure)
+### Proposition 2 (Open Question 2: $\Theta(a^{-4})$ Blind-Zone Floor Closure — `[Under Joint Examination]`)
 
 In the saturated blind zone ($L \ge 2a - 3$), the population projectors coincide ($\Gamma_a^{(0)} = \Gamma_a^{(1)}$), and the asymptotic test statistic is governed by the eigenvalues $w^{(k)} = \mathrm{eig}\left((\Sigma_k)^{1/2} M (\Sigma_k)^{1/2}\right)$ for $k \in \{0, 1\}$.
 

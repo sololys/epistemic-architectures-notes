@@ -17,6 +17,7 @@ notes/MORISSETTE_TORJUSEN_COS45_FRONTIER_AND_PROTOCOL.md
 notes/README.md
 notes/ZAMPINO_NASH_AN_INTERESTING_EQUATION.md
 tools/test_verify_public_surface.py
+tools/verify_cos45_kms_spectral_series.py
 tools/verify_public_surface.py
 verdensbiblioteket/README.md
 verdensbiblioteket/index.html
