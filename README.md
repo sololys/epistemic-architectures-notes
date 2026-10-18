@@ -55,6 +55,11 @@
 
 ---
 
+## ⚡ Featured Technical Briefs (Root)
+
+- [`IT_OT_CONSEQUENCE_GATE_NORCICS_BRIEF.md`](IT_OT_CONSEQUENCE_GATE_NORCICS_BRIEF.md) — *Non-AI Consequence Gating for IT-OT Integration in Critical Infrastructure ($\Phi \to \Pi_K \to \Omega \to W^2$)* (CPS4CIP 2026 / SFI NORCICS alignment: Local LLMs/HMIs, Maritime GNSS Denial, and VSG Byzantine Fault Tolerance).
+- [`notes/MORISSETTE_TORJUSEN_COS45_FRONTIER_AND_PROTOCOL.md`](notes/MORISSETTE_TORJUSEN_COS45_FRONTIER_AND_PROTOCOL.md) — *Exact Resolution of the COS45 Frontier Constants and Pre-Registered 5-Gate Temporal Safety Protocol*.
+
 ## ⚡ The Path-Field Workflow
 
 ```text
