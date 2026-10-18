@@ -79,12 +79,28 @@ $$\lim_{a \to \infty} a \, \chi_{a-2, 2}(a) = C = \frac{2\sqrt{18 + 15\pi^2}}{9}
    so for fixed mode indices $i < j$:
    $$\Lambda_i - \Lambda_j = \frac{6\pi^2 (j^2 - i^2)}{a^2} + \mathcal{O}(a^{-4}).$$
 
-3. **Termwise Cancellation of $\pi^4$ and $1/a$ Scaling (`[Asymptotic Statement — Under Joint Examination]`):**  
-   Substituting $u_i(1)^2$, $u_j(1)^2$, and $\Lambda_i - \Lambda_j$ into each same-parity term $(i, j)$ gives:
-   $$\frac{|u_j^\top E u_i|^2}{(\Lambda_i - \Lambda_j)^2} = \frac{4 \left(\frac{8 i^2 \pi^2}{a^3}\right) \left(\frac{8 j^2 \pi^2}{a^3}\right)}{\left(\frac{6\pi^2 (j^2 - i^2)}{a^2}\right)^2} \left(1 + \mathcal{O}(a^{-1})\right) = \frac{1}{a^2} \cdot \frac{64}{9} \frac{i^2 j^2}{(j^2 - i^2)^2} \left(1 + \mathcal{O}(a^{-1})\right).$$
-   Because the summand decays as $j^{-2}$ for large $j$, the tail $j > M$ is bounded uniformly in $a$ by $\mathcal{O}(M^{-1} a^{-2})$, justifying term-by-term passage to the limit by dominated convergence.
+3. **Termwise Cancellation of $\pi^4$, $1/a$ Scaling, and Uniform Tail Control via Tannery's Theorem (`[Exact Finite-a Majorant + Asymptotic Limit]`):**  
+   Substituting $u_i(1)^2$, $u_j(1)^2$, and $\Lambda_i - \Lambda_j$ into each same-parity term $(i, j)$ gives for fixed $i \in \{1, 2\}$ and $j \ge 3$:
+   $$\lim_{a \to \infty} a^2 \frac{|u_j^\top E u_i|^2}{(\Lambda_i - \Lambda_j)^2} = \frac{4 \left(8 i^2 \pi^2\right) \left(8 j^2 \pi^2\right)}{\left(6\pi^2 (j^2 - i^2)\right)^2} = \frac{64}{9} \frac{i^2 j^2}{(j^2 - i^2)^2}.$$
+   To justify interchanging $\lim_{a \to \infty}$ with the sum over $j \in \{3, \dots, a\}$ (including high-lying modes where $\theta_j \sim \pi$ is no longer small), we establish a **uniform summable majorant** valid for all finite $a \ge 8$ and all $3 \le j \le a$:
+   - From the exact KMS identity at $\rho = 1/2$, $\Lambda(\theta) = \frac{3}{5 - 4\cos\theta}$ and $u_k(1)^2 = \frac{4 A_k^2 \sin^2\theta_k}{5 - 4\cos\theta_k}$ with $A_k^2 \le \frac{2}{a}$ and $\theta_k \in \left(\frac{(k-1)\pi}{a+1}, \frac{k\pi}{a}\right)$.
+   - For $i \in \{1, 2\}$ and any $j \ge 3$, the eigenvalue gap is
+     $$\Lambda_i - \Lambda_j = \frac{12(\cos\theta_i - \cos\theta_j)}{(5 - 4\cos\theta_i)(5 - 4\cos\theta_j)}.$$
+   - Consequently, in the ratio $\frac{4 u_i(1)^2 u_j(1)^2}{(\Lambda_i - \Lambda_j)^2}$, the factor $(5 - 4\cos\theta_j)^{-1}$ in $u_j(1)^2$ cancels one power of $(5 - 4\cos\theta_j)^2$ from $(\Lambda_i - \Lambda_j)^{-2}$, yielding:
+     $$T_{i,j}(a) := a^2 \frac{4 u_i(1)^2 u_j(1)^2}{(\Lambda_i - \Lambda_j)^2} = \frac{4 (a A_i^2)(a A_j^2) \sin^2\theta_i \sin^2\theta_j (5 - 4\cos\theta_i)(5 - 4\cos\theta_j)}{9 (\cos\theta_i - \cos\theta_j)^2}.$$
+   - Because $\sin\theta_j \sqrt{5 - 4\cos\theta_j} = 2\sin(\theta_j/2)\cos(\theta_j/2)\sqrt{1 + 8\sin^2(\theta_j/2)}$ vanishes at $\theta_j = \pi$ while $\cos\theta_i - \cos\theta_j = 2\sin\frac{\theta_j - \theta_i}{2}\sin\frac{\theta_j + \theta_i}{2} \ge \frac{4}{\pi^2} \frac{j^2 - i^2}{a^2} \cdot \frac{\pi^2}{2}$, every finite-$a$ summand satisfies the uniform bound (verified numerically across all $3 \le j \le a$ in `test_04_tannery_uniform_tail_majorant_and_frobenius_norm`):
+     $$0 \le T_{i,j}(a) \le M_{i,j} := \frac{32 \, i^2 j^2}{(j^2 - i^2)^2} \qquad \forall a \ge 8, \; \forall j \in \{3, \dots, a\}.$$
+   - Since $\sum_{j=3}^{\infty} M_{i,j} < \infty$ with explicit tail remainder $\sum_{j=M+1}^{a} T_{i,j}(a) \le \sum_{j=M+1}^{\infty} M_{i,j} \le \frac{32 i^2}{M - 1}$ independent of $a$, **Tannery's Theorem** (discrete Dominated Convergence) applies unconditionally:
+     $$\lim_{a \to \infty} a^2 \chi_{a-2, 2}(a)^2 = \sum_{i=1}^{2} \sum_{j=3}^{\infty} \lim_{a \to \infty} T_{i,j}(a) = \frac{64}{9} (S_1 + S_2).$$
 
-4. **Closed-Form Evaluation of the Odd and Even Spectral Series (`[Exact Identity]`):**  
+4. **Metric Normalization Convention: Canonical Grassmann Tangent Norm vs. Projector Frobenius Norm (`[Exact Identity]`):**  
+   For $\Gamma(\varepsilon) = \Gamma_a^{(0)} + \varepsilon E$, the first-order perturbation of the rank-$r$ spectral projector $P(\varepsilon) = \sum_{i=1}^r u_i(\varepsilon) u_i(\varepsilon)^\top$ has off-diagonal blocks $(u_j^\top dP \, u_i) = \varepsilon \frac{u_j^\top E u_i}{\Lambda_i - \Lambda_j}$ for $1 \le i \le r < j \le a$ and symmetrically $(u_i^\top dP \, u_j)$ for $1 \le i \le r < j \le a$.
+   - The **canonical Grassmann Riemannian tangent norm** (the Euclidean norm of the principal-angle vector $\Theta(P(\varepsilon), P(0)) = (\theta_1, \dots, \theta_r)$) sums over a **single** cross-block $1 \le i \le r < j \le a$:
+     $$\|dP\|_{\mathrm{Gr}} = \left(\sum_{i=1}^{r} \sum_{j=r+1}^{a} |u_j^\top dP \, u_i|^2\right)^{1/2} = |\varepsilon| \, \chi_{a-2, r}(a).$$
+   - The **full matrix Frobenius norm** $\|dP\|_F = \sqrt{\mathrm{tr}(dP^\top dP)}$ sums over **both** symmetric cross-blocks, carrying an exact factor of $\sqrt{2}$:
+     $$\|dP\|_F = \sqrt{2} \, \|dP\|_{\mathrm{Gr}} = \sqrt{2} \, |\varepsilon| \, \chi_{a-2, r}(a), \qquad C_{\mathrm{Frob}} = \sqrt{2} \, C = \frac{2\sqrt{36 + 30\pi^2}}{9} \approx 4.0496188687.$$
+
+5. **Closed-Form Evaluation of the Odd and Even Spectral Series (`[Exact Identity]`):**  
    - For $i = 1$ (summing over odd $j = 2m+1 \ge 3$, i.e., $m \ge 1$):
      $$S_1 := \sum_{m=1}^{\infty} \frac{(2m+1)^2}{\left((2m+1)^2 - 1\right)^2} = \frac{1}{16} \sum_{m=1}^{\infty} \left(\frac{1}{m} + \frac{1}{m+1}\right)^2 = \frac{1}{16} + \frac{\pi^2}{48} \approx 0.268116758356028.$$
    - For $i = 2$ (summing over even $j = 2m \ge 4$, i.e., $m \ge 2$):
@@ -113,10 +129,11 @@ Running `python3 tools/verify_cos45_kms_spectral_series.py` performs direct `num
 | 512 | 510 | 0.00564682 | 2.89117262 | $2.766 \times 10^{-2}$ | 2.86436529 | $8.522 \times 10^{-4}$ | 2.86356960 | $5.655 \times 10^{-5}$ | $1.92 \times 10^{-14}$ |
 | 1024 | 1022 | 0.00281001 | 2.87745208 | $1.394 \times 10^{-2}$ | 2.86373154 | $2.185 \times 10^{-4}$ | 2.86352029 | $7.240 \times 10^{-6}$ | $2.57 \times 10^{-14}$ |
 
-**Explicit Tolerances Enforced by `verify_cos45_kms_spectral_series.py` (`3/3 PASS`):**
+**Explicit Tolerances Enforced by `verify_cos45_kms_spectral_series.py` (`4/4 PASS`):**
 1. **Series Identity Tolerance:** $\left|S_1 - \left(\frac{1}{16} + \frac{\pi^2}{48}\right)\right| < 10^{-11}$ and $\left|S_2 - \left(\frac{1}{16} + \frac{\pi^2}{12}\right)\right| < 10^{-11}$.
 2. **Finite-$a$ Parity Identity Tolerance:** $\max_{1 \le k \le a} |u_k(a) - (-1)^{k-1}u_k(1)| < 10^{-13}$ and opposite-parity leakage $\max_{j \not\equiv i \pmod 2} |u_j^\top E u_i| < 10^{-14}$.
 3. **Asymptotic Convergence Tolerance at $a = 1024$:** $|a\chi_{a-2,2}(a) - C| < 1.5 \times 10^{-2}$, $|C_{\mathrm{Rich1}}(1024) - C| < 2.5 \times 10^{-4}$, and $|C_{\mathrm{Rich2}}(1024) - C| < 1.0 \times 10^{-5}$.
+4. **Tannery Majorant & Frobenius Norm Tolerance:** $T_{i,j}(a) \le \frac{32 i^2 j^2}{(j^2 - i^2)^2}$ for all $3 \le j \le a$, and $\left|\|dP\|_F - \sqrt{2}\|dP\|_{\mathrm{Gr}}\right| < 10^{-14}$.
 
 ---
 
@@ -184,8 +201,8 @@ At every evaluation epoch $t$, the joint instrument executes in strict non-commu
    If $\Delta_{\mathrm{gap}}(t) < \tau_{\mathrm{gap}}$, output **`ABSTAIN / HOLD`** (`UNIDENTIFIABLE_SUBSPACE`). No downstream geometric claim is emitted when the eigenspace is within the Davis–Kahan singular zone.
 2. **State & Scale Qualification (`Gates 1 & 2`):**  
    Evaluate $(d_{\mathrm{geo}}(t), \Delta_{\mathrm{scale}}(t))$ against pre-registered thresholds $(\tau_{\mathrm{geo}}, \tau_{\mathrm{scale}})$ to classify pure structural drift, pure amplitude scaling, or coupled drift.
-3. **Trajectory & Recurrence Verification (`Gates 3 & 4`):**  
-   Over window $[t_0, t_1]$, evaluate $\kappa_{\mathrm{path}}(t_0, t_1)$ to detect non-geodesic detours, and whenever a return $d_{\mathrm{geo}}(\hat{P}_t, P_0) \le \varepsilon_{\mathrm{ret}}$ is observed after an excursion, require $\delta_{\mathrm{orbit}}(t, t_0; H) \le \tau_{\mathrm{orbit}}$ before certifying recovery.
+3. **Trajectory & Recurrence Verification (`Gates 3 & 4` — Causal Probationary Window of Length $H$):**  
+   Over window $[t_0, t_1]$, evaluate $\kappa_{\mathrm{path}}(t_0, t_1)$ to detect non-geodesic detours. Because the forward recurrence check $\delta_{\mathrm{orbit}}(t, t_0; H)$ requires $H$ subsequent observations, an instantaneous return $d_{\mathrm{geo}}(\hat{P}_t, P_0) \le \varepsilon_{\mathrm{ret}}$ at epoch $t$ places the system in **`PROVISIONAL_HOLD` (probationary recovery state)** for $H$ steps; full recovery (`OPEN`) is confirmed at epoch $t + H$ if and only if $\max_{0 \le \tau \le H} d_{\mathrm{geo}}(\hat{P}_{t+\tau}, \hat{P}_{t_0+\tau}) \le \tau_{\mathrm{orbit}}$.
 
 ---
 

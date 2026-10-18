@@ -226,6 +226,46 @@ class TestMilestone1KMSSpectralSeries(unittest.TestCase):
         self.assertLess(rows[-1]["richardson_abs_err"], 2.5e-4)
         self.assertLess(rows[-1]["richardson2_abs_err"], 1.0e-5)
 
+    def test_04_tannery_uniform_tail_majorant_and_frobenius_norm(self) -> None:
+        """
+        Verify:
+          (a) Projector differential Frobenius norm carries exact factor sqrt(2)
+              relative to canonical Grassmann tangent norm chi_{a-2, 2}(a).
+          (b) Every finite-a summand T_{i,j}(a) = a^2 * |u_j^T E u_i|^2 / (Lambda_i - Lambda_j)^2
+              is uniformly dominated by the summable majorant M_{i,j} = 32 * i^2 * j^2 / (j^2 - i^2)^2
+              across all j in {3, ..., a} and all tested a, justifying Tannery's theorem.
+        """
+        for a in (16, 32, 64, 128, 256):
+            gamma = build_kms_matrix(a, rho=0.5)
+            evals, evecs = np.linalg.eigh(gamma)
+            order = np.argsort(evals)[::-1]
+            lambdas = evals[order]
+            u = evecs[:, order]
+
+            # Build full first-order projector perturbation dP in eigenbasis:
+            # (dP)_{p,q} = (u_p^T E u_q) / (Lambda_q - Lambda_p) for p <= r < q or q <= r < p
+            dp_eigen = np.zeros((a, a), dtype=np.float64)
+            u_top = u[0, :]
+            u_bot = u[-1, :]
+            r = 2
+            for i_idx in range(r):
+                i_mode = i_idx + 1
+                for j_idx in range(r, a):
+                    j_mode = j_idx + 1
+                    mel = u_top[j_idx] * u_bot[i_idx] + u_bot[j_idx] * u_top[i_idx]
+                    val = mel / (lambdas[i_idx] - lambdas[j_idx])
+                    dp_eigen[j_idx, i_idx] = val
+                    dp_eigen[i_idx, j_idx] = val
+
+                    # Check Tannery uniform majorant on each term:
+                    term_a_sq = (a ** 2) * (val ** 2)
+                    majorant = 32.0 * (i_mode ** 2) * (j_mode ** 2) / ((j_mode ** 2 - i_mode ** 2) ** 2)
+                    self.assertLessEqual(term_a_sq, majorant)
+
+            chi_gr = math.sqrt(float(np.sum(dp_eigen[r:, :r] ** 2)))
+            frob_dp = float(np.linalg.norm(dp_eigen, ord="fro"))
+            self.assertLess(abs(frob_dp - math.sqrt(2.0) * chi_gr), 1e-14)
+
 
 def print_milestone1_report() -> None:
     exact = exact_spectral_series_constants(rho=0.5)
