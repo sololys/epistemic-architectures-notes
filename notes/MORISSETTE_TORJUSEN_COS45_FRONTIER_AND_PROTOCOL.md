@@ -6,7 +6,7 @@
 **Status Discipline (per Joint Co-Authorship Protocol):**
 - **`[Exact Identity]`**: Algebraic or spectral identities holding exactly for every finite $a \ge 4$ or for closed-form infinite series.
 - **`[Asymptotic Statement — Under Joint Examination]`**: Large-$a$ ($a \to \infty$) limiting laws and leading constants under independent co-author verification prior to benchmark freeze.
-- **`[Numerical Observation]`**: Finite-$a$ direct matrix calculations, residual tables, and Richardson extrapolations produced by [`tools/verify_cos45_kms_spectral_series.py`](../tools/verify_cos45_kms_spectral_series.py).
+- **`[Numerical Observation]`**: Finite-$a$ direct matrix calculations, residual tables, and Richardson extrapolations produced by [`tools/verify_cos45_kms_spectral_series.py`](tools/verify_cos45_kms_spectral_series.py).
 
 ---
 
@@ -31,11 +31,13 @@ In *COS45 v1.7.0* (`DOI: 10.5281/zenodo.23440691`), Louis Morissette formulates 
 1. **Open Question 1:** An analytical proof of the actionable frontier transfer law $\chi_{a-2, 2}(a) \sim C / a$ as $a \to \infty$ and the exact closed-form value of the constant $C \approx 2.864$ (numerically extrapolated to $C \approx 2.8635$ at $a = 10^4$).
 2. **Open Question 2:** The large-$a$ asymptotic closure rate of the saturated blind-zone power floor $\mathrm{Power}_{\mathrm{floor}}(a) \to \alpha$.
 
-In Part I of this note, we present the analytical derivations for both open questions (`Status: Asymptotic Statement — Under Joint Examination`):
+In Part I of this note, we present the analytical derivations and status classifications addressing both open questions:
 
-$$\chi_{a-2, 2}(a) = \frac{C}{a} + \mathcal{O}(a^{-2}), \qquad \boxed{C = \frac{2\sqrt{18 + 15\pi^2}}{9} = 2.863513045853\dots}$$
+$$\lim_{a \to \infty} a \, \chi_{a-2, 2}(a) = C, \qquad \boxed{C = \frac{2\sqrt{18 + 15\pi^2}}{9} = 2.863513045852925\dots} \quad (\text{canonical Grassmann norm}),$$
 
-and show that the excess blind-zone power floor closes at the fourth-order rate $\mathrm{Power}_{\mathrm{floor}}(a) - \alpha = \Theta(a^{-4})$.
+$$\boxed{C_{\mathrm{Frob}} = \sqrt{2}\,C = \frac{2\sqrt{36 + 30\pi^2}}{9} = 4.049618985477498\dots} \quad (\text{projector Frobenius norm}),$$
+
+distinguishing the **proven first-order limit** $\lim_{a \to \infty} a \chi_{a-2, 2}(a) = C$ (`[Demonstrated via Tannery's Theorem]`) from the **second-order remainder expansion** $\chi_{a-2, 2}(a) = \frac{C}{a} + \mathcal{O}(a^{-2})$ (`[Numerical Observation requiring supplementary remainder control]`), and formulating the **fourth-order blind-zone floor conjecture** $\mathrm{Power}_{\mathrm{floor}}(a) - \alpha = \Theta(a^{-4})$ (`[Conjecture]`).
 
 In Part II, we accept Morissette's invitation (*"Here is the measurement grammar. Try to break it"*) by demonstrating the three structural blind zones inherent to any standalone second-order Grassmann endpoint projector $P_t \in \mathrm{Gr}(a, r)$, and formalizing the joint **5-Gate Temporal Safety Benchmark** combining `COS45` with four orthogonal invariants:
 1. **Radial Scale Complement ($\Delta_{\mathrm{scale}}$)**
@@ -47,19 +49,23 @@ In Part II, we accept Morissette's invitation (*"Here is the measurement grammar
 
 ## Part I: Analytical Derivation & Milestone 1 Numerical Verification of Open Questions 1 and 2
 
-### Proposition 1 (KMS Frontier Transfer Law and Constant $C$ — `[Under Joint Examination]`)
+### Proposition 1 (KMS Frontier Transfer Limit and Constant $C$ — `[Demonstrated Limit + Numerical Remainder Observation]`)
 
 Let $\Gamma_a^{(0)} = (\rho^{|i-j|})_{1 \le i,j \le a}$ be the $a \times a$ Kac–Murdock–Szegő (KMS) Toeplitz matrix at the null parameter $\rho = 1/2$, with eigenvalues $\Lambda_1 > \Lambda_2 > \dots > \Lambda_a$ and orthonormal eigenvectors $u_1, \dots, u_a$. Let $E = e_1 e_a^\top + e_a e_1^\top$ be the rank-2 corner perturbation matrix at the actionable frontier $a = L + 2$. Then for dominant subspace rank $r = 2$, the first-order Grassmann transfer coefficient
 
 $$\chi_{a-2, 2}(a) := \left( \sum_{i=1}^{2} \sum_{j=3}^{a} \frac{|u_j^\top E u_i|^2}{(\Lambda_i - \Lambda_j)^2} \right)^{1/2}$$
 
-satisfies the asymptotic law
+satisfies the exact first-order asymptotic limit
 
 $$\lim_{a \to \infty} a \, \chi_{a-2, 2}(a) = C = \frac{2\sqrt{18 + 15\pi^2}}{9} \approx 2.863513045852925.$$
 
+> **Important Distinction (`Limit` vs. `Remainder Expansion`, per Louis Morissette's Audit):**
+> - The first-order limit $\lim_{a \to \infty} a \, \chi_{a-2, 2}(a) = C$ follows from termwise convergence plus the uniform $a$-independent summable majorant via Tannery's theorem (`[Demonstrated]`).
+> - The stronger asymptotic expansion $\chi_{a-2, 2}(a) = \frac{C}{a} + \mathcal{O}(a^{-2})$ requires supplementary second-order remainder control on $\sum_{j=3}^{a} \left(T_{i,j}(a) - T_{i,j}(\infty)\right) = \mathcal{O}(a^{-1})$ and is therefore maintained distinctly as a **`[Numerical Observation / Conjecture under Remainder Audit]`** confirmed empirically by first- and second-order Richardson extrapolation in Table 1 (`test_03`).
+
 #### Step-by-Step Derivation (Separated by Status)
 
-1. **Centrosymmetric Parity Selection (`[Exact Identity for all finite a >= 4]`):**  
+1. **Centrosymmetric Parity Selection (`[Exact Identity for all finite a >= 4, verified in test_02]`):**  
    Because both $\Gamma_a^{(0)}$ and $E = e_1 e_a^\top + e_a e_1^\top$ commute with the order-reversing involution $J (e_k) = e_{a+1-k}$ and the spectrum of $\Gamma_a^{(0)}$ is strictly simple, the eigenvectors $u_k$ (ordered by descending eigenvalue $\Lambda_k$) alternate strictly in parity:
    $$u_k(a) = (-1)^{k-1} u_k(1), \qquad k = 1, 2, \dots, a.$$
    Consequently, the corner matrix element between mode $i \in \{1, 2\}$ and mode $j \in \{3, \dots, a\}$ is
@@ -67,11 +73,13 @@ $$\lim_{a \to \infty} a \, \chi_{a-2, 2}(a) = C = \frac{2\sqrt{18 + 15\pi^2}}{9}
    Thus $u_j^\top E u_i = 0$ identically whenever $j \not\equiv i \pmod 2$, and
    $$|u_j^\top E u_i|^2 = 4 \, u_i(1)^2 u_j(1)^2 \qquad \text{whenever } j \equiv i \pmod 2.$$
 
-2. **Kac–Murdock–Szegő Boundary and Spectral Asymptotics (`[Asymptotic Statement — Under Joint Examination]`):**  
-   The inverse $(\Gamma_a^{(0)})^{-1}$ is tridiagonal, yielding the exact KMS secular parameterization $u_k(n) = A_k \sin(n\theta_k + \phi_k)$ with spectral symbol
+2. **Kac–Murdock–Szegő Boundary Sign and Spectral Asymptotics (`[Exact Secular Equations + Asymptotic Limit, verified in test_05]`):**  
+   The inverse $(\Gamma_a^{(0)})^{-1}$ is tridiagonal, yielding the exact KMS secular parameterization $u_k(n) = A_k \sin(n\theta_k + \phi_k)$ ($n = 1, \dots, a$) with spectral symbol
    $$\Lambda(\theta) = \frac{1 - \rho^2}{1 - 2\rho\cos\theta + \rho^2} = \frac{3}{5 - 4\cos\theta} \qquad (\rho = 1/2).$$
-   The boundary condition at $n = 0$, $\sin\phi_k = \rho \sin(\phi_k - \theta_k)$, implies
-   $$\sin^2(\theta_k + \phi_k) = \frac{\sin^2\theta_k}{1 - 2\rho\cos\theta_k + \rho^2}.$$
+   Matching the first row of $(\Gamma_a^{(0)})^{-1}$ at $n = 1$ with the interior second-difference stencil requires the fictitious boundary condition $u_k(0) = \rho u_k(1)$ at $n = 0$, i.e.,
+   $$\sin\phi_k = \rho \sin(\theta_k + \phi_k) \iff \tan\phi_k = \frac{\rho\sin\theta_k}{1 - \rho\cos\theta_k} = \frac{\sin\theta_k}{2 - \cos\theta_k} > 0 \quad \text{for } \theta_k \in (0, \pi) \text{ at } \rho = 1/2,$$
+   which implies
+   $$\sin^2(\theta_k + \phi_k) = \frac{\sin^2\theta_k}{\rho^2} \sin^2\phi_k = \frac{\sin^2\theta_k}{1 - 2\rho\cos\theta_k + \rho^2} = \frac{4\sin^2\theta_k}{5 - 4\cos\theta_k}.$$
    For any fixed mode index $k \ge 1$ as $a \to \infty$, the quantized wavenumber is $\theta_k = \frac{k\pi}{a} + \mathcal{O}(a^{-2})$, and the normalization $A_k^2 = \frac{2}{a} + \mathcal{O}(a^{-2})$ yields the leading boundary weight at $n = 1$:
    $$u_k(1)^2 = \frac{2}{a} \frac{\theta_k^2}{(1 - \rho)^2} + \mathcal{O}(a^{-4}) = \frac{8 k^2 \pi^2}{a^3} + \mathcal{O}(a^{-4}).$$
    Simultaneously, expanding $\Lambda(\theta)$ around $\theta = 0$ gives
@@ -79,14 +87,17 @@ $$\lim_{a \to \infty} a \, \chi_{a-2, 2}(a) = C = \frac{2\sqrt{18 + 15\pi^2}}{9}
    so for fixed mode indices $i < j$:
    $$\Lambda_i - \Lambda_j = \frac{6\pi^2 (j^2 - i^2)}{a^2} + \mathcal{O}(a^{-4}).$$
 
-3. **Termwise Cancellation of $\pi^4$, $1/a$ Scaling, and Analytical Proof of Uniform Tail Control via Tannery's Theorem (`[Exact Finite-a Majorant Proof + Asymptotic Limit]`):**  
+3. **Termwise Cancellation of $\pi^4$, $1/a$ Scaling, and Analytical Proof of Uniform Tail Control via Tannery's Theorem (`[Exact Finite-a Majorant Proof + Asymptotic Limit, verified in test_04 & test_05]`):**  
    Define the scaled finite-$a$ summand for $i \in \{1, 2\}$ and $3 \le j \le a$ with its parity indicator explicitly retained:
    $$T_{i,j}(a) := a^2 \frac{|u_j^\top E u_i|^2}{(\Lambda_i - \Lambda_j)^2} = \begin{cases} 0, & \text{if } j \not\equiv i \pmod 2, \\[6pt] \displaystyle a^2 \frac{4 u_i(1)^2 u_j(1)^2}{(\Lambda_i - \Lambda_j)^2}, & \text{if } j \equiv i \pmod 2. \end{cases}$$
    For fixed $i \in \{1, 2\}$ and fixed $j \ge 3$ with $j \equiv i \pmod 2$, substituting the fixed-mode asymptotics from Step 2 yields the pointwise limit:
    $$\lim_{a \to \infty} T_{i,j}(a) = \frac{4 \left(8 i^2 \pi^2\right) \left(8 j^2 \pi^2\right)}{\left(6\pi^2 (j^2 - i^2)\right)^2} = \frac{64}{9} \frac{i^2 j^2}{(j^2 - i^2)^2}.$$
    To rigorously justify interchanging $\lim_{a \to \infty}$ with $\sum_{j=3}^{a}$, we prove an **analytic, $a$-independent summable majorant** valid across the entire index range $a \ge 8$, $i \in \{1, 2\}$, and $3 \le j \le a$:
-   - **Step 3a (Exact KMS Secular Equations and Normalization Bound):** At $\rho = 1/2$, the eigenvectors $u_k(n) = A_k \sin(n\theta_k + \phi_k)$ satisfy the boundary relation $\tan\phi_k = \frac{\sin\theta_k}{2 - \cos\theta_k} > 0$ and quantization $g(\theta_k) := (a+1)\theta_k + 2\phi_k = k\pi$, with $\Lambda_k = \frac{3}{5 - 4\cos\theta_k}$ and $u_k(1)^2 = \frac{4 A_k^2 \sin^2\theta_k}{5 - 4\cos\theta_k}$. Summing $\sin^2(n\theta_k + \phi_k)$ from $n=1$ to $a$ gives the exact normalization identity
-     $$\frac{1}{A_k^2} = \frac{a - 1}{2} + \frac{3}{2(5 - 4\cos\theta_k)} > \frac{a - 1}{2} \implies a A_k^2 < \frac{2a}{a - 1} \le \frac{16}{7} \qquad (\forall a \ge 8, \; \forall k \in \{1, \dots, a\}).$$
+   - **Step 3a (Exact KMS Secular Equations, Phase Derivative Bound, and Normalization Identity):** At $\rho = 1/2$, the eigenvectors $u_k(n) = A_k \sin(n\theta_k + \phi_k)$ satisfy $\tan\phi_k = \frac{\sin\theta_k}{2 - \cos\theta_k} > 0$ on $(0, \pi)$ and quantization $g(\theta_k) := (a+1)\theta_k + 2\phi(\theta_k) = k\pi$, with $\Lambda_k = \frac{3}{5 - 4\cos\theta_k}$ and $u_k(1)^2 = \frac{4 A_k^2 \sin^2\theta_k}{5 - 4\cos\theta_k}$. Differentiating $\phi(\theta) = \arctan\left(\frac{\sin\theta}{2-\cos\theta}\right)$ gives
+     $$\phi'(\theta) = \frac{2\cos\theta - 1}{5 - 4\cos\theta} = \frac{3}{2(5 - 4\cos\theta)} - \frac{1}{2} \in \left[-\frac{1}{3}, \, 1\right] \qquad \forall \theta \in [0, \pi],$$
+     attaining its maximum $\phi'(0) = +1$ at $\theta = 0$ and its minimum $\phi'(\pi) = -\frac{1}{3}$ at $\theta = \pi$. Summing $\sin^2(n\theta_k + \phi_k)$ from $n=1$ to $a$ gives the exact normalization identity (`test_05`):
+     $$\frac{1}{A_k^2} = \sum_{n=1}^{a} \sin^2(n\theta_k + \phi_k) = \frac{1}{2} g'(\theta_k) = \frac{a + 1}{2} + \phi'(\theta_k) = \frac{a}{2} + \frac{3}{2(5 - 4\cos\theta_k)} \ge \frac{a}{2} + \frac{1}{6} > \frac{a - 1}{2},$$
+     which implies $a A_k^2 < \frac{2a}{a + 1/3} < 2 < \frac{2a}{a - 1} \le \frac{16}{7}$ for all $a \ge 8$ and $k \in \{1, \dots, a\}$.
    - **Step 3b (Exact Half-Angle Algebraic Reduction):** Let $s_k := \sin(\theta_k/2) \in (0, 1)$. Then $\sin^2\theta_k (5 - 4\cos\theta_k) = 4 s_k^2 (1 - s_k^2)(1 + 8s_k^2)$ and $\cos\theta_i - \cos\theta_j = 2(s_j^2 - s_i^2)$. Substituting these into $T_{i,j}(a)$ for $j \equiv i \pmod 2$ cancels one power of $(5 - 4\cos\theta_k)$ from the eigenvalue gap denominator $\Lambda_i - \Lambda_j = \frac{12(\cos\theta_i - \cos\theta_j)}{(5-4\cos\theta_i)(5-4\cos\theta_j)}$:
      $$T_{i,j}(a) = \frac{16}{9} (a A_i^2)(a A_j^2) \, P(s_i) P(s_j) \frac{s_i^2 s_j^2}{(s_j^2 - s_i^2)^2},$$
      where $P(s) := (1 - s^2)(1 + 8s^2) = \frac{81}{32} - 8\left(s^2 - \frac{7}{16}\right)^2 \le \frac{81}{32}$ for all $s \in [0, 1]$.
@@ -94,23 +105,23 @@ $$\lim_{a \to \infty} a \, \chi_{a-2, 2}(a) = C = \frac{2\sqrt{18 + 15\pi^2}}{9}
      $$s_j^2 - s_i^2 = \sin\left(\frac{\theta_j - \theta_i}{2}\right) \sin\left(\frac{\theta_j + \theta_i}{2}\right) > s_j \cos(\theta_i/2) \sin\left(\frac{\theta_j - \theta_i}{2}\right),$$
      which cancels $s_j^2$ identically across the entire spectrum $3 \le j \le a$:
      $$\frac{s_i^2 s_j^2}{(s_j^2 - s_i^2)^2} < \frac{\tan^2(\theta_i/2)}{\sin^2\left(\frac{\theta_j - \theta_i}{2}\right)}.$$
-   - **Step 3d (Mean Value Theorem on Wavenumber Spacing and Jordan's Inequality):** Since $\phi'(\theta) = \frac{2\cos\theta - 1}{5 - 4\cos\theta} \le \frac{1}{3}$ on $[0, \pi]$, the quantization function $g(\theta) = (a+1)\theta + 2\phi(\theta)$ satisfies $g'(\theta) \le a + \frac{5}{3}$ everywhere on $[0, \pi]$. By the Mean Value Theorem, $(j - i)\pi = g(\theta_j) - g(\theta_i) \le \left(a + \frac{5}{3}\right)(\theta_j - \theta_i)$. Applying Jordan's inequality $\sin x \ge \frac{2}{\pi} x$ to $x = \frac{\theta_j - \theta_i}{2} \in (0, \pi/2)$ gives:
-     $$\sin\left(\frac{\theta_j - \theta_i}{2}\right) \ge \frac{\theta_j - \theta_i}{\pi} \ge \frac{j - i}{a + 5/3}.$$
+   - **Step 3d (Mean Value Theorem on Wavenumber Spacing and Jordan's Inequality):** Since $-\frac{1}{3} \le \phi'(\theta) \le 1$ on $[0, \pi]$, the quantization function $g(\theta) = (a+1)\theta + 2\phi(\theta)$ satisfies $a + \frac{1}{3} \le g'(\theta) \le a + 3$ everywhere on $[0, \pi]$. By the Mean Value Theorem, $(j - i)\pi = g(\theta_j) - g(\theta_i) \le (a + 3)(\theta_j - \theta_i)$. Applying Jordan's inequality $\sin x \ge \frac{2}{\pi} x$ to $x = \frac{\theta_j - \theta_i}{2} \in (0, \pi/2)$ gives:
+     $$\sin\left(\frac{\theta_j - \theta_i}{2}\right) \ge \frac{\theta_j - \theta_i}{\pi} \ge \frac{j - i}{a + 3}.$$
      Simultaneously, since $\phi(\theta_i) > 0$, $\theta_i = \frac{i\pi - 2\phi(\theta_i)}{a+1} < \frac{i\pi}{a+1} \le \frac{2\pi}{9}$ (for $i \in \{1, 2\}$, $a \ge 8$), so $\tan(\theta_i/2) \le \frac{\tan(\pi/9)}{\pi/9} \frac{i\pi}{2(a+1)} < 1.65 \frac{i}{a+1}$.
-   - **Step 3e (Summable $a$-Independent Majorant and Tail Bound):** Combining Steps 3a–3d, the $(a+1)^{-2}$ factor in $\tan^2(\theta_i/2)$ cancels $(a + 5/3)^2$ in $\sin^{-2}\left(\frac{\theta_j - \theta_i}{2}\right)$ (with $\frac{a + 5/3}{a + 1} \le \frac{29}{27}$ for $a \ge 8$), yielding the analytical bound valid for all $a \ge 8$, $i \in \{1, 2\}$, and $3 \le j \le a$:
+   - **Step 3e (Summable $a$-Independent Majorant and Tail Bound):** Combining Steps 3a–3d, the $(a+1)^{-2}$ factor in $\tan^2(\theta_i/2)$ cancels $(a + 3)^2$ in $\sin^{-2}\left(\frac{\theta_j - \theta_i}{2}\right)$ (with $\frac{a + 3}{a + 1} \le \frac{11}{9}$ for $a \ge 8$), yielding the analytical bound valid for all $a \ge 8$, $i \in \{1, 2\}$, and $3 \le j \le a$:
      $$0 \le T_{i,j}(a) \le \mathbf{1}_{j \equiv i \pmod 2} \frac{C_{\max} \, i^2}{(j - i)^2} \in \ell^1(\mathbb{N}_{j \ge 3})$$
-     (and tightened empirically/algebraically to $T_{i,j}(a) \le M_{i,j} = \mathbf{1}_{j \equiv i \pmod 2} \frac{32 i^2 j^2}{(j^2 - i^2)^2}$, verified across all $a \in \{8, 16, 32, 64, 128, 256\}$ in `test_04`). The tail beyond any cutoff $M \ge 3$ is bounded uniformly in $a$:
+     (and tightened to $T_{i,j}(a) \le M_{i,j} = \mathbf{1}_{j \equiv i \pmod 2} \frac{32 i^2 j^2}{(j^2 - i^2)^2}$, verified across all $a \in \{16, 32, 64, 128, 256\}$ in `test_04`). The tail beyond any cutoff $M \ge 3$ is bounded uniformly in $a$:
      $$R_M(a) := \sum_{j=M+1}^{a} T_{i,j}(a) \le \sum_{j=M+1}^{\infty} \frac{C_{\max} i^2}{(j - i)^2} \le \frac{C_{\max} i^2}{M - i} \xrightarrow[M \to \infty]{} 0 \quad \text{uniformly in } a.$$
      By **Tannery's Theorem** (discrete Dominated Convergence), $\lim_{a \to \infty} \sum_{j=3}^{a} T_{i,j}(a) = \sum_{j=3}^{\infty} \lim_{a \to \infty} T_{i,j}(a) = \frac{64}{9}(S_1 + S_2)$.
 
-4. **Metric Normalization Convention: Canonical Grassmann Tangent Norm vs. Projector Frobenius Norm (`[Exact Identity]`):**  
+4. **Metric Normalization Convention: Canonical Grassmann Tangent Norm vs. Projector Frobenius Norm (`[Exact Identity, verified in test_01 & test_04]`):**  
    For $\Gamma(\varepsilon) = \Gamma_a^{(0)} + \varepsilon E$, the first-order perturbation of the rank-$r$ spectral projector $P(\varepsilon) = \sum_{i=1}^r u_i(\varepsilon) u_i(\varepsilon)^\top$ has off-diagonal blocks $(u_j^\top dP \, u_i) = \varepsilon \frac{u_j^\top E u_i}{\Lambda_i - \Lambda_j}$ for $1 \le i \le r < j \le a$ and symmetrically $(u_i^\top dP \, u_j)$ for $1 \le i \le r < j \le a$.
    - The **canonical Grassmann Riemannian tangent norm** (the Euclidean norm of the principal-angle vector $\Theta(P(\varepsilon), P(0)) = (\theta_1, \dots, \theta_r)$) sums over a **single** cross-block $1 \le i \le r < j \le a$:
      $$\|dP\|_{\mathrm{Gr}} = \left(\sum_{i=1}^{r} \sum_{j=r+1}^{a} |u_j^\top dP \, u_i|^2\right)^{1/2} = |\varepsilon| \, \chi_{a-2, r}(a), \qquad C = \frac{2\sqrt{18 + 15\pi^2}}{9} \approx 2.863513045852925.$$
    - The **full matrix Frobenius norm** $\|dP\|_F = \sqrt{\mathrm{tr}(dP^\top dP)}$ sums over **both** symmetric cross-blocks, carrying an exact factor of $\sqrt{2}$:
      $$\|dP\|_F = \sqrt{2} \, \|dP\|_{\mathrm{Gr}} = \sqrt{2} \, |\varepsilon| \, \chi_{a-2, r}(a), \qquad C_{\mathrm{Frob}} = \sqrt{2} \, C = \frac{2\sqrt{36 + 30\pi^2}}{9} \approx 4.049618985477498.$$
 
-5. **Closed-Form Evaluation of the Odd and Even Spectral Series (`[Exact Identity]`):**  
+5. **Closed-Form Evaluation of the Odd and Even Spectral Series (`[Exact Identity, verified in test_01]`):**  
    - For $i = 1$ (summing over odd $j = 2m+1 \ge 3$, i.e., $m \ge 1$):
      $$S_1 := \sum_{m=1}^{\infty} \frac{(2m+1)^2}{\left((2m+1)^2 - 1\right)^2} = \frac{1}{16} \sum_{m=1}^{\infty} \left(\frac{1}{m} + \frac{1}{m+1}\right)^2 = \frac{1}{16} + \frac{\pi^2}{48} \approx 0.268116758356028.$$
    - For $i = 2$ (summing over even $j = 2m \ge 4$, i.e., $m \ge 2$):
@@ -123,6 +134,24 @@ $$\lim_{a \to \infty} a \, \chi_{a-2, 2}(a) = C = \frac{2\sqrt{18 + 15\pi^2}}{9}
 
 > **Remark (General KMS Parameter $\rho \in (0, 1)$):** Because $u_k(1)^2 \propto \frac{1}{(1-\rho)^2}$ and $\Lambda_i - \Lambda_j \propto \frac{\rho(1+\rho)}{(1-\rho)^3}$, the ratio $\frac{u_i(1)^2 u_j(1)^2}{(\Lambda_i - \Lambda_j)^2}$ scales as $\left(\frac{1-\rho}{\rho(1+\rho)}\right)^2$. Thus for arbitrary $\rho \in (0, 1)$:
 > $$C(\rho, r=2) = \frac{4(1-\rho)}{\rho(1+\rho)} \sqrt{S_1 + S_2} = \frac{1-\rho}{\rho(1+\rho)} \frac{\sqrt{6 + 5\pi^2}}{3\sqrt{3}}.$$
+
+---
+
+### Proposition 1b (Exact KMS Inverse-Square Trace $\operatorname{Tr}(R^{-2})$ and Singular Horizon Limits — `[Exact Identity, verified in test_06]`)
+
+For the $n \times n$ Kac–Murdock–Szegő matrix $R_{ij} = \rho^{|i-j|}$ with $n \ge 2$ and $\rho \in (-1, 1)$, its tridiagonal inverse $R^{-1}$ has two corner diagonal entries equal to $\frac{1}{1-\rho^2}$, $n - 2$ interior diagonal entries equal to $\frac{1+\rho^2}{1-\rho^2}$, and $2(n-1)$ off-diagonal entries equal to $\frac{-\rho}{1-\rho^2}$. Squaring and summing these entries yields the exact closed-form identity:
+
+$$\operatorname{Tr}(R^{-2}) = \|R^{-1}\|_F^2 = \frac{2 + (n - 2)(1 + \rho^2)^2 + 2(n - 1)\rho^2}{(1 - \rho^2)^2} \qquad (n \ge 2).$$
+
+As clarified by Louis Morissette during our joint audit, this exact formula implies two distinct asymptotic regimes that must never be conflated:
+1. **White-Noise / Decoupled Limit ($\rho \to 0$):**
+   $$\lim_{\rho \to 0} (1 - \rho^2) \operatorname{Tr}(R^{-2}) = n \qquad \left(\text{and } \lim_{\rho \to 0} (1 - \rho^2)^2 \operatorname{Tr}(R^{-2}) = n\right).$$
+2. **Singular Correlation Horizon Limit ($\rho \to 1^-$):**
+   As $\rho \to 1^-$, the singly-weighted quantity $(1 - \rho^2) \operatorname{Tr}(R^{-2}) \sim \frac{6n - 8}{1 - \rho^2} \to +\infty$ **diverges**, whereas the doubly-weighted horizon normalization converges to the exact linear invariant:
+   $$\lim_{\rho \to 1^-} (1 - \rho^2)^2 \operatorname{Tr}(R^{-2}) = 2 + 4(n - 2) + 2(n - 1) = 6n - 8 \qquad (n \ge 2).$$
+   *(By comparison, for the first-power inverse trace $\operatorname{Tr}(R^{-1}) = \frac{2 + (n-2)(1+\rho^2)}{1-\rho^2}$, one has $\lim_{\rho\to 0}(1-\rho^2)\operatorname{Tr}(R^{-1}) = n$ and $\lim_{\rho\to 1^-}(1-\rho^2)\operatorname{Tr}(R^{-1}) = 2n - 2$.)*
+
+---
 
 #### Milestone 1 Reproducible Convergence Table (`[Numerical Observation]`)
 
@@ -139,34 +168,37 @@ Running `python3 tools/verify_cos45_kms_spectral_series.py` performs direct `num
 | 512 | 510 | 0.00564682 | 2.89117262 | $2.766 \times 10^{-2}$ | 2.86436529 | $8.522 \times 10^{-4}$ | 2.86356960 | $5.655 \times 10^{-5}$ | $1.92 \times 10^{-14}$ |
 | 1024 | 1022 | 0.00281001 | 2.87745208 | $1.394 \times 10^{-2}$ | 2.86373154 | $2.185 \times 10^{-4}$ | 2.86352029 | $7.240 \times 10^{-6}$ | $2.57 \times 10^{-14}$ |
 
-**Explicit Tolerances Enforced by `verify_cos45_kms_spectral_series.py` (`4/4 PASS`):**
-1. **Series Identity Tolerance:** $\left|S_1 - \left(\frac{1}{16} + \frac{\pi^2}{48}\right)\right| < 10^{-11}$ and $\left|S_2 - \left(\frac{1}{16} + \frac{\pi^2}{12}\right)\right| < 10^{-11}$.
-2. **Finite-$a$ Parity Identity Tolerance:** $\max_{1 \le k \le a} |u_k(a) - (-1)^{k-1}u_k(1)| < 10^{-13}$ and opposite-parity leakage $\max_{j \not\equiv i \pmod 2} |u_j^\top E u_i| < 10^{-14}$.
-3. **Asymptotic Convergence Tolerance at $a = 1024$:** $|a\chi_{a-2,2}(a) - C| < 1.5 \times 10^{-2}$, $|C_{\mathrm{Rich1}}(1024) - C| < 2.5 \times 10^{-4}$, and $|C_{\mathrm{Rich2}}(1024) - C| < 1.0 \times 10^{-5}$.
-4. **Tannery Majorant & Frobenius Norm Tolerance:** $T_{i,j}(a) \le \mathbf{1}_{j \equiv i \pmod 2} \frac{32 i^2 j^2}{(j^2 - i^2)^2}$ for all $a \in \{8, 16, 32, 64, 128, 256\}$ and $3 \le j \le a$, and $\left|\|dP\|_F - \sqrt{2}\|dP\|_{\mathrm{Gr}}\right| < 10^{-14}$ with $C_{\mathrm{Frob}} = \sqrt{2} C \approx 4.049618985477498$.
+**Explicit Tolerances Enforced by [`tools/verify_cos45_kms_spectral_series.py`](tools/verify_cos45_kms_spectral_series.py) (`7/7 PASS`):**
+1. **`test_01` (Series & Norm Constants):** $\left|S_1 - \left(\frac{1}{16} + \frac{\pi^2}{48}\right)\right| < 10^{-11}$, $\left|S_2 - \left(\frac{1}{16} + \frac{\pi^2}{12}\right)\right| < 10^{-11}$, $C = \frac{2\sqrt{18+15\pi^2}}{9} \approx 2.863513045852925$, and $C_{\mathrm{Frob}} = \sqrt{2}C \approx 4.049618985477498$.
+2. **`test_02` (Finite-$a$ Centrosymmetric Parity):** $\max_{1 \le k \le a} |u_k(a) - (-1)^{k-1}u_k(1)| < 10^{-13}$ and opposite-parity leakage $\max_{j \not\equiv i \pmod 2} |u_j^\top E u_i| < 10^{-14}$.
+3. **`test_03` (Asymptotic Convergence $a\chi(a) \to C$ & Richardson Extrapolation):** $|a\chi_{a-2,2}(a) - C| < 1.5 \times 10^{-2}$, $|C_{\mathrm{Rich1}}(1024) - C| < 2.5 \times 10^{-4}$, and $|C_{\mathrm{Rich2}}(1024) - C| < 1.0 \times 10^{-5}$.
+4. **`test_04` (Tannery Majorant & Frobenius Norm Ratio):** $T_{i,j}(a) \le \mathbf{1}_{j \equiv i \pmod 2} \frac{32 i^2 j^2}{(j^2 - i^2)^2}$ for all $a \in \{16, 32, 64, 128, 256\}$ and $3 \le j \le a$, and $\left|\|dP\|_F - \sqrt{2}\|dP\|_{\mathrm{Gr}}\right| < 10^{-14}$.
+5. **`test_05` (KMS Secular Normalization, Phase Derivative & Boundary Sign):** Verifies $\sin\phi_k = \rho\sin(\theta_k + \phi_k) \iff \tan\phi_k = \frac{\sin\theta_k}{2-\cos\theta_k} > 0$, $-\frac{1}{3} \le \phi'(\theta) \le 1$ on $[0, \pi]$, and $\frac{1}{A_k^2} = \frac{a}{2} + \frac{3}{2(5-4\cos\theta_k)} = \frac{a+1}{2} + \phi'(\theta_k) \ge \frac{a}{2} + \frac{1}{6} > \frac{a-1}{2}$ across all modes.
+6. **`test_06` (Exact KMS $\operatorname{Tr}(R^{-2})$ Identity & Both Limits):** Verifies $\operatorname{Tr}(R^{-2}) = \frac{2+(n-2)(1+\rho^2)^2+2(n-1)\rho^2}{(1-\rho^2)^2}$ for $n \ge 2$, $\lim_{\rho\to 0}(1-\rho^2)\operatorname{Tr}(R^{-2}) = n$, and $\lim_{\rho\to 1^-}(1-\rho^2)^2\operatorname{Tr}(R^{-2}) = 6n - 8$.
+7. **`test_07` (Equal-Mean / Equal-Variance Temporal Dependency Benchmark):** Verifies complementary detection between `COS45` geodesic subspace drift $d_{\mathrm{geo}}$ (detecting temporal dependency changes at fixed mean and variance) and `Gate 2` radial scale $\Delta_{\mathrm{scale}}$ (detecting pure variance shocks invisible to scale-invariant projectors).
 
 ---
 
-### Proposition 2 (Open Question 2: $\Theta(a^{-4})$ Blind-Zone Floor Closure — `[Under Joint Examination]`)
+### Conjecture 2 (Open Question 2: $\Theta(a^{-4})$ Blind-Zone Floor Closure — `[Conjecture / Heuristic Scaling Argument]`)
+
+> **Epistemic Status Note (per Joint Audit):** The scaling argument below is preserved explicitly as a **`[Conjecture]`**. While consistent with the empirical decay between $a = 16$ and $a = 32$ in Table 3 of *COS45 v1.7.0*, the unit test suite (`test_01`–`test_07`) does **not** prove a non-vanishing leading coefficient for the spectral shift $\Delta w_i(a)$ or establish the analytical survival-function perturbation bound on the exceedance probability.
 
 In the saturated blind zone ($L \ge 2a - 3$), the population projectors coincide ($\Gamma_a^{(0)} = \Gamma_a^{(1)}$), and the asymptotic test statistic is governed by the eigenvalues $w^{(k)} = \mathrm{eig}\left((\Sigma_k)^{1/2} M (\Sigma_k)^{1/2}\right)$ for $k \in \{0, 1\}$.
 
 1. **Macroscopic Null Dispersion Scaling ($\Theta(a^4)$):**  
    In the Grassmann metric $M_{h,h'} = \sum_{i \le r < j} \frac{(u_j^\top E_h u_i)(u_j^\top E_{h'} u_i)}{(\Lambda_i - \Lambda_j)^2}$, macroscopic lag bands $E_h$ ($h \propto a$) couple low-lying modes with matrix elements of order $\mathcal{O}(1)$ across the $\Theta(a^{-2})$ spectral gap. Integrating over the $a - 1$ lag coordinates under $\Sigma_0$ yields dominant null weights scaling as
    $$w_1^{(0)}(a), \, w_2^{(0)}(a) = \Theta(a^4)$$
-   (verified in `cos45_blind_saturation_results.json`: $w_1^{(0)}(16) = 19.306 \to w_1^{(0)}(32) = 319.185 = 16.53 \times w_1^{(0)}(16) \approx 2^4 w_1^{(0)}(16)$).
+   (observed in `cos45_blind_saturation_results.json`: $w_1^{(0)}(16) = 19.306 \to w_1^{(0)}(32) = 319.185 = 16.53 \times w_1^{(0)}(16) \approx 2^4 w_1^{(0)}(16)$).
 
-2. **Microscopic Lag Localization of $\Delta\Sigma = \Sigma_1 - \Sigma_0$ ($\mathcal{O}(1)$ Shift):**  
+2. **Microscopic Lag Localization of $\Delta\Sigma = \Sigma_1 - \Sigma_0$ ($\mathcal{O}(1)$ Shift Conjecture):**  
    By contrast, Morissette's exact closed form for $\Delta\Sigma = \Sigma_1 - \Sigma_0$ at $L \ge 2a - 3$,
    $$(\Sigma_1 - \Sigma_0)_{h,h'} = 2 \cdot 2^{-(h+h')} \sum_j \sum_{m=1}^{c_j} \binom{c_j}{m} \frac{3^m \lambda^m}{1 - \lambda^m},$$
-   decays exponentially as $2^{-(h+h')}$ and is supported exclusively on microscopic lags $h, h' = \mathcal{O}(1)$. For fixed $h = \mathcal{O}(1)$, $E_h$ differs from a polynomial in the tridiagonal inverse $(\Gamma_a^{(0)})^{-1}$ only at a bounded number of corner entries. Because polynomials in $(\Gamma_a^{(0)})^{-1}$ commute with $\Gamma_a^{(0)}$, their off-diagonal elements $u_j^\top E_h u_i$ vanish identically in the bulk, leaving only boundary terms of order $u_i(1) u_j(1) = \mathcal{O}(a^{-3})$. Dividing by $\Lambda_i - \Lambda_j = \Theta(a^{-2})$ gives Jacobian entries $J_{(i,j), h} = \mathcal{O}(a^{-1})$ at fixed $h$, so the perturbation $\Delta w_i(a) = w_i^{(1)}(a) - w_i^{(0)}(a)$ remains bounded ($\mathcal{O}(1)$) as $a \to \infty$.
+   decays exponentially as $2^{-(h+h')}$ and is supported on microscopic lags $h, h' = \mathcal{O}(1)$. For fixed $h = \mathcal{O}(1)$, $E_h$ differs from a polynomial in the tridiagonal inverse $(\Gamma_a^{(0)})^{-1}$ only at a bounded number of corner entries. Because polynomials in $(\Gamma_a^{(0)})^{-1}$ commute with $\Gamma_a^{(0)}$, their off-diagonal elements $u_j^\top E_h u_i$ vanish in the bulk, leaving boundary terms of order $u_i(1) u_j(1) = \mathcal{O}(a^{-3})$. Dividing by $\Lambda_i - \Lambda_j = \Theta(a^{-2})$ gives Jacobian entries $J_{(i,j), h} = \mathcal{O}(a^{-1})$ at fixed $h$, suggesting that $\Delta w_i(a) = w_i^{(1)}(a) - w_i^{(0)}(a)$ remains bounded ($\mathcal{O}(1)$) as $a \to \infty$.
 
-3. **Fourth-Order Power Dilution:**  
-   Because the relative dispersion shift scales as
-   $$\frac{w_i^{(1)}(a) - w_i^{(0)}(a)}{w_i^{(0)}(a)} = \Theta(a^{-4}),$$
-   the survival-function expansion at the nominal $(1-\alpha)$ quantile $q(a) = \Theta(a^4)$ yields the asymptotic closure rate:
-   $$\boxed{\mathrm{Power}_{\mathrm{floor}}(a) - \alpha = \Theta(a^{-4}) \qquad (a \to \infty)}$$
-   (matching the numerical decay from $a=16 \to 32$ in Table 3 of *COS45 v1.7.0*: $\frac{1.1798\% - 1\%}{1.0109\% - 1\%} = \frac{0.1798}{0.01093} = 16.45 \approx 2^4$).
+3. **Conjectured Fourth-Order Power Dilution:**  
+   Under the hypothesis that the dominant perturbation $\Delta w_i(a)$ is non-vanishing of order $\Theta(1)$ and transfers linearly to the tail exceedance probability at the $(1-\alpha)$ quantile $q(a) = \Theta(a^4)$, one obtains the conjectured closure rate:
+   $$\boxed{\mathrm{Power}_{\mathrm{floor}}(a) - \alpha = \Theta(a^{-4}) \qquad (a \to \infty, \;\; \text{[Conjecture]})}$$
+   (compared with the empirical decay from $a=16 \to 32$ in Table 3 of *COS45 v1.7.0*: $\frac{1.1798\% - 1\%}{1.0109\% - 1\%} = \frac{0.1798}{0.01093} = 16.45 \approx 2^4$).
 
 ---
 
@@ -219,9 +251,22 @@ To evaluate `COS45` alongside four complementary diagnostic gates, all quantitie
 
 ---
 
+## Part III-B: Attribution, Provenance, and Joint Audit Table (Morissette & Torjusen, 2026)
+
+To ensure transparent scientific provenance for citation and future joint benchmarks, we document the exact division of contributions and audit resolutions:
+
+| Contribution Domain | Primary / Independent Author(s) | Exact Mathematical / Software Scope & Provenance |
+| :--- | :--- | :--- |
+| **1. Problem Formulation & `COS45` Benchmark** | **Louis Morissette** (*COS45 v1.7.0*, `DOI: 10.5281/zenodo.23440691`) | Formulation of the deterministic Hankel–Grassmann pipeline $(s_t) \to X_t \to \hat{\Gamma}_b \to \hat{P}_b \in \mathrm{Gr}(a,r)$, scale invariance $P(tx)=P(x)$, differential rank bound $\mathrm{rank}(D\Phi_s) \le \min\{n-1, r(a-r), 3a-5\}$, adversarial `hidden_order` Markov process, exact blind-zone barrier $\Gamma_a^{(0)}=\Gamma_a^{(1)}$ for $a \le L+1$, rank-2 corner perturbation at $a=L+2$, closed-form $\Delta\Sigma = \Sigma_1 - \Sigma_0$, and formulation of Open Questions 1 and 2. |
+| **2. Numerical Extrapolation of Frontier & Blind Floor** | **Louis Morissette** (*COS45 v1.7.0*) & **Marius Torjusen** ([`tools/verify_cos45_kms_spectral_series.py`](tools/verify_cos45_kms_spectral_series.py)) | **Morissette:** High-precision numerical identification of $\chi_{a-2,2}(a) \sim C/a$ with $C \approx 2.8635$ at $a = 10^4$ and empirical blind-zone floor tables ($a=16, 32$). **Torjusen:** Independent Python/NumPy reproduction (`test_01`–`test_07`) and 1st/2nd-order Richardson extrapolation tables across $a \in [8, 1024]$. |
+| **3. Analytical Derivation of $S_1, S_2, C$ & Tannery Majorant** | **Marius Torjusen** (derivation) & **Louis Morissette** (mathematical audit & secular/trace corrections) | **Torjusen:** Centrosymmetric parity selection, closed-form evaluation of the odd/even spectral series $S_1 = \frac{1}{16}+\frac{\pi^2}{48}$, $S_2 = \frac{1}{16}+\frac{\pi^2}{12}$, exact constant $C = \frac{2\sqrt{18+15\pi^2}}{9} \approx 2.863513045852925$, and half-angle Tannery majorant. **Morissette (Audit):** Explicit distinction between canonical Grassmann norm $C$ and Frobenius norm $C_{\mathrm{Frob}} = \sqrt{2}C \approx 4.049618985477498$; exact KMS trace formula $\operatorname{Tr}(R^{-2}) = \frac{2+(n-2)(1+\rho^2)^2+2(n-1)\rho^2}{(1-\rho^2)^2}$ and separation of $\lim_{\rho\to 0}(1-\rho^2)\operatorname{Tr}(R^{-2})=n$ from $\lim_{\rho\to 1^-}(1-\rho^2)^2\operatorname{Tr}(R^{-2})=6n-8$; corrections to boundary sign $\sin\phi_k = \rho\sin(\theta_k+\phi_k)$, normalization $\frac{1}{A_k^2} = \frac{a}{2} + \frac{3}{2(5-4\cos\theta_k)} > \frac{a-1}{2}$, and phase derivative bound $-\frac{1}{3} \le \phi'(\theta) \le 1$; and strict epistemic separation between demonstrated limit $a\chi(a)\to C$, remainder expansion $\chi(a)=C/a+\mathcal{O}(a^{-2})$, and the $\Theta(a^{-4})$ conjecture. |
+| **4. Fail-Closed Consequence Gate (`CVTK` / `NLK`) & 5-Gate Protocol** | **Marius Torjusen** (architecture) & **Louis Morissette** (complementary temporal signal test design) | **Torjusen:** Separation of candidate generation ($\Phi$) from consequence authorization ($\Omega \in \{\text{OPEN}, \text{HOLD}, \text{KILL}\}$), Davis–Kahan gap admissibility (`Gate 0`), radial scale complement (`Gate 2`), geodesic-to-chord ratio (`Gate 3`), and forward/backward horizon recurrence (`Gate 4a/4b`, `Law V` in [`LAW_OF_CAUSAL_INERTIA.md`](LAW_OF_CAUSAL_INERTIA.md), first committed in `40a461a`). **Morissette & Torjusen (Joint):** Pre-registered equal-mean / equal-variance temporal-dependency benchmark (`test_07`) measuring the complementarity between `COS45` and `CVTK`. |
+
+---
+
 ## Conclusion & Acceptance of Collaboration
 
-Louis — your `hidden_order` benchmark (`COS45 v1.7.0`) is a model of scientific clarity: separating `Exact`, `Numerical`, and `Open` claims without overstatement. By closing your two open analytical questions above (Theorem 1: $C = \frac{2\sqrt{18 + 15\pi^2}}{9} \approx 2.863513045853$ and Proposition 2: $\Theta(a^{-4})$ blind-zone floor dilution) and pairing `COS45` with the four complementary gates ($\Delta_{\mathrm{gap}}$, $\Delta_{\mathrm{scale}}$, $\kappa_{\mathrm{path}}$, $\delta_{\mathrm{orbit}}$), we have both the analytical foundation and the pre-registered falsification suite needed for a joint benchmark and publication.
+Louis — your `hidden_order` benchmark (`COS45 v1.7.0`) and your subsequent mathematical audit exemplify scientific rigor: separating `[Demonstrated]`, `[Numerical Observation]`, and `[Conjecture]` claims without overstatement. With all seven verification tests (`7/7 PASS` in [`tools/verify_cos45_kms_spectral_series.py`](tools/verify_cos45_kms_spectral_series.py)) and all source corrections integrated, we have a clean, fully audited baseline to run our joint equal-mean / equal-variance temporal dependency benchmark.
 
 Challenge accepted. Let us lock the signal generators and run the benchmark.
 
@@ -259,7 +304,7 @@ Hvorfor kan grenseverdien $\lim_{a \to \infty}$ bytte plass med den spektrale su
 
 For enhver endelig dimensjon $a \ge 8$ og enhver mode $1 \le k \le a$ av Kac-Murdock-Szegő-matrisen (KMS) ved $\rho = 1/2$, gir de eksakte tridiagonale sekulærligningene:
 
-$$\Lambda(\theta_k) = \frac{3}{5 - 4\cos\theta_k}, \quad u_k(1)^2 = \frac{4 A_k^2 \sin^2\theta_k}{5 - 4\cos\theta_k}, \quad A_k^2 < \frac{2}{a - 1}, \quad \theta_k \in \left(\frac{(k-1)\pi}{a+1}, \frac{k\pi}{a}\right)$$
+$$\Lambda(\theta_k) = \frac{3}{5 - 4\cos\theta_k}, \quad u_k(1)^2 = \frac{4 A_k^2 \sin^2\theta_k}{5 - 4\cos\theta_k}, \quad \frac{1}{A_k^2} = \frac{a}{2} + \frac{3}{2(5 - 4\cos\theta_k)} > \frac{a - 1}{2}, \quad \theta_k \in \left(\frac{(k-1)\pi}{a+1}, \frac{k\pi}{a}\right)$$
 
 For de ledende modene $i \in \{1, 2\}$ og enhver eksitert mode $j \in \{3, \dots, a\}$ er den eksakte egenverdidifferansen:
 

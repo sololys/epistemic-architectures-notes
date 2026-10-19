@@ -35,7 +35,7 @@ Han peker mot kassen på bordet. «Der inne er det ingen sky. Ingen servere i Du
 
 ### II. Friksjonens patologi
 
-Det teoretiske byggverket som Torjusen har snekret sammen — nedfelt i et omfangsrikt vitenskapelig kompendium nylig deponert i CERNs åpne forskningsarkiv Zenodo under DOI-nummeret `10.5281/zenodo.22229111` ([10.5281/zenodo.18436983](https://doi.org/10.5281/zenodo.18436983)), og syntetisert i det ferske oversiktsdokumentet `MASTER_SYNTESERAPPORT_KPOD_INFRANETT_RTDRA` — begynner ikke i kjemien, men i erkjennelsesteorien.
+Det teoretiske byggverket som Torjusen har snekret sammen — nedfelt i et omfangsrikt vitenskapelig kompendium deponert i CERNs åpne forskningsarkiv Zenodo under DOI-nummeret [`10.5281/zenodo.18436983`](https://doi.org/10.5281/zenodo.18436983), og syntetisert i oversiktsverkene [`00_THE_CAUSAL_INFRASTRUCTURE_MASTER_WHITEPAPER_2026_2031.md`](00_THE_CAUSAL_INFRASTRUCTURE_MASTER_WHITEPAPER_2026_2031.md) og [`04_RTDRA_SOCIOECONOMIC_ENERGY_ROUTING.md`](04_RTDRA_SOCIOECONOMIC_ENERGY_ROUTING.md) — begynner ikke i kjemien, men i erkjennelsesteorien.
 
 Hans diagnose av den moderne tidsalder er formulert i en læresetning han kaller *Loven om kausal inerti*:
 
@@ -45,7 +45,7 @@ I tiår har Silicon Valley og den vestlige ingeniøreliten operert under en såk
 
 Mot denne flyktigheten stiller Torjusen en ubønnhørlig motsetning: **Fail-Closed**.
 
-I hans arkitektur, døpt **Reismann-Core** (`README_REISMANN_CORE.md`), er utgangspunktet alltid absolutt stillstand: null volt, stengte sluser, kuttet kontakt. For at en handling skal realiseres — enten det er en ventil som åpner seg i en reaktor eller en lastebil som tildeles en rute — må den passere en ubøyelig subtraktiv portvakt kalt $\Pi_K$. Den må dokumentere sitt opphav, bevise sin energieffekt, og forsegles i en uutslettelig, kryptografisk hasjkjede før en eneste reléspole får tilført fem volt strøm.
+I hans arkitektur, døpt **Reismann-Core**, er utgangspunktet alltid absolutt stillstand: null volt, stengte sluser, kuttet kontakt. For at en handling skal realiseres — enten det er en ventil som åpner seg i en reaktor eller en lastebil som tildeles en rute — må den passere en ubøyelig subtraktiv portvakt kalt $\Pi_K$. Den må dokumentere sitt opphav, bevise sin energieffekt, og forsegles i en uutslettelig, kryptografisk hasjkjede før en eneste reléspole får tilført fem volt strøm.
 
 $$\text{Realisering} = \mathcal{W} \circ \Omega \circ \Pi_K \circ \Phi \qquad \Longleftrightarrow \qquad \text{KANDIDAT} \neq \text{KONSEKVENS}$$
 
@@ -59,7 +59,7 @@ Hvert eneste menneske som lever på jorden i dag, har atomer i kroppen som har p
 
 Dette krever enorme mengder fossil metangass. Prosessen sluker alene mellom én og to prosent av hele klodens energiforbruk og står for enorme klimagassutslipp. Men enda mer prekært for et land som Norge: Den har skapt en ekstrem, sentralisert sårbarhet. Norske bønder er prisgitt et hyperkomplekst maskineri av utenlandske råvarebørser, russiske gassrørledninger, store fabrikker og en endeløs konvoi av dieseldrevne vogntog som frakter tunge sekker med ammoniumnitrat over smale fylkesveier.
 
-«Hvis en rørledning i Nordsjøen kuttes, eller hvis fiendtlige aktører lammer logistikken i Østersjøen, har ikke norsk landbruk gjødsel i mer enn noen få uker,» påpeker Torjusen i avhandlingen `TECHNICAL_CORE_DECENTRALIZED_SOVEREIGNTY_KPOD_INFRANETT.md`. «Uten gjødsel kollapser avlingene med femti prosent på én vekstsesong. Vi har trodd at matsikkerhet handlet om kornlagre på Otta. Men matsikkerhet handler om elektronoverføring i jordsmonnet.»
+«Hvis en rørledning i Nordsjøen kuttes, eller hvis fiendtlige aktører lammer logistikken i Østersjøen, har ikke norsk landbruk gjødsel i mer enn noen få uker,» påpeker Torjusen i avhandlingen [`06_TECHNICAL_CORE_DECENTRALIZED_SOVEREIGNTY_KPOD_INFRANETT.md`](06_TECHNICAL_CORE_DECENTRALIZED_SOVEREIGNTY_KPOD_INFRANETT.md). «Uten gjødsel kollapser avlingene med femti prosent på én vekstsesong. Vi har trodd at matsikkerhet handlet om kornlagre på Otta. Men matsikkerhet handler om elektronoverføring i jordsmonnet.»
 
 ### IV. Alkymi i fjøset
 
@@ -72,10 +72,10 @@ Torjusen og hans beregningsmodeller (`06_RESEARCH/KATALYSE_FORSKNING/03_BEREGNIN
 Men det virkelige kuppet — det som får øynene til elektroingeniører til å smalne — er måten han unngår vannspaltingens forbannelse på.
 
 Normalt vil en elektrokjemisk celle som forsøker å splitte nitrogen i vann, kaste bort nesten all energien på å produsere hydrogengass i stedet. K-POD løser dette med to grep:
-1. **Urin i stedet for rent vann på anoden:** Ved å hente flytende husdyrgjødsel (urea) fra fjøskjelleren, gjennomfører reaktoren en såkalt *Urea Oxidation Reaction* (UOR). Det krever bare $0.37\text{ volt}$ å oksidere urea, mot $1.23\text{ volt}$ for å splitte oksygen ut av rent vann. Den totale cellespenningen faller under **$0.998\text{ volt}$**, og energiforbruket stuper til $5.28\text{ kilowattimer per kilo ammoniakk}$.
-2. **Kvantepulsering på 84 kHz:** Den elektroniske styringsenheten sender ultrakorte strømpulser på $500\text{ nanosekunder}$ inn i elektrolytten. Pulsen er for kort til at hydrogenionene rekker å danne gassbobler, men akkurat lang nok til at de tunge nitrogenmolekylene fester seg til katalysatoren. Faradisk virkningsgrad spretter opp til over $89\text{ prosent}$.
+1. **Urin i stedet for rent vann på anoden:** Ved å hente flytende husdyrgjødsel (urea) fra fjøskjelleren, gjennomfører reaktoren en såkalt *Urea Oxidation Reaction* (UOR). Det krever bare $0.37\text{ volt}$ å oksidere urea, mot $1.23\text{ volt}$ for å splitte oksygen ut av rent vann. Den totale cellespenningen faller under **$0.998\text{ volt}$**, og energiforbruket stuper til $5.28\text{ kilowattimer per kilo ammoniakk}$ (eksakt ankerverdi $5.282\text{ kWh/kg NH}_3$).
+2. **Elektrokjemisk pulsering på 84 kHz ($\tau_p = 500\text{ ns}$):** Den elektroniske styringsenheten (QCS-EMS) sender ultrakorte elektriske spenningspulser på $500\text{ nanosekunder}$ inn i elektrolytten. Pulsen er for kort til at hydrogenionene rekker å nukleere $\text{H}_2$-gassbobler (Volmer-desimeringslås), men akkurat lang nok til at de tunge nitrogenmolekylene fester seg til katalysatoren. Modellert faradisk virkningsgrad spretter opp til over $89\text{ prosent}$.
 
-Resultatet? En enhet som kobles rett i en vanlig 230-volts stikkontakt på låveveggen, trekker beskjedne ti ampere, og drypper ut ti kilo ren ammoniakk i døgnet — nøyaktig det bonden trenger for å holde åkrene grønne, produsert på stedet, uten et eneste gram importert gass.
+Resultatet? En prosjektert enhet som kobles rett i en vanlig 230-volts stikkontakt på låveveggen, trekker beskjedne ti ampere, og er dimensjonert for ti kilo ren ammoniakk i døgnet (i en lukket POD-Tetrad-massebalanse der $\sum m_{\text{inn}} - \sum m_{\text{ut}} = 0.000000\text{ kg/døgn}$ ved $141.100998\text{ kg/døgn}$ total gjennomstrømning og $106.5\,\%$ $\text{N}_2$-dekning fra C8-POD) — produsert på stedet, uten et eneste gram importert gass.
 
 ### V. Nettverket som nektet skyen
 
@@ -85,7 +85,7 @@ Men en maskin i et fjøs er i dag sjelden bare en maskin; den er koblet til inte
 
 Svaret hans er protokollen **Infranett v0.4** (og v0.5).
 
-Infranett er et lokalt radionettverk som bevisst nekter å snakke med den globale skyen. Hver K-POD er utstyrt med en streng radiokontroll: Styringssignaler må komme fra en fysisk avstand på under tjue meter — målt etter radiosignalets fysiske svekkelse i luft ($P_r \propto P_t / r^2$) og ToF-tidsbudsjett ($\le 133.42\text{ ns}$). Hvis en angriper kilometer unna forsøker å sende instruksjoner over internett, finnes det ingen port å banke på; signalet når rett og slett ikke frem til mottakeren.
+Infranett er et lokalt radionettverk som bevisst nekter å snakke med den globale skyen. Hver K-POD er utstyrt med en streng radiokontroll: Styringssignaler må komme fra en fysisk avstand på under tjue meter ($\Delta r = 40.0\text{ m}$ tur-retur) — målt etter radiosignalets fysiske svekkelse i luft ($P_r \propto P_t / r^2$) og Time-of-Flight-tidsbudsjett ($\Delta t_{\text{budget}} \le 133.42\text{ ns}$ innenfor Alexandrov-intervallet $ds^2 = -c^2(\Delta t)^2 + (\Delta r)^2 \le 0$). Hvis en angriper kilometer unna forsøker å sende instruksjoner over internett, brytes lyskjeglebetingelsen ($ds^2 > 0$) og utløser `GATE::KILL`; signalet når rett og slett ikke frem til aktuatorene.
 
 Og skulle fiberlinjene eller mobilnettene i hele fylket gå i svart, faller systemet tilbake på det eldste og mest robuste nettverket av alle: *Sneakernet*.
 
@@ -95,7 +95,7 @@ Når bonden kjører melketankbilen fra gården inn til meieriet, eller når vete
 
 ### VI. Regnestykket i Finansdepartementet
 
-For en utenforstående kan dette høres ut som en romantisk, nesten anakronistisk drøm om teknologisk isolasjonisme. Men blar man opp i kapittel tre av `MASTER_SYNTESERAPPORT_KPOD_INFRANETT_RTDRA.md`, møter man et språk som er alt annet enn poetisk. Det er skrevet med den nådeløse, nøkterne realismen til embetsverket i Akersgata.
+For en utenforstående kan dette høres ut som en romantisk, nesten anakronistisk drøm om teknologisk isolasjonisme. Men blar man opp i samfunnsanalysen [`04_RTDRA_SOCIOECONOMIC_ENERGY_ROUTING.md`](04_RTDRA_SOCIOECONOMIC_ENERGY_ROUTING.md) (jf. `MASTER_SYNTESERAPPORT_KPOD_INFRANETT_RTDRA.md`), møter man et språk som er alt annet enn poetisk. Det er skrevet med den nådeløse, nøkterne realismen til embetsverket i Akersgata.
 
 Torjusen har kjørt hele systemet gjennom Direktoratet for forvaltning og økonomistyrings (DFØ) offisielle veileder for samfunnsøkonomiske analyser (`03_ENGINES/ENGINES/micro_engines/rtdra_socioeconomic_utility_engine.py`), komplett med en fire prosents kalkulasjonsrente over en femårig horisont:
 
@@ -118,7 +118,7 @@ Da vi sjekket git-loggen på hans arbeidsstasjon denne torsdagen, viste statusra
 
 Men K-POD-reaktoren som står på bordet i Risør? Den er på **HOLD**.
 
-For at Torjusen skal erklære reaktoren for en fysisk realitet — det han kaller nivå L3 — nekter han å stole på sine egne datamodeller. Han krever et ugjendrivelig fysisk vitnesbyrd: Reaktoren må fôres med den sjeldne nitrogen-15-isotopen ($^{15}\text{N}_2$), og det resulterende ammoniumproduktet må analyseres i et kjernemagnetisk resonansspektrometer ($^1\text{H}$-NMR). Først når spektrometeret tegner en uomtvistelig dobbelttagg på nøyaktig $72.5\text{ hertz}$ — det ufeilbarlige fingeravtrykket til en ekte, spaltet nitrogenbinding — vil han tillate at porten åpnes.
+For at Torjusen skal erklære reaktoren for en fysisk realitet — det han kaller nivå L3 — nekter han å stole på sine egne datamodeller. Han krever et ugjendrivelig fysisk vitnesbyrd: Reaktoren må fôres med den sjeldne nitrogen-15-isotopen ($^{15}\text{N}_2$), og det resulterende ammoniumproduktet må analyseres i et kjernemagnetisk resonansspektrometer ($^1\text{H}$-NMR). Først når spektrometeret tegner en uomtvistelig dobbelttagg på nøyaktig $72.5\text{ hertz}$ — det ufeilbarlige fingeravtrykket til en ekte, spaltet nitrogenbinding (jf. [`KPOD_V12_L3_15N2_NMR_LAB_PROTOCOL.md`](KPOD_V12_L3_15N2_NMR_LAB_PROTOCOL.md)) — vil han tillate at porten åpnes.
 
 Og prisen for å få utført den testen? Ikke milliarder. Bare hundre og femti tusen kroner til laboratorieleie og isotopgass. En søknad ligger inne hos Innovasjon Norge under ordningen Oppstart 1. Inntil saksbehandlerne der har satt sitt stempel på papiret, forblir kjemien et uferdig løfte.
 
@@ -158,7 +158,7 @@ He points toward the enclosure on the table. "In there, there is no cloud. No se
 
 ### II. The Pathology of Friction
 
-The theoretical edifice Torjusen has assembled — deposited in CERN's open research repository Zenodo (`10.5281/zenodo.22229111` / [10.5281/zenodo.18436983](https://doi.org/10.5281/zenodo.18436983)) and synthesized in `MASTER_SYNTESERAPPORT_KPOD_INFRANETT_RTDRA` — begins not in chemistry, but in epistemology.
+The theoretical edifice Torjusen has assembled — deposited in CERN's open research repository Zenodo ([`10.5281/zenodo.18436983`](https://doi.org/10.5281/zenodo.18436983)) and synthesized in [`00_THE_CAUSAL_INFRASTRUCTURE_MASTER_WHITEPAPER_2026_2031.md`](00_THE_CAUSAL_INFRASTRUCTURE_MASTER_WHITEPAPER_2026_2031.md) and [`04_RTDRA_SOCIOECONOMIC_ENERGY_ROUTING.md`](04_RTDRA_SOCIOECONOMIC_ENERGY_ROUTING.md) — begins not in chemistry, but in epistemology.
 
 His diagnosis of the modern era is distilled into a theorem he calls *The Law of Causal Inertia*:
 
@@ -168,7 +168,7 @@ For decades, Silicon Valley and the Western engineering elite have operated unde
 
 Against this volatility Torjusen poses an inexorable opposite: **Fail-Closed**.
 
-In his architecture, christened **Reismann-Core** (`README_REISMANN_CORE.md`), the default state is always absolute stillness: zero volts, closed sluices, severed contact. For any action to be realized — whether a valve opening in a reactor or a freight truck assigned a route — it must pass an unyielding subtractive gatekeeper called $\Pi_K$. It must document its provenance, prove its energy balance, and be sealed into an indelible cryptographic hash chain before a single relay coil receives five volts of current.
+In his architecture, christened **Reismann-Core**, the default state is always absolute stillness: zero volts, closed sluices, severed contact. For any action to be realized — whether a valve opening in a reactor or a freight truck assigned a route — it must pass an unyielding subtractive gatekeeper called $\Pi_K$. It must document its provenance, prove its energy balance, and be sealed into an indelible cryptographic hash chain before a single relay coil receives five volts of current.
 
 $$\text{Realization} = \mathcal{W} \circ \Omega \circ \Pi_K \circ \Phi \qquad \Longleftrightarrow \qquad \text{CANDIDATE} \neq \text{CONSEQUENCE}$$
 
@@ -182,7 +182,7 @@ Every human being alive on Earth today carries atoms in their body that have pas
 
 This requires vast quantities of fossil methane gas. The process alone consumes between one and two percent of the entire planet's energy supply and accounts for massive greenhouse-gas emissions. Even more precariously for a country like Norway, it has created an extreme, centralized vulnerability. Norwegian farmers are at the mercy of a hyper-complex machinery of foreign commodity exchanges, gas pipelines, sprawling chemical plants, and an endless convoy of diesel-powered heavy trucks hauling sacks of ammonium nitrate over narrow county roads.
 
-"If a pipeline in the North Sea is severed, or if hostile actors paralyze logistics in the Baltic, Norwegian agriculture has fertilizer for no more than a few weeks," Torjusen notes in `TECHNICAL_CORE_DECENTRALIZED_SOVEREIGNTY_KPOD_INFRANETT.md`. "Without fertilizer, crop yields collapse by fifty percent in a single growing season. We thought food security was about grain silos at Otta. In reality, food security is about electron transfer in the soil."
+"If a pipeline in the North Sea is severed, or if hostile actors paralyze logistics in the Baltic, Norwegian agriculture has fertilizer for no more than a few weeks," Torjusen notes in [`06_TECHNICAL_CORE_DECENTRALIZED_SOVEREIGNTY_KPOD_INFRANETT.md`](06_TECHNICAL_CORE_DECENTRALIZED_SOVEREIGNTY_KPOD_INFRANETT.md). "Without fertilizer, crop yields collapse by fifty percent in a single growing season. We thought food security was about grain silos at Otta. In reality, food security is about electron transfer in the soil."
 
 ### IV. Alchemy in the Barn
 
@@ -195,10 +195,10 @@ Torjusen and his computational models (`06_RESEARCH/KATALYSE_FORSKNING/03_BEREGN
 Yet the real coup — the detail that makes electrical engineers narrow their eyes — is how he avoids the curse of water splitting.
 
 Ordinarily, an electrochemical cell attempting to split nitrogen in water wastes nearly all its energy producing hydrogen gas instead. K-POD addresses this with two mechanisms:
-1. **Urine instead of pure water at the anode:** By drawing liquid livestock manure (urea) from the barn cellar, the reactor performs a *Urea Oxidation Reaction* (UOR). Oxidizing urea requires a thermodynamic potential of only $0.37\text{ volts}$, compared with $1.23\text{ volts}$ to split oxygen from pure water. Total modelled cell voltage drops below **$0.998\text{ volts}$**, and energy consumption plunges to $5.28\text{ kilowatt-hours per kilogram of ammonia}$.
-2. **Quantum pulsing at 84 kHz:** The electronic control unit fires ultrashort current pulses of $500\text{ nanoseconds}$ into the electrolyte. The pulse is too brief for hydrogen ions to nucleate gas bubbles, yet just long enough for heavy dinitrogen molecules to bind to the catalyst, targeting a Faradaic efficiency above $89\text{ percent}$.
+1. **Urine instead of pure water at the anode:** By drawing liquid livestock manure (urea) from the barn cellar, the reactor performs a *Urea Oxidation Reaction* (UOR). Oxidizing urea requires a thermodynamic potential of only $0.37\text{ volts}$, compared with $1.23\text{ volts}$ to split oxygen from pure water. Total modelled cell voltage drops below **$0.998\text{ volts}$**, and energy consumption plunges to $5.28\text{ kilowatt-hours per kilogram of ammonia}$ (exact canonical anchor $5.282\text{ kWh/kg NH}_3$).
+2. **Electrochemical pulsing at 84 kHz ($\tau_p = 500\text{ ns}$):** The electronic control unit (QCS-EMS) fires ultrashort electrical potential pulses of $500\text{ nanoseconds}$ into the electrolyte. The pulse is too brief for hydrogen ions to nucleate $\text{H}_2$ gas bubbles (Volmer decimation gate), yet just long enough for heavy dinitrogen molecules to bind to the catalyst, targeting a Faradaic efficiency above $89\text{ percent}$.
 
-The target profile: a unit that plugs directly into an ordinary 230-volt outlet on the barn wall, draws a modest ten amperes, and yields ten kilograms of pure ammonia per day — produced on site, without a single gram of imported gas.
+The target profile: a unit that plugs directly into an ordinary 230-volt outlet on the barn wall, draws a modest ten amperes, and yields ten kilograms of pure ammonia per day (within a closed POD-Tetrad mass balance of $\sum m_{\text{in}} - \sum m_{\text{out}} = 0.000000\text{ kg/day}$ at $141.100998\text{ kg/day}$ total throughput and $106.5\%$ $\text{N}_2$ supply coverage from C8-POD) — produced on site, without a single gram of imported gas.
 
 ### V. The Network That Refused the Cloud
 
@@ -208,7 +208,7 @@ Yet a machine in a barn today is rarely just a machine; it is connected to the i
 
 His answer is the **Infranett v0.4** (and v0.5) protocol.
 
-Infranett is a local radio network that deliberately refuses to speak to the global cloud. Every K-POD is equipped with a strict physical-layer gate: control signals must originate from a physical distance of under twenty meters — verified by free-space radio attenuation ($P_r \propto P_t / r^2$) and a Time-of-Flight budget ($\le 133.42\text{ ns}$). If an attacker kilometers away attempts to send instructions over the internet, there is no port to knock on; the signal simply cannot satisfy the physical requirement.
+Infranett is a local radio network that deliberately refuses to speak to the global cloud. Every K-POD is equipped with a strict physical-layer gate: control signals must originate from a physical distance of under twenty meters ($\Delta r = 40.0\text{ m}$ round-trip) — verified by free-space radio attenuation ($P_r \propto P_t / r^2$) and a Time-of-Flight budget ($\Delta t_{\text{budget}} \le 133.42\text{ ns}$ within the Alexandrov interval $ds^2 = -c^2(\Delta t)^2 + (\Delta r)^2 \le 0$). If an attacker kilometers away attempts to send instructions over the internet, the spacelike violation ($ds^2 > 0$) triggers `GATE::KILL`; the signal simply cannot satisfy the physical requirement.
 
 And should fiber lines or cellular networks across an entire county go dark, the system falls back on the oldest and most resilient network of all: *Sneakernet*.
 
@@ -218,7 +218,7 @@ When the farmer drives the milk tanker from the farm to the dairy, or when the v
 
 ### VI. The Arithmetic at the Ministry of Finance
 
-To an outsider, this might sound like a romantic, almost anachronistic dream of technological isolationism. Yet opening chapter three of `MASTER_SYNTESERAPPORT_KPOD_INFRANETT_RTDRA.md` reveals a language that is anything but poetic. It is written with the unforgiving, sober realism of the civil servants in Oslo's Ministry of Finance.
+To an outsider, this might sound like a romantic, almost anachronistic dream of technological isolationism. Yet opening the socioeconomic analysis [`04_RTDRA_SOCIOECONOMIC_ENERGY_ROUTING.md`](04_RTDRA_SOCIOECONOMIC_ENERGY_ROUTING.md) (cf. `MASTER_SYNTESERAPPORT_KPOD_INFRANETT_RTDRA.md`) reveals a language that is anything but poetic. It is written with the unforgiving, sober realism of the civil servants in Oslo's Ministry of Finance.
 
 Torjusen has run the entire system through the Norwegian Agency for Public and Financial Management's (DFØ) official framework for socioeconomic analysis (`03_ENGINES/ENGINES/micro_engines/rtdra_socioeconomic_utility_engine.py`), complete with a four-percent social discount rate over a five-year horizon:
 
@@ -241,7 +241,7 @@ When we checked the git log on his workstation that Thursday, the status report 
 
 But the K-POD reactor sitting on the table in Risør? It is on **HOLD**.
 
-Before Torjusen will declare the reactor a physical reality — what he calls level `L3` — he refuses to trust his own computer models. He demands an irrefutable physical witness: the reactor must be fed rare nitrogen-15 isotope gas ($^{15}\text{N}_2$), and the resulting ammonium product must be analyzed in a proton nuclear magnetic resonance spectrometer ($^1\text{H}$-NMR). Only when the spectrometer traces an unmistakable doublet splitting at $72.5\text{ hertz}$ — the unforgeable fingerprint of a genuinely cleaved dinitrogen bond — will he allow the gate to open.
+Before Torjusen will declare the reactor a physical reality — what he calls level `L3` — he refuses to trust his own computer models. He demands an irrefutable physical witness: the reactor must be fed rare nitrogen-15 isotope gas ($^{15}\text{N}_2$), and the resulting ammonium product must be analyzed in a proton nuclear magnetic resonance spectrometer ($^1\text{H}$-NMR). Only when the spectrometer traces an unmistakable doublet splitting at $72.5\text{ hertz}$ — the unforgeable fingerprint of a genuinely cleaved dinitrogen bond (cf. [`KPOD_V12_L3_15N2_NMR_LAB_PROTOCOL.md`](KPOD_V12_L3_15N2_NMR_LAB_PROTOCOL.md)) — will he allow the gate to open.
 
 And the cost of performing that test? Not billions. Barely one hundred and fifty thousand kroner for laboratory rental and isotope gas. An application sits with Innovation Norway under the Startup 1 program. Until the caseworkers there have stamped the paper, the chemistry remains an unfinished promise.
 
@@ -279,9 +279,9 @@ Du kan flytte en milliard symboler gjennom en fiberkabel på et øyeblikk, men d
 
 I skuret ved Skagerrak tvinges denne erkjennelsen ned i jern og svovel:
 
-* **Kjemisk Tukt (K-POD v1.2):** Nitrogenet brytes ikke ved $400\,^\circ\text{C}$ og to hundre bars rå makt som i gammel storindustri. Det lokkes over terskelen ved romtemperatur gjennom $\text{[Fe}_7\text{MoS}_9\text{C]}$-klyngen, paret med urea-oksidasjon ($\text{UOR} < 0.998\text{ V}$) og akustisk kavitasjon ved $84\text{ kHz}$.
-* **Romtidens Gjerde (Infranett v0.5):** Ingen sky får røre ventilen. En kommando som har reist lenger enn tjue meter, eller brukt mer enn $133.42\text{ ns}$ gjennom eter og kobber, tilhører ikke dette rommet og klampes til jord. Når loggen skal ut i verden, bæres den for hånd etter `POSIX fsync`.
-* **Bevisets Ydmykhet (Portvaktens Dom):** Selv når regnskapet i Finansdepartementets egen kalkyle (DFØ $4\,\%$ kalkulasjonsrente) viser en nåverdi på $+9{,}335\text{ mrd. NOK}$ og tilbakebetaling på $21\text{ måneder}$, nekter systemet å erklære seier på forskudd. Programvaren står i $\text{L1 SOFTWARE OPEN}$, men reaktoren og handelen holdes nådeløst i $\text{FYSISK HOLD}$ og $\text{KOMMERSIELT HOLD}$ inntil isotopbeviset fra $^{15}\text{N}_2$ viser den eksakte $^1\text{H-NMR}$-dubletten med koblingskonstant $J = 72.5\text{ Hz}$.
+* **Kjemisk Tukt (K-POD v1.2):** Nitrogenet brytes ikke ved $400\,^\circ\text{C}$ og to hundre bars rå makt som i gammel storindustri. Det lokkes over terskelen ved romtemperatur gjennom $\text{[Fe}_7\text{MoS}_9\text{C]}$-klyngen i en syntetisk $[\text{P-N-P}]$-pincer ($2.8\text{ \AA}$ proton-relé, $\Delta G^\dagger_{\text{TS1}}: 28.5 \to 11.2\text{ kcal/mol}$), paret med anodisk urea-oksidasjon ($\text{UOR}$, $V_{\text{cell}} < 0.998\text{ V}$, $5.282\text{ kWh/kg NH}_3$) og elektrokjemisk pulsbreddemodulering ved $84\text{ kHz}$ ($\tau_p = 500\text{ ns}$ QCS-EMS for undertrykkelse av parasittisk $\text{H}_2$-utvikling).
+* **Romtidens Gjerde (Infranett v0.5):** Ingen sky får røre ventilen. En kommando som har reist lenger enn tjue meter ($\Delta r = 40.0\text{ m}$ tur-retur), eller brukt mer enn $133.42\text{ ns}$ gjennom eter og kobber, bryter Alexandrov-intervallet ($ds^2 = -c^2(\Delta t)^2 + (\Delta r)^2 > 0$) og klampes til jord (`GATE::KILL`). Når loggen skal ut i verden, bæres den for hånd etter RFC 8785, Ed25519 og `POSIX fsync`.
+* **Bevisets Ydmykhet (Portvaktens Dom):** Selv når regnskapet i Finansdepartementets egen kalkyle (DFØ $4\,\%$ kalkulasjonsrente) viser en nåverdi på $+9{,}335\text{ mrd. NOK}$ og tilbakebetaling på $21\text{ måneder}$, nekter systemet å erklære seier på forskudd. Programvaren står i $\text{L1 SOFTWARE OPEN}$, men reaktoren og handelen holdes nådeløst i $\text{FYSISK HOLD}$ og $\text{KOMMERSIELT HOLD}$ inntil isotopbeviset fra $^{15}\text{N}_2$ viser den eksakte $^1\text{H-NMR}$-dubletten med koblingskonstant $J = 72.5\text{ Hz}$ og lukket POD-Tetrad-massebalanse ($\Delta m = 0.000000\text{ kg/døgn}$ ved $141.100998\text{ kg/døgn}$).
 
 Før den dubletten står i spekteret, er alt bare et forslag. Og et forslag åpner ingen port.
 
@@ -299,9 +299,9 @@ $$\text{LOW TRANSMISSION FRICTION} \quad \not\Longrightarrow \quad \text{LOW CON
 
 A neural network can hallucinate a molecule in a millisecond; it cannot pay a single joule of the $945\text{ kJ/mol}$ required to cleave dinitrogen ($\text{N}\equiv\text{N}$). To turn air and waste into fertilizer on a farm floor without an electrical grid collapse, the architecture must submit to physical law:
 
-1. **The Catalytic Lock (K-POD v1.2):** Cofactor mimicry via the $\text{[Fe}_7\text{MoS}_9\text{C]}$ cluster, coupling nitrogen reduction with urea oxidation ($\text{UOR} < 0.998\text{ V}$) under $84\text{ kHz}$ ultrasonic mass-transport stripping.
-2. **Relativistic Geofencing (Infranett v0.4/v0.5):** Cloud sovereignty is abolished. Any packet whose time-of-flight exceeds $133.42\text{ ns}$ ($d > 20\text{ m}$) is rejected at the physical layer. Cross-domain state transfer occurs solely via air-gapped `POSIX fsync` Sneakernet.
-3. **Sovereign Fiscal Math vs. Epistemic Restraint:** Under the Norwegian Ministry of Finance's $4\%$ social discount rate (DFØ), the sovereign net present value stands at $+9.335\text{ billion NOK}$ with a $21\text{-month}$ payback. Yet the author's own gate refuses to cash the check of his own equation. The state remains locked at **$\text{L1 SOFTWARE OPEN} \mid \text{PHYSICAL HOLD} \mid \text{COMMERCIAL HOLD}$** until quantitative $^{15}\text{N}_2$ isotopic tracing yields the unmistakable $^1\text{H-NMR}$ doublet at $72.5\text{ Hz}$.
+1. **The Catalytic Lock (K-POD v1.2):** Cofactor mimicry via the $\text{[Fe}_7\text{MoS}_9\text{C]}$ cluster in a $[\text{P-N-P}]$ pincer ($2.8\text{ \AA}$ proton relay, $\Delta G^\dagger_{\text{TS1}}: 28.5 \to 11.2\text{ kcal/mol}$), coupling nitrogen reduction with anodic urea oxidation ($\text{UOR}$, $V_{\text{cell}} < 0.998\text{ V}$, $5.282\text{ kWh/kg NH}_3$) under $84\text{ kHz}$ ($\tau_p = 500\text{ ns}$) electrochemical pulse-width modulation (QCS-EMS) for parasitic HER suppression.
+2. **Relativistic Geofencing (Infranett v0.4/v0.5):** Cloud sovereignty is abolished. Any packet whose round-trip time-of-flight exceeds $133.42\text{ ns}$ ($r_{\max} = 20.0\text{ m}$, $\Delta r = 40.0\text{ m}$, violating $ds^2 \le 0$) is rejected at the physical layer (`GATE::KILL`). Cross-domain state transfer occurs solely via air-gapped RFC 8785 / Ed25519 / `POSIX fsync` Sneakernet.
+3. **Sovereign Fiscal Math vs. Epistemic Restraint:** Under the Norwegian Ministry of Finance's $4\%$ social discount rate (DFØ), the sovereign net present value stands at $+9.335\text{ billion NOK}$ with a $21\text{-month}$ payback. Yet the author's own gate refuses to cash the check of his own equation. The state remains locked at **$\text{L1 SOFTWARE OPEN} \mid \text{PHYSICAL HOLD} \mid \text{COMMERCIAL HOLD}$** until quantitative $^{15}\text{N}_2$ isotopic tracing yields the unmistakable $^1\text{H-NMR}$ doublet at $72.5\text{ Hz}$ and closed mass balance ($\Delta m = 0.000000\text{ kg/day}$).
 
 That self-imposed $\text{HOLD}$ is the core of the work. In an era where every laboratory and boardroom declares triumph on the strength of a simulation, here is a machine designed to arrest its own creator until the atom itself testifies in the tube.
 
@@ -309,9 +309,9 @@ That self-imposed $\text{HOLD}$ is the core of the work. In an era where every l
 
 ---
 
-### 3. De Fem Formelle Lovene / The Five Formal Laws (Part III — L1 Specification)
+### 3. De Fem Formelle Lovene & 8-Trinns Passasjen ($0 \to 1$) (Part III — L1 Specification)
 
-Hele det tre-delte dokumentet hviler på én ufravikelig matematisk skjelettstruktur som binder sammen essayistikken og koden:
+Hele det tre-delte dokumentet hviler på én ufravikelig matematisk skjelettstruktur ($\text{Realisering} = \mathcal{W} \circ \Omega \circ \Pi_{\mathcal{K}} \circ \Phi$) som binder sammen essayistikken, de 5 formelle lovene og de 8 kanoniske intervallstegene ($0 \to 1$):
 
 | Lov / Law | Matematisk Invariant / Mathematical Invariant | Operasjonell Konsekvens / Consequence |
 | --- | --- | --- |
@@ -319,4 +319,47 @@ Hele det tre-delte dokumentet hviler på én ufravikelig matematisk skjelettstru
 | **II. Strukturell Projeksjon** | $y_t = \Pi_{\mathcal{K}}(\Phi(x_t)), \quad \Delta_{\mathcal{K}} = \Vert \Phi(x_t) - y_t \Vert$ | Forslaget måles mot det konvekse lovrommet $\mathcal{K}$. |
 | **III. Triadisk Konsekvensport** | $\Omega(y_t) \in \{\text{OPEN}, \text{HOLD}, \text{KILL}\}$ | $\Delta_{\mathcal{K}} \equiv 0 \to \text{OPEN}$; tvil $\to \text{HOLD}$; brudd $\to \text{KILL}$ ($0.00\text{ V DC}$). |
 | **IV. Irreversibel Vitnekjede** | $\mathcal{W}_{t+1} = \mathcal{H}_{\text{SHA256}}(\mathcal{W}_t \parallel x_t \parallel \Delta_{\mathcal{K}} \parallel \Omega_t)$ | Kun-tilføyende opphav; nåtiden kan ikke slette fortiden. |
-| **V. KMS Horisontstabilitet** | $\lim_{\rho \to 1^-} \Vert dP \Vert_{\text{Gr}} \le \tau_{\text{orbit}} \text{ over } H$ | Spektral kontroll helt ut til den singulære korrelasjonsranden. |
+| **V. KMS Horisontstabilitet** | $\Delta_{\mathrm{gap}}(t) \ge \tau_{\mathrm{gap}} \;\land\; \max_{0 \le \tau \le H} d_{\mathrm{geo}}(\hat{P}_{t+\tau}, P_{t_0+\tau}) \le \tau_{\text{orbit}}$ | Pålagt operasjonell portbetingelse (`[Condition Imposée]`): krever spektralgap-admissibilitet før underromsrotasjon vurderes på $\mathrm{Gr}(a,r)$ (kobling mot Kerr-Weyl-skalar $\Psi_2 = -M/(r - ia\cos\theta)^3$ og $\Sigma_{\mu\nu}^{\mathrm{irr}}$ er `INSPIRED_BY` / `GATE::HOLD`). |
+
+#### 8-Trinns Passasjen ($0 \to 1$)
+
+| Intervallsteg | Symbol | Dokumentets Lov / Operator | Matematisk Invariant | Tilstand / Spenning |
+| :--- | :---: | :--- | :--- | :--- |
+| **1. Null** | $0$ | Reismann-Core utgangstilstand | $\nu_{\text{act}} = 0$ | $0.00\text{ V DC}$ (`Fail-Closed`) |
+| **2. Impuls** | $\circ$ | Inngangsvektor $x_t$ | 256-bit utfordring $E_1$ | $0.00\text{ V DC}$ |
+| **3. Kandidat** | $\diamond$ | Lov I: Kausal Ikke-Identitet ($\Phi$) | $\Phi(x_t) \neq x_{t+1} \in \mathcal{NP}$ | Kun forslag (støy uten arbeid) |
+| **4. Struktur** | $\square$ | Lov II: Strukturell Projeksjon ($\Pi_{\mathcal{K}}$) | $y_t = \Pi_{\mathcal{K}}(\Phi(x_t))$ | Konvekst lovrom $\mathcal{K}$ |
+| **5. Spenning** | $\Delta$ | Avviksmetrikk ($\Delta_{\mathcal{K}}$) + Lov V | $\Delta_{\mathcal{K}} = \Vert\Phi(x_t) - y_t\Vert, \; ds^2 \le 0, \; \rho < 1$ | Evaluering av fysiske grenser |
+| **6. Filter/Dom** | $\Omega$ | Lov III: Triadisk Konsekvensport | $\Omega(y_t) \in \{\text{OPEN}, \text{HOLD}, \text{KILL}\}$ | $B_4$ subsumpsjon: $\text{KILL} > \text{HOLD} > \text{OPEN}$ |
+| **7. Vitne** | $\odot$ | Lov IV: Irreversibel Vitnekjede ($\mathcal{W}$) | $\mathcal{W}_{t+1} = \mathcal{H}_{\text{SHA256}}(\mathcal{W}_t \parallel x_t \parallel \Delta_{\mathcal{K}} \parallel \Omega_t)$ | RFC 8785 + Ed25519 + POSIX `fsync` |
+| **8. Konsekvens** | $1$ | Realisert fysisk handling ($x_{t+1}$) | $\Delta_{\mathcal{K}} \equiv 0 \implies x_{t+1} \in \mathcal{P}$ | $5.00\text{ V DC}$ på reléspole (`L1 OPEN` / `L3 HOLD`) |
+
+---
+
+### 4. Public Specification, Status, and Provenance of Law V (`KMS Horizon Stability`)
+
+In response to the public verification questions by **Louis Morissette** (*COS45 v1.7.0*, `DOI: 10.5281/zenodo.23440691`), we state the exact mathematical definitions, epistemic status, commit provenance, and attribution of **Law V (`KMS Horizon Stability`)**:
+
+1. **Exact Definitions of $P$, $dP$, $\|\cdot\|_{\mathrm{Gr}}$, $\tau_{\mathrm{orbit}}$, and $H$:**
+   - **Spectral Projector ($P_t \in \mathrm{Gr}(a, r)$):** Given a sliding Hankel matrix $X_t \in \mathbb{R}^{a \times b}$ ($a \ge 4$, $b \ge a$) and empirical Gram/covariance matrix $\hat{\Gamma}_t = \frac{1}{b} X_t X_t^\top \in \mathbb{R}^{a \times a}$ with ordered eigenvalues $\hat{\Lambda}_1 \ge \dots \ge \hat{\Lambda}_a$ and orthonormal eigenvectors $\hat{u}_1, \dots, \hat{u}_a$, the rank-$r$ spectral projector is $\hat{P}_t = \sum_{i=1}^{r} \hat{u}_i \hat{u}_i^\top \in \mathrm{Gr}(a, r)$ (well-defined whenever $\Delta_{\mathrm{gap}}(t) := \hat{\Lambda}_r(t) - \hat{\Lambda}_{r+1}(t) > 0$).
+   - **Projector Differential ($dP$) and Norm Convention ($\|dP\|_{\mathrm{Gr}}$ vs. $\|dP\|_F$):** Under a first-order covariance perturbation $\Gamma(\varepsilon) = \Gamma_a^{(0)} + \varepsilon E$, the projector differential $dP = \left.\frac{d}{d\varepsilon} P(\varepsilon)\right|_{\varepsilon=0} \varepsilon$ has off-diagonal blocks $u_j^\top dP \, u_i = \varepsilon \frac{u_j^\top E u_i}{\Lambda_i - \Lambda_j}$ ($1 \le i \le r < j \le a$) and its transpose block $u_i^\top dP \, u_j$. The **canonical Grassmann Riemannian tangent norm** sums over a single block:
+     $$\|dP\|_{\mathrm{Gr}} := \left(\sum_{i=1}^{r} \sum_{j=r+1}^{a} |u_j^\top dP \, u_i|^2\right)^{1/2} = \frac{1}{\sqrt{2}} \|dP\|_F,$$
+     matching the first-order geodesic distance $d_{\mathrm{geo}}(P(\varepsilon), P(0)) = \|\Theta(P(\varepsilon), P(0))\|_2 = \|dP\|_{\mathrm{Gr}} + \mathcal{O}(\varepsilon^2)$. At the actionable frontier $a = L + 2$ ($r = 2$, $\rho = 1/2$, $E = e_1 e_a^\top + e_a e_1^\top$), $\lim_{a \to \infty} a \chi_{a-2,2}(a) = C = \frac{2\sqrt{18+15\pi^2}}{9} \approx 2.863513045852925$ in the canonical Grassmann norm, and $C_{\mathrm{Frob}} = \sqrt{2}C \approx 4.049618985477498$ in the ambient Frobenius norm.
+   - **Recurrence Horizon ($H$) and Tube Threshold ($\tau_{\mathrm{orbit}}$):** $H \in \mathbb{Z}_{\ge 1}$ is the pre-registered number of discrete steps over which a candidate trajectory $\hat{P}_{t+\tau}$ must remain within geodesic distance $\tau_{\mathrm{orbit}} > 0$ of the reference trajectory $P_{t_0+\tau}$ before exiting `PROVISIONAL_HOLD` (`Variant 4a` forward horizon $\tau \in [0, H]$ evaluated at $t+H$, or `Variant 4b` trailing horizon $\tau \in [-H, 0]$ evaluated at $t$).
+
+2. **Epistemic Status of the Inequality (`[Condition Imposée / Operational Gate Rule]`):**
+   - The inequality in Law V is **not** a unconditional theorem asserting that $\|dP\|_{\mathrm{Gr}}$ remains bounded as $\rho \to 1^-$. On the contrary, for the $a \times a$ KMS matrix $R_{ij} = \rho^{|i-j|}$ ($a \ge 2$), the inverse-square trace satisfies:
+     $$\operatorname{Tr}(R^{-2}) = \frac{2 + (a - 2)(1 + \rho^2)^2 + 2(a - 1)\rho^2}{(1 - \rho^2)^2}, \qquad \lim_{\rho \to 0}(1-\rho^2)\operatorname{Tr}(R^{-2}) = a, \qquad \lim_{\rho \to 1^-}(1-\rho^2)^2\operatorname{Tr}(R^{-2}) = 6a - 8,$$
+     and for fixed mode indices $i < j$, the frontier transfer sensitivity $C(\rho, r=2) \propto \frac{1-\rho}{\rho(1+\rho)}$ while the Davis–Kahan spectral gap $\Lambda_r(\rho) - \Lambda_{r+1}(\rho)$ and conditioning degenerate near the singular horizon $\rho \to 1^-$.
+   - Accordingly, Law V is an **imposed operational gate condition** (`[Condition Imposée]`): the gate requires **both** Davis–Kahan spectral-gap admissibility ($\Delta_{\mathrm{gap}}(t) \ge \tau_{\mathrm{gap}}$, forcing `ABSTAIN / HOLD` whenever the subspace becomes ill-conditioned) **and** multi-step geodesic tube residence ($\max_\tau d_{\mathrm{geo}} \le \tau_{\mathrm{orbit}}$ over $H$) before emitting a diagnostic `OPEN` verdict.
+
+3. **Source Files, First Commit Provenance, and References:**
+   - **External Reference:** Louis Morissette, *COS45 Hidden-Order Benchmark: Hankel–Grassmann Blind-Zone Saturation, Actionable Transfer, and Finite-Sample Audit (v1.7.0)*, Zenodo (2026), `DOI: 10.5281/zenodo.23440691`.
+   - **Repository Source Files & First Commits:**
+     - [`MORISSETTE_TORJUSEN_COS45_FRONTIER_AND_PROTOCOL.md`](MORISSETTE_TORJUSEN_COS45_FRONTIER_AND_PROTOCOL.md), [`METRISK_INVARIANS_SPEKTRAL_KONVERGENS_OG_HORISONTENS_LOV.md`](METRISK_INVARIANS_SPEKTRAL_KONVERGENS_OG_HORISONTENS_LOV.md), and [`tools/verify_cos45_kms_spectral_series.py`](tools/verify_cos45_kms_spectral_series.py) — first committed on `epistemic-architectures` in commit `40a461a15f53ca51b0781e1097c624e5bbe60c60` (18 Oct 2026) and on `epistemic-architectures-notes` in commit `0a3203258c41b71f23bf98a8c3e5bbd0e06a6333`.
+     - [`LAW_OF_CAUSAL_INERTIA.md`](LAW_OF_CAUSAL_INERTIA.md) (Section XIV.3, Law V table) — first committed on `epistemic-architectures-notes` in commit `0c0f8d2e1df9d675d95016d892419d97a727c995` and harmonized on `epistemic-architectures` in commit `2f9d81f18a8f4b273d9e7916a1968eb7274d6b6f`.
+
+4. **Distinction Between Independent Developments and Joint Exchange Contributions:**
+   - **Louis Morissette (Independent — `COS45`):** Hankel–Grassmann projector pipeline $P_t \in \mathrm{Gr}(a,r)$, scale invariance $P(tx)=P(x)$, rank bound $\mathrm{rank}(D\Phi_s)$, adversarial `hidden_order` Markov process, exact accessibility frontier $a = L + 2$, numerical discovery of $\chi_{a-2,2}(a) \sim C/a$ ($C \approx 2.8635$), closed-form $\Delta\Sigma$, exact KMS $\operatorname{Tr}(R^{-2})$ identity and its $\rho \to 0$ vs. $\rho \to 1^-$ limits, and audit corrections to the secular normalization and phase-derivative bounds.
+   - **Marius Torjusen (Independent — `CVTK` / `Law of Causal Inertia`):** Fail-closed consequence gate architecture ($\mathcal{W} \circ \Omega \circ \Pi_{\mathcal{K}} \circ \Phi$), Belnap–Dunn / `OPEN-HOLD-KILL` subsumption, K-POD v1.2 / Infranett v0.5 / Door 30–31 specifications, and the multi-gate supervisory wrapper (`ABSTAIN / HOLD` on spectral gap collapse, radial scale complement $\Delta_{\mathrm{scale}}$, and `PROVISIONAL_HOLD` over recurrence horizon $H$).
+   - **Joint Exchange (Morissette & Torjusen):** Analytical closed-form resolution of Open Question 1 ($S_1 = \frac{1}{16}+\frac{\pi^2}{48}$, $S_2 = \frac{1}{16}+\frac{\pi^2}{12}$, $C = \frac{2\sqrt{18+15\pi^2}}{9}$, $C_{\mathrm{Frob}} = \sqrt{2}C$), uniform Tannery majorant proof with audited secular bounds, formulation of the $\Theta(a^{-4})$ blind-floor conjecture, and the pre-registered equal-mean / equal-variance temporal stability benchmark (`test_07` in [`tools/verify_cos45_kms_spectral_series.py`](tools/verify_cos45_kms_spectral_series.py)).
