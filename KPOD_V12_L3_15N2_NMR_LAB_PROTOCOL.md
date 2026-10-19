@@ -3,7 +3,7 @@
 
 > **Dokument-ID // Document ID:** `KPOD-V12-L3-15N2-NMR-PROTOCOL-2026-v1.0`  
 > **Forfatter & Ansvarlig // Principal Investigator:** Marius Egerhei Torjusen (ORCID: [0009-0006-0431-6637](https://orcid.org/0009-0006-0431-6637))  
-> **Enhet // Entity:** Risør HQ / ReismannPoint Systems / Brahman Ventures AS  
+> **Enhet // Entity:** Brahman  
 > **Tilknyttet Hovedverk // Companion Monograph:** [`LAW_OF_CAUSAL_INERTIA.md`](./LAW_OF_CAUSAL_INERTIA.md)  
 > **Kanoniske Motorer (`L1`):** `kpod_l3_fasespeil_verifier_engine.py` · `kpod_v12_digital_twin_engine.py` (`18/18 PASS`)  
 > **Nåværende Portstatus // Current Gate State:** $\boxed{\text{L1 SOFTWARE OPEN}} \;\cdot\; \boxed{\text{FYSISK HOLD}} \;\cdot\; \boxed{\text{KOMMERSIELT HOLD}}$

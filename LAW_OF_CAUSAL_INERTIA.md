@@ -5,7 +5,7 @@
 
 > **Dokument-ID:** `FEATURE-NEWYORKER-INERTIA-2026-v1.0`  
 > **Forfatter & Ansvarlig:** Marius Egerhei Torjusen (ORCID: [0009-0006-0431-6637](https://orcid.org/0009-0006-0431-6637))  
-> **Lokus:** Risør HQ / ReismannPoint Systems / Brahman Ventures AS  
+> **Lokus:** Brahman  
 > **Format:** Litterært langlesningsessay (*The New Yorker* Style Profile) & Formell Sluttstein ($\min |p| \land \max D(x)$)  
 > **Epistemisk Status:** $\boxed{\text{L1 SOFTWARE OPEN}} \;\cdot\; \boxed{\text{FYSISK HOLD}} \;\cdot\; \boxed{\text{KOMMERSIELT HOLD}}$
 
