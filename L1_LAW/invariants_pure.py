@@ -83,12 +83,13 @@ def g2_holonomic_spiral_state(
     vel = [0.0] * 16
     acc = [0.0] * 16
 
-    modes = ((0, 1, 1.0, 1.0), (4, 10, 0.8, 1.5), (7, 15, 0.5, 2.0))
-    for idx_c, idx_s, amp, mult in modes:
+    modes = ((0, 1, 1.0, 1.0, 0.35), (4, 10, 0.8, 1.5, 0.75), (7, 15, 0.5, 2.0, 1.15))
+    for idx_c, idx_s, amp, mult, phi0 in modes:
         wm = w * mult
         a_t = amp * env
-        c_val = math.cos(wm * t_s)
-        s_val = math.sin(wm * t_s)
+        phase = wm * t_s + phi0
+        c_val = math.cos(phase)
+        s_val = math.sin(phase)
 
         pos[idx_c] = a_t * c_val
         pos[idx_s] = a_t * s_val
