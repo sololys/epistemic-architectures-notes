@@ -1,0 +1,78 @@
+name: Morandi-Core Consequence Gate
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  morandi-core-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out exact revision
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+
+      - name: Cook-Levin History Gate (Reject WIP / provisional commits)
+        run: |
+          python3 - <<'PY'
+          import re, subprocess, sys
+          msg = subprocess.check_output(["git", "log", "-1", "--pretty=%B"], text=True).strip()
+          forbidden = re.compile(r"(?i)\b(wip|fix typo|testing again|temp commit|quick fix)\b")
+          if forbidden.search(msg) or len(msg) < 12:
+              print("COOK_LEVIN_HISTORY_GATE=KILL (0.00 V DC)")
+              print(f"Rejected provisional commit message: {msg!r}")
+              sys.exit(1)
+          print("COOK_LEVIN_HISTORY_GATE=PASS")
+          PY
+
+      - name: Pull Request Realization Contract Gate (Omega)
+        if: github.event_name == 'pull_request'
+        env:
+          EVENT_PATH: ${{ github.event_path }}
+        run: |
+          python3 - <<'PY'
+          import json, os, re, sys
+          with open(os.environ["EVENT_PATH"], "r", encoding="utf-8") as f:
+              ev = json.load(f)
+          body = (ev.get("pull_request") or {}).get("body") or ""
+          required_sections = [
+              "## I. Operasjonelt Sammendrag",
+              "## II. Aksiomatisk Suverenitet",
+              "## III. Fail-Closed",
+              "## IV. Romlig Krystallisering",
+              "## V. Utstedelse av Vitne",
+          ]
+          missing = [s for s in required_sections if s not in body]
+          unchecked = re.findall(r"^- \[ \]", body, flags=re.MULTILINE)
+          has_sha256 = bool(re.search(r"\b[0-9a-fA-F]{64}\b", body))
+          if missing or unchecked or not has_sha256:
+              print("PR_REALIZATION_CONTRACT_GATE=KILL (0.00 V DC)")
+              if missing:
+                  print(f"- Missing contract sections: {missing}")
+              if unchecked:
+                  print(f"- Unchecked mandatory axioms: {len(unchecked)} remaining")
+              if not has_sha256:
+                  print("- Missing 64-hex SHA-256 Witness (W^2) in Section V")
+              sys.exit(1)
+          print("PR_REALIZATION_CONTRACT_GATE=PASS")
+          PY
+
+      - name: Verify Default Fail-Closed State (make -> HOLD 0.00 V DC)
+        run: |
+          if make >/dev/null 2>&1; then
+            echo "DEFAULT_HOLD_GATE=KILL (Default 'make' did not fail closed!)"
+            exit 1
+          fi
+          echo "DEFAULT_HOLD_GATE=PASS (0.00 V DC)"
+
+      - name: Execute Explicit Realization Contract (make verify)
+        run: make verify
