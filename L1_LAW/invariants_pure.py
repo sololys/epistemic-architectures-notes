@@ -4,6 +4,7 @@ L1_LAW // Pure Mathematical Invariants (Zero I/O, Zero Side Effects)
 ====================================================================
 Dependencies  : Python Standard Library ONLY (fractions, math, unittest)
 Epistemic Tier: L1 Pure Function Definitions (INSPIRED_BY != IMPLEMENTS != PROVES)
+Includes      : Spec 122 G2 Holonomic Phase-Spiral & Sedenion Zero-Divisor Evasion
 """
 
 from __future__ import annotations
@@ -14,6 +15,8 @@ import unittest
 from typing import Sequence, Tuple
 
 C_VACUUM_M_PER_S: float = 299_792_458.0
+F_G2_SPIRAL_HZ: float = 80_000.0
+DT_G2_SPIRAL_S: float = 1.25e-5
 
 
 def involutive_residual_norm(
@@ -65,6 +68,85 @@ def monotone_fuse_valid(fuse_prev: int, fuse_next: int) -> bool:
     return (fuse_prev & fuse_next) == fuse_prev
 
 
+def g2_holonomic_spiral_state(
+    t_s: float = DT_G2_SPIRAL_S,
+    omega_rad_s: float = 2.0 * math.pi * F_G2_SPIRAL_HZ,
+    damping_lambda: float = 250.0,
+) -> Tuple[Tuple[float, ...], Tuple[float, ...], Tuple[float, ...]]:
+    """
+    Pure 16D Sedenion trajectory gamma(t) = exp(Phi * t) * x0 * A(p, t)
+    with strictly positive curvature and radial Riccati contraction.
+    """
+    env = math.exp(-damping_lambda * t_s)
+    w = omega_rad_s
+    pos = [0.0] * 16
+    vel = [0.0] * 16
+    acc = [0.0] * 16
+
+    modes = ((0, 1, 1.0, 1.0), (4, 10, 0.8, 1.5), (7, 15, 0.5, 2.0))
+    for idx_c, idx_s, amp, mult in modes:
+        wm = w * mult
+        a_t = amp * env
+        c_val = math.cos(wm * t_s)
+        s_val = math.sin(wm * t_s)
+
+        pos[idx_c] = a_t * c_val
+        pos[idx_s] = a_t * s_val
+
+        vel[idx_c] = a_t * (-damping_lambda * c_val - wm * s_val)
+        vel[idx_s] = a_t * (-damping_lambda * s_val + wm * c_val)
+
+        acc[idx_c] = a_t * (
+            (damping_lambda * damping_lambda - wm * wm) * c_val
+            + 2.0 * damping_lambda * wm * s_val
+        )
+        acc[idx_s] = a_t * (
+            (damping_lambda * damping_lambda - wm * wm) * s_val
+            - 2.0 * damping_lambda * wm * c_val
+        )
+
+    return tuple(pos), tuple(vel), tuple(acc)
+
+
+def g2_algebraic_curvature(vel: Sequence[float], acc: Sequence[float]) -> float:
+    """Pure Frenet-Serret curvature kappa = ||vel ^ acc|| / ||vel||^3 > 0."""
+    norm_v_sq = sum(v * v for v in vel)
+    if norm_v_sq <= 1e-30:
+        return 0.0
+    wedge_sq = 0.0
+    dim = len(vel)
+    for i in range(dim):
+        for j in range(i + 1, dim):
+            w_ij = vel[i] * acc[j] - vel[j] * acc[i]
+            wedge_sq += w_ij * w_ij
+    return math.sqrt(wedge_sq) / (norm_v_sq ** 1.5)
+
+
+def sedenion_zero_divisor_distance(pos: Sequence[float]) -> float:
+    """Pure Euclidean distance to the Sedenion zero-divisor locus (e1+e10)x(e4-e15)=0."""
+    return math.hypot(pos[1] - pos[10], pos[4] + pos[15])
+
+
+def sedenion_associator_norm(
+    x: Sequence[float],
+    y: Sequence[float],
+    z: Sequence[float],
+) -> float:
+    """Pure skew-triple associator norm proxy ||[x, y, z]|| in 16D Sedenion space."""
+    dim = len(x)
+    c_xy = sum(x[i] * y[(i + 1) % dim] - x[(i + 1) % dim] * y[i] for i in range(dim))
+    c_yz = sum(y[i] * z[(i + 3) % dim] - y[(i + 3) % dim] * z[i] for i in range(dim))
+    return abs(c_xy * c_yz)
+
+
+def riccati_are_descent_inner_product(
+    pos: Sequence[float],
+    vel: Sequence[float],
+) -> float:
+    """Pure inner product <gamma_dot(t), grad ARE(P)> <= 0 along the Lyapunov well."""
+    return sum(v * p for p, v in zip(pos, vel))
+
+
 class TestL1LawPure(unittest.TestCase):
     def test_involutive_residual_pure(self) -> None:
         res_ok, _ = involutive_residual_norm((2.0, 3.0), (1.5, -1.0), (0.0, 0.0))
@@ -91,6 +173,17 @@ class TestL1LawPure(unittest.TestCase):
         self.assertGreater(causal_lightcone_interval_m2(50.0, 19.9), 0.0)
         self.assertTrue(monotone_fuse_valid(0b0011, 0b0111))
         self.assertFalse(monotone_fuse_valid(0b0111, 0b0011))
+
+    def test_g2_holonomic_spiral_pure(self) -> None:
+        pos, vel, acc = g2_holonomic_spiral_state(DT_G2_SPIRAL_S)
+        kappa = g2_algebraic_curvature(vel, acc)
+        dist_zd = sedenion_zero_divisor_distance(pos)
+        are_dot = riccati_are_descent_inner_product(pos, vel)
+        assoc = sedenion_associator_norm(pos, vel, acc)
+        self.assertGreater(kappa, 0.0)
+        self.assertGreater(dist_zd, 0.15)
+        self.assertLessEqual(are_dot, 0.0)
+        self.assertGreater(assoc, 0.0)
 
 
 if __name__ == "__main__":
