@@ -4,7 +4,7 @@ L1_LAW // Pure Mathematical Invariants (Zero I/O, Zero Side Effects)
 ====================================================================
 Dependencies  : Python Standard Library ONLY (fractions, math, unittest)
 Epistemic Tier: L1 Pure Function Definitions (INSPIRED_BY != IMPLEMENTS != PROVES)
-Includes      : Spec 122 G2 Holonomic Phase-Spiral & Sedenion Zero-Divisor Evasion
+Legal Boundary: MATHEMATICS != LEGAL_MANDATE (Algorithms possess 0.00% legal capacity)
 """
 
 from __future__ import annotations
@@ -17,6 +17,7 @@ from typing import Sequence, Tuple
 C_VACUUM_M_PER_S: float = 299_792_458.0
 F_G2_SPIRAL_HZ: float = 80_000.0
 DT_G2_SPIRAL_S: float = 1.25e-5
+TAXONOMY_LEVELS: Tuple[str, str, str, str] = ("D0", "D1", "D2", "D3")
 
 
 def involutive_residual_norm(
@@ -148,6 +149,57 @@ def riccati_are_descent_inner_product(
     return sum(v * p for p, v in zip(pos, vel))
 
 
+def d0_to_d3_taxonomy_admissible(path: Sequence[str], clock_hz: float = F_G2_SPIRAL_HZ) -> bool:
+    """
+    Enforces strict D0 -> D1 -> D2 -> D3 progression and 80.0 kHz E-TOR2 dynamic latch.
+    Premature tapping prior to D3 or clock drift returns False (0.00 V DC).
+    """
+    return tuple(path) == TAXONOMY_LEVELS and abs(clock_hz - F_G2_SPIRAL_HZ) <= 1e-6
+
+
+def rosetta3_isometry_verified(
+    hash_logic: str,
+    hash_actuator: str,
+    hash_ledger: str,
+) -> bool:
+    """Enforces exact tri-layer isometry (Logic == Actuator == Witness Ledger)."""
+    return bool(hash_logic) and (hash_logic == hash_actuator == hash_ledger)
+
+
+def asymmetric_bft_quorum_verdict(
+    fault_tolerance_f: int,
+    allow_votes: int,
+    veto_votes: int,
+) -> str:
+    """
+    Asymmetric E-TOR2 BFT quorum:
+      - Veto threshold  : veto_votes >= f + 1 -> KILL (0.00 V DC)
+      - Allow threshold : allow_votes >= 2f + 1 (and veto < f + 1) -> OPEN
+      - Otherwise       : HOLD (0.00 V DC)
+    """
+    if fault_tolerance_f < 1 or veto_votes >= (fault_tolerance_f + 1):
+        return "KILL"
+    if allow_votes >= (2 * fault_tolerance_f + 1):
+        return "OPEN"
+    return "HOLD"
+
+
+def aps_anomaly_inflow_index(
+    bulk_acher_integral: Fraction,
+    eta_boundary: Fraction,
+    harmonic_zero_modes_h: int,
+) -> Tuple[int, Fraction]:
+    """
+    Atiyah-Patodi-Singer (APS) index theorem balance:
+      Ind(D) = int_M A_hat(R) - (eta(dM) + h(dM)) / 2
+    Returns (integer_index, uncompensated_boundary_residual_q).
+    """
+    raw_index = bulk_acher_integral - (eta_boundary + Fraction(harmonic_zero_modes_h, 1)) / Fraction(2, 1)
+    nearest_int = round(raw_index)
+    residual_q = raw_index - Fraction(nearest_int, 1)
+    return int(nearest_int), residual_q
+
+
 class TestL1LawPure(unittest.TestCase):
     def test_involutive_residual_pure(self) -> None:
         res_ok, _ = involutive_residual_norm((2.0, 3.0), (1.5, -1.0), (0.0, 0.0))
@@ -185,6 +237,19 @@ class TestL1LawPure(unittest.TestCase):
         self.assertGreater(dist_zd, 0.15)
         self.assertLessEqual(are_dot, 0.0)
         self.assertGreater(assoc, 0.0)
+
+    def test_d0_d3_bft_aps_rosetta_pure(self) -> None:
+        self.assertTrue(d0_to_d3_taxonomy_admissible(("D0", "D1", "D2", "D3"), 80_000.0))
+        self.assertFalse(d0_to_d3_taxonomy_admissible(("D0", "D1", "D2"), 80_000.0))
+        self.assertFalse(d0_to_d3_taxonomy_admissible(("D0", "D1", "D2", "D3"), 79_999.0))
+        self.assertTrue(rosetta3_isometry_verified("sha256:a1", "sha256:a1", "sha256:a1"))
+        self.assertFalse(rosetta3_isometry_verified("sha256:a1", "sha256:a2", "sha256:a1"))
+        self.assertEqual(asymmetric_bft_quorum_verdict(1, allow_votes=3, veto_votes=0), "OPEN")
+        self.assertEqual(asymmetric_bft_quorum_verdict(1, allow_votes=3, veto_votes=2), "KILL")
+        self.assertEqual(asymmetric_bft_quorum_verdict(1, allow_votes=2, veto_votes=1), "HOLD")
+        idx, res_q = aps_anomaly_inflow_index(Fraction(5, 2), Fraction(1, 1), 0)
+        self.assertEqual(idx, 2)
+        self.assertEqual(res_q, Fraction(0, 1))
 
 
 if __name__ == "__main__":
