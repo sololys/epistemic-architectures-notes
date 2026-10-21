@@ -14,4 +14,4 @@ verify:
 	@python3 tools/verify_cos45_kms_spectral_series.py
 	@python3 tools/verify_public_surface.py
 	@python3 -m unittest -q tools/test_verify_public_surface.py
-	@echo "[OPEN] Witness W2 confirmed. All spectral invariants and public surface bounds satisfied."
+	@echo "[L1_VERIFIED // HOLD_READY_FOR_W2] L1 software checks passed (PHYSICAL_AUTHORITY=NONE; W_human required for W2). All spectral invariants and public surface bounds satisfied."
