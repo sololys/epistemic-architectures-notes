@@ -9,6 +9,8 @@ $$\boxed{\text{BANE // NOISE} \xrightarrow{\Pi_K} \text{STRUCTURE} \xrightarrow{
 **Compiled Ingress (EN):** Non-canonical working field (`BANE`) containing mathematical derivations, spectral proofs (`COS45`), and field protocols strictly separated from canonical architectural law ([`sololys/epistemic-architectures`](https://github.com/sololys/epistemic-architectures)). Zero external dependencies ($\Sigma_{\text{ext}} = \emptyset$). Zero physical authority (`0.00 V DC`).
 **Kompilert Ingress (NO):** Ikke-kanonisk arbeidsfelt (`BANE`) med matematiske utledninger, spektralbevis (`COS45`) og feltprotokoller, strengt adskilt fra den kanoniske loven ([`sololys/epistemic-architectures`](https://github.com/sololys/epistemic-architectures)). Null eksterne avhengigheter ($\Sigma_{\text{ext}} = \emptyset$). Null fysisk autoritet (`0,00 V DC`).
 
+* **Author:** Marius Egerhei Torjusen ([ORCID: `0009-0006-0431-6637`](https://orcid.org/0009-0006-0431-6637) · [Zenodo DOIs: `10.5281/zenodo.18515422`](https://doi.org/10.5281/zenodo.18515422) · [`10.5281/zenodo.22229111`](https://doi.org/10.5281/zenodo.22229111))
+
 ---
 
 ## I. Execution Contract (`Makefile`)
@@ -42,7 +44,7 @@ The root directory (`/`) contains only this surface index (`README.md`) and the 
 ## III. Working Monographs & Field Protocols (`notes/`)
 
 - **[`notes/IT_OT_CONSEQUENCE_GATE_NORCICS_BRIEF.md`](notes/IT_OT_CONSEQUENCE_GATE_NORCICS_BRIEF.md)** — *Non-AI Consequence Gating for IT-OT Integration in Critical Infrastructure ($\Phi \to \Pi_K \to \Omega \to W^2$)*.
-- **[`notes/LAW_OF_CAUSAL_INERTIA.md`](notes/LAW_OF_CAUSAL_INERTIA.md)** — *Treghetens lov // The Law of Causal Inertia (`FEATURE-NEWYORKER-INERTIA-2026-v1.0`, $\Phi(x_t) \neq x_{t+1}$)*.
+- **[`notes/LAW_OF_CAUSAL_INERTIA.md`](notes/LAW_OF_CAUSAL_INERTIA.md)** — *Treghetens lov // The Law of Causal Inertia (`FEATURE-NEWYORKER-INERTIA-2026-v1.0`, $\Phi(x_t) \neq x_{t+1}$)* ([Zenodo DOI: `10.5281/zenodo.22229111`](https://doi.org/10.5281/zenodo.22229111)).
 - **[`notes/METRISK_INVARIANS_SPEKTRAL_KONVERGENS_OG_HORISONTENS_LOV.md`](notes/METRISK_INVARIANS_SPEKTRAL_KONVERGENS_OG_HORISONTENS_LOV.md)** — *Sections XII–XIV: Skribentens Lov ($\min |p| \land \max T(p^*)$), Kompleksitetskollaps ($|\mathcal{A}(\partial K)| \le 1$), Grassmann-perturbasjon ($\|dP\|_F = \sqrt{2}\|dP\|_{\text{Gr}}$), og Horisontens Lov (`PROVISIONAL_HOLD`)*.
 - **[`notes/MORISSETTE_TORJUSEN_COS45_FRONTIER_AND_PROTOCOL.md`](notes/MORISSETTE_TORJUSEN_COS45_FRONTIER_AND_PROTOCOL.md)** — *Exact Resolution of the COS45 Frontier Constants and Pre-Registered 5-Gate Temporal Safety Protocol*.
 - **[`notes/DOR_30_OG_DOR_31_TEKNISK_ARKITEKTURSPESIFIKASJON.md`](notes/DOR_30_OG_DOR_31_TEKNISK_ARKITEKTURSPESIFIKASJON.md)** — *Door 30 (`U_1–U_{10}`) & Door 31 (`Z_1–Z_{10}`) Technical Architecture Specification*.
