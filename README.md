@@ -2,7 +2,16 @@
   <img src="assets/bane-noise-hero.svg" alt="BANE NOISE — Epistemic Architectures Notes" width="100%" />
 </p>
 
-# `sololys/epistemic-architectures-notes` — Working Field & Spectral Notes (Morandi-Core)
+# `sololys/epistemic-architectures-notes` — Working Field & Spectral Notes (`0xABCDEF00`)
+
+```text
+╔══════════════════════════════════════════════════════════════════════════════════════╗
+║  ROOM: THE NOTES // SPECTRAL DERIVATIONS, FIELD PROTOCOLS & WORKING MONOGRAPHS       ║
+║  STATE ANCHOR : 0xABCDEF00 (v1.5.0-MASTER)                                           ║
+║  STACK MAP    : aa72ef91e9ccfad6... (4/4 Byte-Identical across Constellation)        ║
+║  DEFAULT OUT  : [HOLD // 0.00V_DC] (OPEN_AS_SOFTWARE_DEMONSTRATION)                  ║
+╚══════════════════════════════════════════════════════════════════════════════════════╝
+```
 
 $$\boxed{\text{BANE // NOISE} \xrightarrow{\Pi_K} \text{STRUCTURE} \xrightarrow{\text{Review}} \text{PUNKT // THEORY}}$$
 
@@ -71,19 +80,7 @@ PHYSICAL_AUTHORITY = none (0.00 V DC)
 
 <p align="center"><code>EXPLORE FREELY / PROMOTE DELIBERATELY / NEVER CONFUSE LOCATION WITH AUTHORITY</code></p>
 
-<!-- SOVEREIGN_CONSTELLATION_MAP_START -->
 ---
+`STATE ANCHOR: 0xABCDEF00` · `RELEASE: v1.5.0-MASTER` · `GATE: [SSOT_LOCKED // HOLD 0.00V_DC]` · `ORCID: 0009-0006-0431-6637`
 
-## 🧭 Sovereign Architecture Constellation (Cross-Repository Matrix)
 
-This repository is part of a 6-layer deterministic engineering constellation (`L1` software & hardware verification, `INSPIRED_BY != IMPLEMENTS != PROVES`):
-
-| Layer | Repository | Core Engineering Scope | Deterministic Verification |
-| :--- | :--- | :--- | :--- |
-| **L1 — Law & Monoliths** | [`sololys/ky-rox-public-demonstrators`](https://github.com/sololys/ky-rox-public-demonstrators) | The 7 Public Monoliths: Light Bridge, Euclidean Phase Cone, Point // Trajectory, Kernel Drift, Davisson–Fine–Newton, KY v1.5-MASTER & Staggered-PRF SDR Gate | `42/42 PASS` + `7/7 L1_LAW` |
-| **L2 — RTL & Subspace** | [`sololys/epistemic-architectures-notes`](https://github.com/sololys/epistemic-architectures-notes) | COS45 Hankel-SVD Grassmann subspace projection, clocked SystemVerilog RTL (`0.00 V` quench) & Davisson–Fine–Newton Gate | `26/26 PASS` (`PUBLIC_IP_GATE=PASS`) |
-| **L3 — Phase & Horizon** | [`sololys/FASE_SPEIL_v0_1`](https://github.com/sololys/FASE_SPEIL_v0_1) | Davisson Bragg coherence ($54\text{ V}/50^\circ$), Fine–Wilf ghost-word detector ($L^* = p+q-\gcd(p,q) = 12$) & Staggered-PRF SDR filter | `26/26 PASS` |
-| **L4 — Local-First Net** | [`sololys/Infranett`](https://github.com/sololys/Infranett) | Infranett v0.4: $S_0 = \text{GATE::HOLD}$, Time-of-Flight $d \le 20\text{ m}$, `Noise_KK` 0-RTT & causal persistence (`fsync < RAM < ACK`) | `26/26 PASS` |
-| **L5 — Continuous Path** | [`sololys/OrgelKraft`](https://github.com/sololys/OrgelKraft) | Continuous mechanical & acoustic work integration ($\Delta E_k = \int F\,dx$) & multi-period harmonic horizon | `26/26 PASS` |
-| **L6 — Cognitive Shield** | [`sololys/TonderSheeld`](https://github.com/sololys/TonderSheeld) | Synthetic psychosomatics, Schaerbeek ceiling ($2^{12}$), Landauer erasure floor ($E_{\min} = k_B T \ln 2$) & Diurnal Gearbox ($S_1$–$S_5$) | `26/26 PASS` |
-<!-- SOVEREIGN_CONSTELLATION_MAP_END -->
