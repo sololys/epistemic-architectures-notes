@@ -1,0 +1,37 @@
+{
+  "title": "Spectral & Number-Theoretic Verification Proofs: KMS Phase-Cone Orthogonality & Staggered-PRF Fine\u2013Wilf Radar/ISAC Gates (sololys/epistemic-architectures-notes v1.5.1)",
+  "version": "1.5.1",
+  "upload_type": "software",
+  "publication_date": "2026-11-07",
+  "creators": [
+    {
+      "name": "Torjusen, Marius Egerhei",
+      "orcid": "0009-0006-0431-6637",
+      "affiliation": "Granitum Physics // Sovereign Consequence Architecture, Norway"
+    }
+  ],
+  "access_right": "open",
+  "license": "MIT",
+  "keywords": [
+    "spectral-theory",
+    "toeplitz-matrices",
+    "radar-signal-processing",
+    "isac",
+    "number-theory",
+    "phase-cone",
+    "formal-verification",
+    "fail-closed"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/sololys/epistemic-architectures-notes",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.18436983",
+      "relation": "isPartOf",
+      "scheme": "doi"
+    }
+  ]
+}
