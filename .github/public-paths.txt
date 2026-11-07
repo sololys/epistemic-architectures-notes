@@ -1,4 +1,5 @@
 .github/CODEOWNERS
+.github/FUNDING.yml
 .github/PULL_REQUEST_TEMPLATE.md
 .github/public-paths.txt
 .github/workflows/morandi-core-gate.yml
