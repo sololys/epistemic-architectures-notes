@@ -1,0 +1,53 @@
+NOTICE AND DUAL-ARTIFACT SCOPE BOUNDARY
+=======================================
+
+Repository : https://github.com/sololys/epistemic-architectures-notes
+Copyright  : Copyright (c) 2026 Marius Egerhei Torjusen (ORCID: 0009-0006-0431-6637)
+State      : Monograph, Mathematical Notes & L1 Verification Archive (0.00 V DC)
+
+1. Monographs, Mathematical Notes, Prose & Plates (CC-BY-ND-4.0)
+----------------------------------------------------------------
+All monographs, philosophical and jurisprudential texts, mathematical working
+notes, protocols, PDF editions, and visual plates in this repository are
+licensed under the Creative Commons Attribution-NoDerivatives 4.0 International
+Public License (`CC-BY-ND-4.0`); see `LICENSE` for the full legal code.
+Academic reading, archiving, redistribution, and exact quotation with attribution
+are freely permitted; derivative rewrites, abridgments, or altered editions of
+the primary text are not authorized without prior written consent.
+
+2. Executable Verification and Build Scripts (MIT License)
+----------------------------------------------------------
+To guarantee frictionless academic reproducibility (`make verify`), executable
+verification harnesses and build scripts in this repository (`Makefile`, `L1_LAW/`, `L2_GATE/`, and `tools/`) may
+be executed, inspected, copied, and used under the MIT License:
+
+MIT License
+
+Copyright (c) 2026 Marius Egerhei Torjusen
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+3. Ontological and Patent Boundary (0.00 V DC)
+----------------------------------------------
+All verification scripts operate strictly at Evidence Tier L1 (`0.00 V DC`,
+`PHYSICAL_AUTHORITY = NONE`, `INSPIRED_BY != IMPLEMENTS != PROVES`) and do not
+constitute legal advice or certified safety engineering. Physical L2/L3 hardware
+actuators, calibrated industrial parameters, and unpublished patent claims are
+not delivered in this repository, and no implied patent license or trademark
+grant is conferred.

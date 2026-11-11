@@ -11,7 +11,7 @@ doi: "10.5281/zenodo.24032512"
 date-released: "2026-11-07"
 url: "https://github.com/sololys/epistemic-architectures-notes"
 repository-code: "https://github.com/sololys/epistemic-architectures-notes"
-license: "MIT"
+license: "CC-BY-ND-4.0"
 keywords:
   - "spectral-theory"
   - "toeplitz-matrices"

@@ -11,7 +11,9 @@ L1_LAW/invariants_pure.py
 L2_GATE/evaluate_boundaries.py
 L2_GATE/staggered_prf_fine_wilf_gate.py
 L3_WITNESS/audit_log.jsonl
+LICENSE
 Makefile
+NOTICE
 README.md
 assets/bane-noise-hero.svg
 notes/CONTRIBUTING.md
