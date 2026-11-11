@@ -47,7 +47,7 @@ Men i fysikken er uavgjort volum kun ustabil spenning. Jo nærmere et system kom
 #### 2. Loven ved randen ($\partial K$)
 La $\mathcal{C}_x$ være kandidatrommet av mulige handlinger med kardinalitet $|\Sigma|^{p(|x|)}$, og la $K \subset \mathcal{X}$ være den fremover-invariante admissibilitetskjernen.
 
-1. **I det indre ($x \in \operatorname{int}(K)$):**
+1. **I det indre ($x \in \mathrm{int}(K)$):**
    Rommet tillater variasjon. Flere baner overlever uten å bryte grensen.
 2. **Ved randen ($x \to \partial K$):**
    Tangensbetingelsen $\sup_{u \in \mathcal{A}(x)} \langle \nabla h(x), f(x, u) \rangle \ge -\alpha(h(x))$ skjærer bort enhver vektor som peker ut av kjernen:
