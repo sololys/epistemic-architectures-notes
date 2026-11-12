@@ -2,32 +2,22 @@
   <img src="assets/bane-noise-hero.svg" alt="BANE NOISE — Epistemic Architectures Notes" width="100%" />
 </p>
 
-# `sololys/epistemic-architectures-notes` — Working Field & Spectral Notes (`0xABCDEF00`)
+# Epistemic Architectures Notes — Working Math & Counterexamples
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24032512.svg)](https://doi.org/10.5281/zenodo.24032512)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0006--0431--6637-A6CE39?style=flat-square)](https://orcid.org/0009-0006-0431-6637)
 [![Granitum Physics](https://img.shields.io/badge/SALON-Granitum_Physics_(LinkedIn)-0A66C2?style=flat-square)](https://www.linkedin.com/groups/40622443/)
 
+> **Coordinate (`2 · Draft`):** [`(0,0) sololys`](https://github.com/sololys) — [`1 · Word`](https://github.com/sololys/skrivevaerelset) → **`[2 · Draft]`** → [`3 · Rule`](https://github.com/sololys/epistemic-architectures) → [`4 · Gate`](https://github.com/sololys/ky-rox-public-demonstrators) → [`5 · Seal`](https://github.com/sololys/monolitt)
 
-```text
-╔══════════════════════════════════════════════════════════════════════════════════════╗
-║  ROOM: THE NOTES // SPECTRAL DERIVATIONS, FIELD PROTOCOLS & WORKING MONOGRAPHS       ║
-║  STATE ANCHOR : 0xABCDEF00 (v1.5.0-MASTER)                                           ║
-║  STACK MAP    : aa72ef91e9ccfad6... (4/4 Byte-Identical across Constellation)        ║
-║  DEFAULT OUT  : [HOLD // 0.00V_DC] (OPEN_AS_SOFTWARE_DEMONSTRATION)                  ║
-╚══════════════════════════════════════════════════════════════════════════════════════╝
-```
+Working mathematical derivations, spectral checks (`COS45`), counterexamples, and draft protocols where ideas can fail freely before promotion to formal specifications in [`epistemic-architectures`](https://github.com/sololys/epistemic-architectures).
 
-$$\boxed{\text{BANE // NOISE} \xrightarrow{\Pi_K} \text{STRUCTURE} \xrightarrow{\text{Review}} \text{PUNKT // THEORY}}$$
-
-**Compiled Ingress (EN):** Non-canonical working field (`BANE`) containing mathematical derivations, spectral proofs (`COS45`), and field protocols strictly separated from canonical architectural law ([`sololys/epistemic-architectures`](https://github.com/sololys/epistemic-architectures)). Zero external dependencies ($\Sigma_{\text{ext}} = \emptyset$). Zero physical authority (`0.00 V DC`).
-**Kompilert Ingress (NO):** Ikke-kanonisk arbeidsfelt (`BANE`) med matematiske utledninger, spektralbevis (`COS45`) og feltprotokoller, strengt adskilt fra den kanoniske loven ([`sololys/epistemic-architectures`](https://github.com/sololys/epistemic-architectures)). Null eksterne avhengigheter ($\Sigma_{\text{ext}} = \emptyset$). Null fysisk autoritet (`0,00 V DC`).
-
-* **Author:** Marius Egerhei Torjusen ([ORCID: `0009-0006-0431-6637`](https://orcid.org/0009-0006-0431-6637) · [Zenodo DOIs: `10.5281/zenodo.18515422`](https://doi.org/10.5281/zenodo.18515422) · [`10.5281/zenodo.22229111`](https://doi.org/10.5281/zenodo.22229111))
+* **Author:** Marius Egerhei Torjusen · Risør, Norway ([ORCID `0009-0006-0431-6637`](https://orcid.org/0009-0006-0431-6637) · Zenodo DOIs [`10.5281/zenodo.18515422`](https://doi.org/10.5281/zenodo.18515422) · [`10.5281/zenodo.22229111`](https://doi.org/10.5281/zenodo.22229111))
+* **Epistemic Boundary (`INSPIRED_BY != IMPLEMENTS != PROVES`):** Non-canonical working drafts and `L1` Python checks (`0.00 V DC`, zero physical authority, Python 3.10+ Standard Library only).
 
 ---
 
-## I. Execution Contract (`Makefile`)
+## I. Run & Verify (`Makefile`)
 
 ```bash
 # Default invocation fails closed by design (HOLD = 0.00 V DC):
@@ -40,15 +30,13 @@ make verify
 
 ---
 
-## II. Subtractive Room Topology
+## II. Directory Map
 
-The root directory (`/`) contains only this surface index (`README.md`) and the execution contract (`Makefile`).
-
-| Room | Role | Primary Artifacts |
+| Directory | Role | Primary Artifacts |
 | :--- | :--- | :--- |
 | **[`L1_LAW/`](L1_LAW/)** | Pure mathematical definitions (`invariants_pure.py`). Zero I/O. | [`invariants_pure.py`](L1_LAW/invariants_pure.py) |
 | **[`L2_GATE/`](L2_GATE/)** | Boundary projection & consequence gate evaluator ($\Omega \circ \Pi_K$). | [`evaluate_boundaries.py`](L2_GATE/evaluate_boundaries.py) |
-| **[`L3_WITNESS/`](L3_WITNESS/)** | Append-only SHA-256 cryptographic receipts ($W^2$). | [`audit_log.jsonl`](L3_WITNESS/audit_log.jsonl) |
+| **[`L3_WITNESS/`](L3_WITNESS/)** | Append-only SHA-256 hash-chain log ($W^2$). | [`audit_log.jsonl`](L3_WITNESS/audit_log.jsonl) *(software hash chain, not physical WORM)* |
 | **[`notes/`](notes/)** | Working monographs, mathematical derivations, and field protocols. | See Section III below |
 | **[`tools/`](tools/)** | Spectral series verifier (`COS45`) & Public IP Gate verifier. | [`verify_cos45_kms_spectral_series.py`](tools/verify_cos45_kms_spectral_series.py) · [`verify_public_surface.py`](tools/verify_public_surface.py) |
 | **[`verdensbiblioteket/`](verdensbiblioteket/)** | Visual & HTML reference plates. | [`index.html`](verdensbiblioteket/index.html) · [`sololys_popart_renaissance_plates.html`](verdensbiblioteket/sololys_popart_renaissance_plates.html) |
@@ -86,6 +74,6 @@ PHYSICAL_AUTHORITY = none (0.00 V DC)
 <p align="center"><code>EXPLORE FREELY / PROMOTE DELIBERATELY / NEVER CONFUSE LOCATION WITH AUTHORITY</code></p>
 
 ---
-`STATE ANCHOR: 0xABCDEF00` · `RELEASE: v1.5.0-MASTER` · `GATE: [SSOT_LOCKED // HOLD 0.00V_DC]` · `ORCID: 0009-0006-0431-6637`
+**Metadata & Terms:** [ORCID `0009-0006-0431-6637`](https://orcid.org/0009-0006-0431-6637) · [`LICENSE`](LICENSE) · [`NOTICE`](NOTICE)
 
 
