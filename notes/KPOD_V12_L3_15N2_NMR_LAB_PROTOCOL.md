@@ -83,9 +83,9 @@ Som kodet i `kpod_v12_digital_twin_engine.py` (`Kardinaltest 7 & 8`), skiller pr
 Når laboratoriet leverer de målte verdiene fra `K1`–`K6`, kjøres sjekken lokalt uten nettverkstilkobling:
 
 ```bash
-PYTHONPATH=03_ENGINES/ENGINES/micro_engines python3 -m unittest \
-  03_ENGINES/tests/test_kpod_l3_fasespeil_verifier_engine.py \
-  03_ENGINES/tests/test_kpod_v12_digital_twin_engine.py -v
+PYTHONPATH=engines python3 -m unittest \
+  tests/test_kpod_l3_fasespeil_verifier_engine.py \
+  tests/test_kpod_v12_digital_twin_engine.py -v
 ```
 
 ### Signaturblokk ved Porten // Gate Signature Block

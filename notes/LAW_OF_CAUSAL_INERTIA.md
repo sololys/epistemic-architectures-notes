@@ -67,7 +67,7 @@ Det er her den lille metallkassen i Risør kommer inn.
 
 I stedet for gigantiske stålreaktorer og fossilt trykk, baserer **K-POD v1.2** seg på biomimetikk — naturens egen måte å løse problemet på. I røttene til kløver og erteplanter sitter enzymet nitrogenase, som fikserer nitrogen ved helt vanlig marktemperatur ved hjelp av en mikroskopisk metallklynge bestående av jern, molybden og svovel ($[\text{Fe}_7\text{MoS}_9\text{C}]$).
 
-Torjusen og hans beregningsmodeller (`06_RESEARCH/KATALYSE_FORSKNING/03_BEREGNINGSMODELLER/energetic_span_calculator.py`) har innkapslet denne klyngen i en syntetisk pincer-ligand. Ved å tilby et koordinert proton-relé i en avstand på nøyaktig $2.8\text{ ångstrøm}$, senkes den kjemiske aktiveringsbarrieren fra uoverkommelige $28.5$ til overkommelige **$11.2\text{ kilokalorier per mol}$**.
+Torjusen og hans beregningsmodeller (`femos-biomimetic-nitrogenase/energetic_span_calculator.py`) har innkapslet denne klyngen i en syntetisk pincer-ligand. Ved å tilby et koordinert proton-relé i en avstand på nøyaktig $2.8\text{ ångstrøm}$, senkes den kjemiske aktiveringsbarrieren fra uoverkommelige $28.5$ til overkommelige **$11.2\text{ kilokalorier per mol}$**.
 
 Men det virkelige kuppet — det som får øynene til elektroingeniører til å smalne — er måten han unngår vannspaltingens forbannelse på.
 
@@ -97,7 +97,7 @@ Når bonden kjører melketankbilen fra gården inn til meieriet, eller når vete
 
 For en utenforstående kan dette høres ut som en romantisk, nesten anakronistisk drøm om teknologisk isolasjonisme. Men blar man opp i samfunnsanalysen [`04_RTDRA_SOCIOECONOMIC_ENERGY_ROUTING.md`](https://github.com/sololys/epistemic-architectures/blob/main/L3_NOTES/04_RTDRA_SOCIOECONOMIC_ENERGY_ROUTING.md) (jf. `MASTER_SYNTESERAPPORT_KPOD_INFRANETT_RTDRA.md`), møter man et språk som er alt annet enn poetisk. Det er skrevet med den nådeløse, nøkterne realismen til embetsverket i Akersgata.
 
-Torjusen har kjørt hele systemet gjennom Direktoratet for forvaltning og økonomistyrings (DFØ) offisielle veileder for samfunnsøkonomiske analyser (`03_ENGINES/ENGINES/micro_engines/rtdra_socioeconomic_utility_engine.py`), komplett med en fire prosents kalkulasjonsrente over en femårig horisont:
+Torjusen har kjørt hele systemet gjennom Direktoratet for forvaltning og økonomistyrings (DFØ) offisielle veileder for samfunnsøkonomiske analyser (`RTDRA/engines/rtdra_socioeconomic_utility_engine.py`), komplett med en fire prosents kalkulasjonsrente over en femårig horisont:
 
 * **Initial investering (CAPEX):** Fem milliarder kroner — nok til å rulle ut ti tusen K-POD-enheter og dekke hele Norges mineralgjødselbehov.
 * **Innvilget nytte:** Eliminering av 96 millioner liter diesel til tungtransport, innsparing av 500 000 timer i logistikkstans, og fjerning av 257 280 tonn $\text{CO}_2$-utslipp årlig, verdsatt etter statens offisielle opptrappingsbane for klimakostnader ($2\,000 \to 3\,500\text{ kroner per tonn}$).
@@ -190,7 +190,7 @@ This is where the small metal enclosure in Risør enters the picture.
 
 Instead of giant steel reactors and fossil pressure, **K-POD v1.2** relies on biomimicry — nature's own way of solving the problem. In the roots of clover and pea plants sits the enzyme nitrogenase, which fixes nitrogen at ordinary soil temperature using a microscopic metal cluster of iron, molybdenum, and sulfur ($[\text{Fe}_7\text{MoS}_9\text{C}]$).
 
-Torjusen and his computational models (`06_RESEARCH/KATALYSE_FORSKNING/03_BEREGNINGSMODELLER/energetic_span_calculator.py`) have encapsulated this cluster within a synthetic pincer ligand. By providing a coordinated proton relay at a distance of exactly $2.8\text{ ångströms}$, the modelled chemical activation barrier is lowered from a prohibitive $28.5$ to a manageable **$11.2\text{ kilocalories per mole}$**.
+Torjusen and his computational models (`femos-biomimetic-nitrogenase/energetic_span_calculator.py`) have encapsulated this cluster within a synthetic pincer ligand. By providing a coordinated proton relay at a distance of exactly $2.8\text{ ångströms}$, the modelled chemical activation barrier is lowered from a prohibitive $28.5$ to a manageable **$11.2\text{ kilocalories per mole}$**.
 
 Yet the real coup — the detail that makes electrical engineers narrow their eyes — is how he avoids the curse of water splitting.
 
@@ -220,7 +220,7 @@ When the farmer drives the milk tanker from the farm to the dairy, or when the v
 
 To an outsider, this might sound like a romantic, almost anachronistic dream of technological isolationism. Yet opening the socioeconomic analysis [`04_RTDRA_SOCIOECONOMIC_ENERGY_ROUTING.md`](https://github.com/sololys/epistemic-architectures/blob/main/L3_NOTES/04_RTDRA_SOCIOECONOMIC_ENERGY_ROUTING.md) (cf. `MASTER_SYNTESERAPPORT_KPOD_INFRANETT_RTDRA.md`) reveals a language that is anything but poetic. It is written with the unforgiving, sober realism of the civil servants in Oslo's Ministry of Finance.
 
-Torjusen has run the entire system through the Norwegian Agency for Public and Financial Management's (DFØ) official framework for socioeconomic analysis (`03_ENGINES/ENGINES/micro_engines/rtdra_socioeconomic_utility_engine.py`), complete with a four-percent social discount rate over a five-year horizon:
+Torjusen has run the entire system through the Norwegian Agency for Public and Financial Management's (DFØ) official framework for socioeconomic analysis (`RTDRA/engines/rtdra_socioeconomic_utility_engine.py`), complete with a four-percent social discount rate over a five-year horizon:
 
 * **Initial Investment (CAPEX):** Five billion NOK — sufficient to deploy ten thousand K-POD units and cover Norway's mineral fertilizer demand.
 * **Quantified Utility:** Elimination of 96 million liters of heavy-transport diesel, savings of 500,000 hours of logistics downtime, and removal of 257,280 metric tons of $\text{CO}_2$ emissions annually, valued along the state's official carbon-price trajectory ($2,000 \to 3,500\text{ NOK per ton}$).
