@@ -39,3 +39,4 @@ tools/verify_public_surface.py
 verdensbiblioteket/README.md
 verdensbiblioteket/index.html
 verdensbiblioteket/sololys_popart_renaissance_plates.html
+verdensbiblioteket/kernel_drift_interactive_demo.html

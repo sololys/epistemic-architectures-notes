@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kernel Drift Gate — Rigid Rotation vs. Shear &amp; Rank Collapse (Vanilla JS)</title>
+  <style>
+    :root {
+      --paper: #efeae0;
+      --paper-card: #f6f2ea;
+      --ink: #181a1f;
+      --muted: #5a5d66;
+      --rule: #cfc7b8;
+      --cobalt: #1f5aa6;
+      --emerald: #168368;
+      --vermilion: #c93824;
+      --ochre: #c8861e;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 24px 16px 40px;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: ui-serif, Georgia, "DejaVu Serif", serif;
+      line-height: 1.45;
+    }
+
+    .shell {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    header {
+      border-bottom: 1.5px solid var(--ink);
+      padding-bottom: 14px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .sub {
+      margin: 4px 0 0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .badge {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 6px 12px;
+      border: 1.5px solid var(--ink);
+      letter-spacing: 0.04em;
+      background: var(--paper-card);
+    }
+    .badge.open { border-color: var(--emerald); color: var(--emerald); }
+    .badge.hold { border-color: var(--ochre); color: #8c5a0b; }
+    .badge.kill { border-color: var(--vermilion); color: var(--vermilion); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(280px, 1fr);
+      gap: 20px;
+      align-items: start;
+    }
+
+    @media (max-width: 820px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+
+    .panel {
+      background: var(--paper-card);
+      border: 1px solid var(--rule);
+      padding: 16px;
+    }
+
+    .canvas-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: var(--paper);
+      border: 1px solid var(--ink);
+    }
+
+    canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+      touch-action: none;
+      cursor: grab;
+    }
+    canvas:active { cursor: grabbing; }
+
+    .hint {
+      margin: 10px 0 0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    button {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.78rem;
+      padding: 7px 11px;
+      background: var(--paper);
+      color: var(--ink);
+      border: 1px solid var(--ink);
+      cursor: pointer;
+    }
+    button:hover { background: var(--ink); color: var(--paper); }
+    button.danger { border-color: var(--vermilion); color: var(--vermilion); }
+    button.danger:hover { background: var(--vermilion); color: #fff; }
+
+    .slider-row {
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.8rem;
+    }
+    .slider-row input[type="range"] { flex: 1; accent-color: var(--cobalt); }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .metric {
+      border: 1px solid var(--rule);
+      background: var(--paper);
+      padding: 10px;
+    }
+    .metric-label {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .metric-val {
+      margin-top: 4px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .section-title {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin: 14px 0 8px;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 4px;
+    }
+
+    .evidence-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.78rem;
+    }
+    .evidence-row input[type="text"] {
+      flex: 1;
+      padding: 6px 8px;
+      font-family: inherit;
+      font-size: 0.8rem;
+      border: 1px solid var(--ink);
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    .ledger {
+      margin: 0;
+      padding: 8px;
+      list-style: none;
+      max-height: 185px;
+      overflow-y: auto;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.73rem;
+    }
+    .ledger li {
+      padding: 3px 0;
+      border-bottom: 1px dashed var(--rule);
+    }
+    .ledger li:last-child { border-bottom: none; }
+
+    footer {
+      margin-top: 18px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div>
+        <h1>Kernel Drift Gate — Rotation vs. Shear &amp; Rank Collapse</h1>
+        <p class="sub">Zero-dependency Vanilla JS · G(t) = X(t)X(t)ᵀ · Δ_state vs. Δ_G &amp; Rank(G(t)) = r</p>
+      </div>
+      <div id="gateBadge" class="badge open" role="status" aria-live="polite">OPEN · 5.00 V DC</div>
+    </header>
+
+    <div class="grid">
+      <div class="panel">
+        <div class="canvas-wrap">
+          <canvas id="stage" aria-label="Interactive Euclidean node constellation"></canvas>
+        </div>
+        <p class="hint">Drag any node to introduce internal shear, or use the rotation slider to test rigid orthogonal invariance.</p>
+
+        <div class="slider-row">
+          <label for="rotSlider">Rigid Rotation θ:</label>
+          <input id="rotSlider" type="range" min="0" max="360" step="1" value="0">
+          <span id="rotLabel">0°</span>
+        </div>
+
+        <div class="controls">
+          <button id="btnRotate60" type="button">Rotate +60° (OPEN)</button>
+          <button id="btnShear" type="button" class="danger">Inject Shear (KILL)</button>
+          <button id="btnRank1" type="button" class="danger">Rank-1 Collapse (KILL)</button>
+          <button id="btnNoEvidence" type="button">Clear Evidence (HOLD)</button>
+          <button id="btnReset" type="button">Reset</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="metrics">
+          <div class="metric">
+            <div class="metric-label">State Drift ‖X(t)−X(0)‖</div>
+            <div id="mState" class="metric-val">0.0000</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Kernel Drift ‖G(t)−G(0)‖</div>
+            <div id="mKernel" class="metric-val">0.000000</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Gram Rank (r₀ = 2)</div>
+            <div id="mRank" class="metric-val">2 / 2</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Gate Reason</div>
+            <div id="mReason" class="metric-val" style="font-size:0.82rem;">INVARIANT_OK</div>
+          </div>
+        </div>
+
+        <div class="section-title">Explicit Evidence ID (W)</div>
+        <div class="evidence-row">
+          <label for="evidenceInput">ID:</label>
+          <input id="evidenceInput" type="text" value="EV-JS-01" autocomplete="off">
+        </div>
+
+        <div class="section-title">Append-Only Witness Ledger (L1)</div>
+        <ul id="ledgerList" class="ledger"></ul>
+      </div>
+    </div>
+
+    <footer>
+      <span>L1 software demonstrator · INSPIRED_BY != IMPLEMENTS != PROVES · physical_authority = NONE</span>
+      <span>Zero npm packages · Pure HTML5 Canvas + ES6</span>
+    </footer>
+  </div>
+
+  <script>
+    (() => {
+      // Reference 5-node constellation X(0) in R^2 (centered around origin)
+      const X0 = [
+        [ 0.00, -0.78],
+        [ 0.74, -0.24],
+        [ 0.46,  0.64],
+        [-0.46,  0.64],
+        [-0.74, -0.24],
+      ];
+      const TAU_G = 1e-4;
+
+      let X = X0.map(p => [...p]);
+      let draggingIdx = -1;
+      const ledger = [];
+
+      const canvas = document.getElementById("stage");
+      const ctx = canvas.getContext("2d");
+      const gateBadge = document.getElementById("gateBadge");
+      const mState = document.getElementById("mState");
+      const mKernel = document.getElementById("mKernel");
+      const mRank = document.getElementById("mRank");
+      const mReason = document.getElementById("mReason");
+      const rotSlider = document.getElementById("rotSlider");
+      const rotLabel = document.getElementById("rotLabel");
+      const evidenceInput = document.getElementById("evidenceInput");
+      const ledgerList = document.getElementById("ledgerList");
+
+      function computeGram(M) {
+        const n = M.length;
+        const G = Array.from({ length: n }, () => new Array(n).fill(0));
+        for (let i = 0; i < n; i++) {
+          for (let j = 0; j < n; j++) {
+            G[i][j] = M[i][0] * M[j][0] + M[i][1] * M[j][1];
+          }
+        }
+        return G;
+      }
+
+      function frobeniusDiff(A, B) {
+        let sum = 0;
+        for (let i = 0; i < A.length; i++) {
+          for (let j = 0; j < A[0].length; j++) {
+            const d = A[i][j] - B[i][j];
+            sum += d * d;
+          }
+        }
+        return Math.sqrt(sum);
+      }
+
+      function matrixRank(G, tol = 1e-3) {
+        const rows = G.map(r => [...r]);
+        const nRows = rows.length;
+        const nCols = rows[0].length;
+        let rank = 0;
+        let col = 0;
+        while (rank < nRows && col < nCols) {
+          let pivotRow = rank;
+          for (let r = rank + 1; r < nRows; r++) {
+            if (Math.abs(rows[r][col]) > Math.abs(rows[pivotRow][col])) pivotRow = r;
+          }
+          if (Math.abs(rows[pivotRow][col]) <= tol) { col++; continue; }
+          [rows[rank], rows[pivotRow]] = [rows[pivotRow], rows[rank]];
+          const pv = rows[rank][col];
+          for (let r = rank + 1; r < nRows; r++) {
+            const factor = rows[r][col] / pv;
+            if (factor !== 0) {
+              for (let c = col; c < nCols; c++) rows[r][c] -= factor * rows[rank][c];
+            }
+          }
+          rank++;
+          col++;
+        }
+        return rank;
+      }
+
+      const G0 = computeGram(X0);
+      const R0 = matrixRank(G0);
+
+      function evaluateGate(logEvent = false, tag = "EVAL") {
+        const dState = frobeniusDiff(X, X0);
+        const G = computeGram(X);
+        const dKernel = frobeniusDiff(G, G0);
+        const rNow = matrixRank(G);
+        const ev = evidenceInput.value.trim();
+
+        let status = "OPEN";
+        let voltage = "5.00 V DC";
+        let reason = "INVARIANT_OK";
+
+        if (rNow !== R0) {
+          status = "KILL";
+          voltage = "0.00 V DC";
+          reason = "RANK_COLLAPSE";
+        } else if (dKernel > TAU_G) {
+          status = "KILL";
+          voltage = "0.00 V DC";
+          reason = "SHEAR_BREACH";
+        } else if (!ev) {
+          status = "HOLD";
+          voltage = "0.00 V DC";
+          reason = "MISSING_EVIDENCE";
+        }
+
+        gateBadge.textContent = `${status} · ${voltage}`;
+        gateBadge.className = `badge ${status.toLowerCase()}`;
+        mState.textContent = dState.toFixed(4);
+        mKernel.textContent = dKernel.toFixed(6);
+        mRank.textContent = `${rNow} / ${R0}`;
+        mReason.textContent = reason;
+
+        if (logEvent) {
+          const step = ledger.length;
+          ledger.push({ step, tag, status, dState, dKernel, rNow, ev: ev || "(empty)" });
+          const li = document.createElement("li");
+          li.textContent = `#${step} [${tag}] ${status} | Δstate=${dState.toFixed(3)} ΔG=${dKernel.toFixed(5)} rank=${rNow} ev=${ev || "∅"}`;
+          ledgerList.prepend(li);
+        }
+
+        return { status, dState, dKernel, rNow };
+      }
+
+      function worldToCanvas(wx, wy, w, h) {
+        const scale = Math.min(w, h) * 0.42;
+        return [w / 2 + wx * scale, h / 2 + wy * scale];
+      }
+
+      function canvasToWorld(cx, cy, w, h) {
+        const scale = Math.min(w, h) * 0.42;
+        return [(cx - w / 2) / scale, (cy - h / 2) / scale];
+      }
+
+      function draw() {
+        const dpr = window.devicePixelRatio || 1;
+        const rect = canvas.getBoundingClientRect();
+        const w = Math.max(1, Math.round(rect.width));
+        const h = Math.max(1, Math.round(rect.height));
+        if (canvas.width !== Math.round(w * dpr) || canvas.height !== Math.round(h * dpr)) {
+          canvas.width = Math.round(w * dpr);
+          canvas.height = Math.round(h * dpr);
+        }
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        const res = evaluateGate(false);
+        const isKill = res.status === "KILL";
+        const isHold = res.status === "HOLD";
+
+        // Archival linen ground
+        ctx.fillStyle = "#efeae0";
+        ctx.fillRect(0, 0, w, h);
+
+        const cx = w / 2;
+        const cy = h / 2;
+        const rOrbit = Math.min(w, h) * 0.42 * 0.78;
+
+        // Subtle axes & dashed rotation circle
+        ctx.strokeStyle = "#bfb6a6";
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(16, cy); ctx.lineTo(w - 16, cy);
+        ctx.moveTo(cx, 16); ctx.lineTo(cx, h - 16);
+        ctx.stroke();
+
+        ctx.save();
+        ctx.setLineDash([4, 4]);
+        ctx.strokeStyle = isKill ? "rgba(201,56,36,0.45)" : "rgba(24,26,31,0.35)";
+        ctx.beginPath();
+        ctx.arc(cx, cy, rOrbit, 0, Math.PI * 2);
+        ctx.stroke();
+
+        // Dashed reference ghost polygon X(0)
+        ctx.beginPath();
+        X0.forEach((p, idx) => {
+          const [px, py] = worldToCanvas(p[0], p[1], w, h);
+          if (idx === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+        });
+        ctx.closePath();
+        ctx.stroke();
+        ctx.restore();
+
+        // Filled modernist polygon for current X(t)
+        ctx.fillStyle = isKill
+          ? "rgba(201, 56, 36, 0.22)"
+          : isHold
+            ? "rgba(200, 134, 30, 0.22)"
+            : "rgba(31, 90, 166, 0.18)";
+        ctx.beginPath();
+        X.forEach((p, idx) => {
+          const [px, py] = worldToCanvas(p[0], p[1], w, h);
+          if (idx === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+        });
+        ctx.closePath();
+        ctx.fill();
+
+        // All pairwise Euclidean edges
+        ctx.strokeStyle = isKill ? "#c93824" : "#181a1f";
+        ctx.lineWidth = 1.25;
+        for (let i = 0; i < X.length; i++) {
+          const [x1, y1] = worldToCanvas(X[i][0], X[i][1], w, h);
+          for (let j = i + 1; j < X.length; j++) {
+            const [x2, y2] = worldToCanvas(X[j][0], X[j][1], w, h);
+            ctx.beginPath();
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x2, y2);
+            ctx.stroke();
+          }
+        }
+
+        // Nodes
+        X.forEach((p, idx) => {
+          const [px, py] = worldToCanvas(p[0], p[1], w, h);
+          ctx.beginPath();
+          ctx.arc(px, py, 9, 0, Math.PI * 2);
+          ctx.fillStyle = isKill ? "#efeae0" : (idx % 2 === 0 ? "#1f5aa6" : "#168368");
+          ctx.fill();
+          ctx.lineWidth = isKill ? 3 : 2;
+          ctx.strokeStyle = isKill ? "#c93824" : "#181a1f";
+          ctx.stroke();
+        });
+      }
+
+      function applyRotation(deg, log = false) {
+        const rad = (deg * Math.PI) / 180;
+        const c = Math.cos(rad);
+        const s = Math.sin(rad);
+        X = X0.map(([x, y]) => [x * c - y * s, x * s + y * c]);
+        rotSlider.value = String(Math.round(deg));
+        rotLabel.textContent = `${Math.round(deg)}°`;
+        draw();
+        if (log) evaluateGate(true, `ROT_${Math.round(deg)}DEG`);
+      }
+
+      canvas.addEventListener("pointerdown", (e) => {
+        const rect = canvas.getBoundingClientRect();
+        const px = e.clientX - rect.left;
+        const py = e.clientY - rect.top;
+        for (let i = 0; i < X.length; i++) {
+          const [nx, ny] = worldToCanvas(X[i][0], X[i][1], rect.width, rect.height);
+          if (Math.hypot(px - nx, py - ny) <= 18) {
+            draggingIdx = i;
+            canvas.setPointerCapture(e.pointerId);
+            break;
+          }
+        }
+      });
+
+      canvas.addEventListener("pointermove", (e) => {
+        if (draggingIdx < 0) return;
+        const rect = canvas.getBoundingClientRect();
+        const [wx, wy] = canvasToWorld(e.clientX - rect.left, e.clientY - rect.top, rect.width, rect.height);
+        X[draggingIdx] = [Math.max(-1.05, Math.min(1.05, wx)), Math.max(-1.05, Math.min(1.05, wy))];
+        draw();
+      });
+
+      canvas.addEventListener("pointerup", () => {
+        if (draggingIdx >= 0) {
+          draggingIdx = -1;
+          evaluateGate(true, "DRAG_NODE");
+        }
+      });
+
+      rotSlider.addEventListener("input", () => applyRotation(Number(rotSlider.value), false));
+      rotSlider.addEventListener("change", () => applyRotation(Number(rotSlider.value), true));
+      evidenceInput.addEventListener("input", () => { draw(); });
+      evidenceInput.addEventListener("change", () => { evaluateGate(true, "EVIDENCE_EDIT"); });
+
+      document.getElementById("btnRotate60").addEventListener("click", () => {
+        const next = (Number(rotSlider.value) + 60) % 360;
+        applyRotation(next, true);
+      });
+
+      document.getElementById("btnShear").addEventListener("click", () => {
+        X = X0.map(([x, y], i) => (i === 1 ? [x + 0.34, y - 0.18] : [x, y]));
+        draw();
+        evaluateGate(true, "INJECT_SHEAR");
+      });
+
+      document.getElementById("btnRank1").addEventListener("click", () => {
+        // Project all 5 nodes onto diagonal y = x (exact Rank-1 collapse!)
+        X = X0.map(([x, y]) => {
+          const proj = 0.5 * (x + y);
+          return [proj, proj];
+        });
+        draw();
+        evaluateGate(true, "RANK1_COLLAPSE");
+      });
+
+      document.getElementById("btnNoEvidence").addEventListener("click", () => {
+        evidenceInput.value = "";
+        draw();
+        evaluateGate(true, "CLEAR_EVIDENCE");
+      });
+
+      document.getElementById("btnReset").addEventListener("click", () => {
+        evidenceInput.value = "EV-JS-01";
+        applyRotation(0, true);
+      });
+
+      window.addEventListener("resize", draw);
+      draw();
+      evaluateGate(true, "INIT");
+    })();
+  </script>
+</body>
+</html>
