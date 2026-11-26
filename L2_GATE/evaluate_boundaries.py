@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-L2_GATE // Consequence Gate & Boundary Projection Evaluator (Omega o Pi_K)
-==========================================================================
+L2_GATE // Consequence Gate & Boundary Projection Evaluator (Omega o Pi_K, 0 Float)
+===================================================================================
 Dependencies  : Python Standard Library ONLY + L1_LAW pure functions
 Epistemic Tier: L1 Deterministic Software Gate (PHYSICAL_AUTHORITY = NONE)
-Legal Boundary: MATHEMATICS != LEGAL_MANDATE (0.00% algorithmic legal capacity)
+Legal Boundary: MATHEMATICS != LEGAL_MANDATE (0% algorithmic legal capacity)
 """
 
 from __future__ import annotations
@@ -40,19 +40,29 @@ from L1_LAW.invariants_pure import (
 
 
 def evaluate_gate(
-    eps_iso: float = 1e-9,
-    tau_gram: float = 1e-9,
-    envelope_max: float = 10.0,
-    min_zd_dist: float = 0.15,
+    eps_iso: Fraction = Fraction(1, 1_000_000_000),
+    tau_gram: Fraction = Fraction(1, 1_000_000_000),
+    envelope_max: Fraction = Fraction(10, 1),
+    min_zd_dist: Fraction = Fraction(3, 20),
 ) -> Dict[str, Any]:
-    res_iso, sf = involutive_residual_norm((2.0, 3.0), (1.5, -1.0), (0.0, 0.0))
+    res_iso, sf = involutive_residual_norm(
+        (Fraction(2, 1), Fraction(3, 1)),
+        (Fraction(3, 2), Fraction(-1, 1)),
+        (Fraction(0, 1), Fraction(0, 1)),
+    )
     within_envelope = max(abs(sf[0]), abs(sf[1])) <= envelope_max
-    delta_g = relational_gram_drift(((1.0, 0.0), (0.0, 1.0)), ((0.0, 1.0), (-1.0, 0.0)))
+    delta_g = relational_gram_drift(
+        ((Fraction(1, 1), Fraction(0, 1)), (Fraction(0, 1), Fraction(1, 1))),
+        ((Fraction(0, 1), Fraction(1, 1)), (Fraction(-1, 1), Fraction(0, 1))),
+    )
     delta_r = rational_conservation_residual(
         (Fraction(100, 3), Fraction(200, 3)),
         (Fraction(50, 1), Fraction(50, 1)),
     )
-    ds2 = causal_lightcone_interval_m2(delta_t_ns=100.0, distance_m=14.9896229)
+    ds2 = causal_lightcone_interval_m2(
+        delta_t_ns=Fraction(100, 1),
+        distance_m=Fraction(149_896_229, 10_000_000),
+    )
     fuse_ok = monotone_fuse_valid(0b0001, 0b0011)
 
     pos_g2, vel_g2, acc_g2 = g2_holonomic_spiral_state(DT_G2_SPIRAL_S)
@@ -70,40 +80,41 @@ def evaluate_gate(
         or delta_g > tau_gram
         or delta_r != Fraction(0, 1)
         or not fuse_ok
-        or kappa_g2 <= 0.0
+        or kappa_g2 <= Fraction(0, 1)
         or dist_zd <= min_zd_dist
-        or are_dot > 0.0
+        or are_dot > Fraction(0, 1)
         or not d3_ok
         or not rosetta_ok
         or bft_verdict == "KILL"
         or aps_res_q != Fraction(0, 1)
     ):
         verdict = "KILL"
-        voltage_v = 0.00
-    elif not within_envelope or ds2 > 0.0 or bft_verdict != "OPEN":
+        voltage_mv = 0
+    elif not within_envelope or ds2 > Fraction(0, 1) or bft_verdict != "OPEN":
         verdict = "HOLD"
-        voltage_v = 0.00
+        voltage_mv = 0
     else:
         verdict = "HOLD_READY_FOR_W2"
-        voltage_v = 0.00
+        voltage_mv = 0
 
     payload: Dict[str, Any] = {
         "aps_index": aps_idx,
         "aps_residual_q": str(aps_res_q),
-        "are_descent_le_zero": are_dot <= 0.0,
+        "are_descent_le_zero": are_dot <= Fraction(0, 1),
         "bft_quorum": bft_verdict,
         "d0_to_d3_sealed": d3_ok,
-        "delta_g": round(delta_g, 12),
+        "delta_g": str(delta_g),
         "delta_r": str(delta_r),
-        "ds2_m2": round(ds2, 6),
+        "ds2_m2": str(ds2),
         "fuse_monotone": fuse_ok,
-        "g2_curvature_kappa": round(kappa_g2, 6),
-        "g2_zd_distance": round(dist_zd, 6),
+        "g2_curvature_kappa": str(kappa_g2),
+        "g2_zd_distance": str(dist_zd),
         "legal_authority": "NONE_HUMAN_L01_REQUIRED",
-        "residual_iso": round(res_iso, 12),
+        "residual_iso": str(res_iso),
         "rosetta3_isometry": rosetta_ok,
         "verdict": verdict,
-        "voltage_v": voltage_v,
+        "voltage_mv": voltage_mv,
+        "voltage_v": "0.00",
         "within_envelope": within_envelope,
     }
     encoded = json.dumps(payload, sort_keys=True, separators=(",", ":")).encode("utf-8")
