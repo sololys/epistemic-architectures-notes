@@ -4,9 +4,9 @@
 
 # Epistemic Architectures Notes — Working Math & Counterexamples
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24032512.svg)](https://doi.org/10.5281/zenodo.24032512)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.24032512-4a5568?style=flat-square)](https://doi.org/10.5281/zenodo.24032512)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0006--0431--6637-A6CE39?style=flat-square)](https://orcid.org/0009-0006-0431-6637)
-[![Granitum Physics](https://img.shields.io/badge/SALON-Granitum_Physics_(LinkedIn)-0A66C2?style=flat-square)](https://www.linkedin.com/groups/40622443/)
+[![License: CC BY-ND 4.0](https://img.shields.io/badge/License-CC_BY--ND_4.0-4a5568?style=flat-square)](LICENSE)
 
 > **Coordinate (`2 · Draft`):** [`(0,0) sololys`](https://github.com/sololys) — [`1 · Word`](https://github.com/sololys/skrivevaerelset) → **`[2 · Draft]`** → [`3 · Rule`](https://github.com/sololys/epistemic-architectures) → [`4 · Gate`](https://github.com/sololys/ky-rox-public-demonstrators) → [`5 · Seal`](https://github.com/sololys/monolitt)
 

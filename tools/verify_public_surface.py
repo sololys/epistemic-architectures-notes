@@ -28,6 +28,12 @@ def protected_repo_fragments() -> tuple[bytes, ...]:
         "ky-rox" + "-finans-gate",
         "research-kernel" + "_viability",
         "docs-gko" + "_core_manifesto",
+        "/home/" + "sololyset",
+        "05_" + "PATENTS",
+        "07_" + "BOKHYLLA",
+        "CARBON" + "/",
+        "03_" + "ENGINES/",
+        "09_" + "SYSTEM",
     )
     return tuple(value.lower().encode("utf-8") for value in values)
 

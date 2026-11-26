@@ -7,11 +7,19 @@ from tools import verify_public_surface
 
 class PublicSurfaceTests(unittest.TestCase):
     def test_private_repository_reference_is_rejected(self) -> None:
-        data = ("realiserings" + "grammatikk-artifact-family").encode()
-        self.assertIn(
-            "PRIVATE_REPOSITORY_REFERENCE",
-            verify_public_surface.classify_data(data),
-        )
+        for frag in (
+            "realiserings" + "grammatikk-artifact-family",
+            "/home/" + "sololyset",
+            "05_" + "PATENTS",
+            "07_" + "BOKHYLLA",
+            "CARBON" + "/",
+            "03_" + "ENGINES/",
+            "09_" + "SYSTEM",
+        ):
+            self.assertIn(
+                "PRIVATE_REPOSITORY_REFERENCE",
+                verify_public_surface.classify_data(frag.encode()),
+            )
 
     def test_provider_token_is_rejected(self) -> None:
         data = ("gh" + "p_" + "A" * 24).encode()
