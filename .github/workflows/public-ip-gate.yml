@@ -1,6 +1,10 @@
 name: Public IP Gate
 
 on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -12,7 +16,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Check out exact public revision
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           persist-credentials: false
 
